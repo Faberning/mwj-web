@@ -1,0 +1,502 @@
+---
+import { Image } from 'astro:assets';
+import Schema from '../components/Schema.astro';
+import Base from '../layouts/Base.astro';
+import guideCover from '../assets/images/guide-cover.jpg';
+import jjPortrait from '../assets/images/jj-portrait.jpg';
+import videoPoster from '../assets/images/video-poster.jpg';
+import { ADVISER, BUSINESS, FAQ_ENTRIES, STATS, VIDEO } from '../consts';
+
+const title = 'Mortgages with JJ — First Home Buyers, Orewa & NZ-wide';
+const description =
+	'JJ van der Westhuizen is a Senior Mortgage Adviser in Orewa. First home buyers, refinance, investment and new build across the Hibiscus Coast and all of New Zealand. 25+ lenders compared, no fee to you.';
+---
+
+<Base title={title} description={description}>
+	<Schema includeFAQ includeVideo />
+
+	<!-- HERO -->
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero-copy">
+				<span class="eyebrow" data-anim>Orewa · Hibiscus Coast · NZ-wide</span>
+				<h1 data-anim>
+					<span class="w">The</span> <span class="w">clear</span> <span class="w">path</span>{' '}
+					<span class="w">to</span> <span class="w">your</span>
+					<span class="w hl">first</span> <span class="w hl">home.</span>
+				</h1>
+				<p class="lede" data-anim>
+					{ADVISER.name} is a {ADVISER.title} in {BUSINESS.address.suburb}, guiding first home buyers
+					across the Hibiscus Coast and all of New Zealand. One honest conversation, the whole lender
+					market compared, and no fee to you.
+				</p>
+				<div class="hero-cta" data-anim>
+					<a class="btn btn-gold" href="#contact">Book a chat <span class="arrow">→</span></a>
+					<a class="btn btn-ghost" href="#calc">Try the calculator</a>
+				</div>
+				<div class="hero-meta" data-anim>
+					<span><i></i>{STATS.lendersCompared}+ lenders compared</span>
+					<span><i></i>No fee to you</span>
+					<span><i></i>Local &amp; fully remote</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- MARQUEE -->
+	<div class="marquee" aria-hidden="true">
+		<div class="mtrack">
+			<span>First home buyers</span><span>Refinance</span><span>Investment property</span>
+			<span>New builds</span><span>{STATS.lendersCompared}+ lenders compared</span>
+			<span>No fee to you</span><span>Orewa &amp; Hibiscus Coast</span><span>NZ-wide</span>
+			<span>First home buyers</span><span>Refinance</span><span>Investment property</span>
+			<span>New builds</span><span>{STATS.lendersCompared}+ lenders compared</span>
+			<span>No fee to you</span><span>Orewa &amp; Hibiscus Coast</span><span>NZ-wide</span>
+		</div>
+	</div>
+
+	<!-- TRUST STRIP -->
+	<div class="trust">
+		<div class="wrap">
+			<div class="row">
+				<div class="stat">
+					<div class="num" data-count={STATS.lendersCompared} data-suffix="+">
+						<span class="v">0</span><span class="u">+</span>
+					</div>
+					<span class="lab">Lenders compared</span>
+				</div>
+				<div class="stat">
+					<div class="num">{STATS.googleRating.toFixed(1)}<span class="u"> ★</span></div>
+					<span class="lab">Google rating</span>
+				</div>
+				<div class="stat">
+					<div class="num"><span class="u">$</span>{STATS.feeToClient}</div>
+					<span class="lab">Fee to you</span>
+				</div>
+				<div class="stat">
+					<div class="num">NZ<span class="u">-wide</span></div>
+					<span class="lab">Wherever you are</span>
+				</div>
+				<div class="stat">
+					<div class="num" data-count={STATS.googleReviewCount}><span class="v">0</span></div>
+					<span class="lab">Google reviews</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- MEET JJ -->
+	<section class="meet" id="meet">
+		<div class="wrap">
+			<div class="about" data-anim>
+				<Image
+					class="aimg"
+					alt={`${ADVISER.name}, ${ADVISER.title} based in ${BUSINESS.address.suburb}`}
+					src={jjPortrait}
+				/>
+				<div class="tag">
+					<b>{ADVISER.name}</b><span>{ADVISER.title} &middot; {ADVISER.fsp}</span>
+				</div>
+			</div>
+			<div>
+				<div class="kicker"><span class="eyebrow">Meet your adviser</span></div>
+				<h2 class="title">A real person in your corner — not a call centre.</h2>
+				<p class="lead">
+					JJ brings 15 years as a commercial banker and six years advising Kiwis on mortgages — the
+					bank's side of the table and the client's side, both seen up close. He works across{' '}
+					{STATS.lendersCompared}+ bank and non-bank lenders, structures the deal properly, and
+					explains every step in plain English.
+				</p>
+				<p class="lead" style="margin-top:1em">
+					Having moved to New Zealand himself, he also understands the income-documentation and
+					credit-history hurdles that come with arriving from overseas — and how different lenders
+					treat them.
+				</p>
+				<div style="margin-top:2em">
+					<a class="btn btn-ghost" href="#contact">Have a no-obligation chat <span class="arrow">→</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SERVICES -->
+	<section class="light" id="services">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">What JJ helps with</span></div>
+			<h2 class="title">Whatever stage you're at, there's a clear next step.</h2>
+			<div class="svc-grid">
+				<div class="svc feat" data-anim>
+					<div>
+						<div class="ic">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="M3 10.5 12 3l9 7.5"></path>
+								<path d="M5 9.5V20h14V9.5"></path>
+								<path d="M9.5 20v-6h5v6"></path>
+							</svg>
+						</div>
+						<h3>First Home Buyers</h3>
+						<p>
+							From deposit and KiwiSaver to pre-approval and settlement — a guided path built for
+							people doing this for the very first time. This is JJ's specialty.
+						</p>
+						<a class="more" href="/first-home-buyers/">First home buyers <span class="arrow">→</span></a>
+					</div>
+					<div class="svc-art">
+						<svg
+							viewBox="0 0 400 300"
+							fill="none"
+							role="img"
+							aria-label="Illustration of a path leading to your first home"
+						>
+							<path d="M20 250 H380" stroke="#34465a" stroke-width="2"></path>
+							<path
+								d="M55 250 C 120 232, 128 202, 200 196 S 300 192, 300 152"
+								stroke="#dcba78"
+								stroke-width="3"
+								stroke-dasharray="1 11"
+								stroke-linecap="round"></path>
+							<path d="M228 152 L300 98 L372 152" stroke="#f1ede4" stroke-width="3" stroke-linejoin="round"
+							></path>
+							<path d="M244 142 V222 H356 V142" stroke="#f1ede4" stroke-width="3" stroke-linejoin="round"
+							></path>
+							<rect x="286" y="176" width="30" height="46" rx="2" stroke="#dcba78" stroke-width="3"
+							></rect>
+							<circle cx="309" cy="200" r="2.4" fill="#dcba78"></circle>
+							<rect x="255" y="160" width="22" height="22" rx="1.5" stroke="#f1ede4" stroke-width="2"
+							></rect>
+							<path d="M266 160 V182 M255 171 H277" stroke="#f1ede4" stroke-width="1.4"></path>
+							<g stroke="#dcba78" stroke-width="3" stroke-linecap="round">
+								<circle cx="88" cy="182" r="14"></circle>
+								<path d="M102 182 H150"></path>
+								<path d="M140 182 V194"></path>
+								<path d="M150 182 V192"></path>
+							</g>
+							<circle cx="332" cy="66" r="12" stroke="#dcba78" stroke-width="2"></circle>
+						</svg>
+					</div>
+				</div>
+				<div class="svc" data-anim>
+					<div class="ic">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M3 9a9 9 0 0 1 14.5-3.5L21 8"></path>
+							<path d="M21 4v4h-4"></path>
+							<path d="M21 15a9 9 0 0 1-14.5 3.5L3 16"></path>
+							<path d="M3 20v-4h4"></path>
+						</svg>
+					</div>
+					<h3>Refinance</h3>
+					<p>
+						Coming off a fixed term or feeling the squeeze? JJ reviews whether a better structure or
+						lender could work harder for you.
+					</p>
+					<a class="more" href="/refinance/">Refinance <span class="arrow">→</span></a>
+				</div>
+				<div class="svc" data-anim>
+					<div class="ic">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M3 17l6-6 4 4 8-8"></path>
+							<path d="M15 7h6v6"></path>
+						</svg>
+					</div>
+					<h3>Investment Property</h3>
+					<p>Grow a portfolio with lending structured around your goals, cashflow, and the current rules.</p>
+					<a class="more" href="/investment-property/">Investment <span class="arrow">→</span></a>
+				</div>
+				<div class="svc wide" data-anim>
+					<div class="ic">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M3 21h18"></path>
+							<path d="M5 21V8l7-4 7 4v13"></path>
+							<path d="M9 21v-5h6v5"></path>
+							<path d="M12 4V2"></path>
+						</svg>
+					</div>
+					<h3>New Build</h3>
+					<p>
+						Building or buying off the plans comes with its own lending quirks. JJ handles the
+						staged-drawdown detail so you can focus on the house.
+					</p>
+					<a class="more" href="/new-build/">New build <span class="arrow">→</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- PROCESS -->
+	<section id="process">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">How it works</span></div>
+			<h2 class="title">Four steps from wondering to walking through the door.</h2>
+			<div class="steps" id="steps">
+				<div class="prog"></div>
+				<div class="step" data-anim>
+					<div class="n">1</div>
+					<h3>Have a chat</h3>
+					<p>A relaxed, no-obligation conversation about where you're at and where you want to be.</p>
+				</div>
+				<div class="step" data-anim>
+					<div class="n">2</div>
+					<h3>Get your numbers</h3>
+					<p>JJ works out what's realistic for your situation — deposit, borrowing power, and the real costs.</p>
+				</div>
+				<div class="step" data-anim>
+					<div class="n">3</div>
+					<h3>Compare lenders</h3>
+					<p>
+						He compares {STATS.lendersCompared}+ lenders and takes the application to the one most
+						likely to say yes on good terms.
+					</p>
+				</div>
+				<div class="step" data-anim>
+					<div class="n">4</div>
+					<h3>Get the keys</h3>
+					<p>JJ manages the process to settlement and stays in touch long after you've moved in.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- VIDEO -->
+	<section class="video" id="watch">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Watch · 1 min</span></div>
+			<h2 class="title">Buying your first home in NZ, explained.</h2>
+			<p class="lead">
+				A quick overview of how first home buyers get from wondering to walking through the door —
+				deposit, KiwiSaver, lenders, and the steps between.
+			</p>
+			<div
+				class="frame"
+				id="ytFacade"
+				role="button"
+				tabindex="0"
+				aria-label="Play video: buying your first home in NZ"
+				data-yt={VIDEO.youtubeId}
+			>
+				<Image src={videoPoster} alt="Mortgages with JJ — first home buyer video with JJ van der Westhuizen" />
+				<span class="cap">Mortgages with JJ · First Home Buyers</span>
+				<span class="play" aria-hidden="true"
+					><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span
+				>
+			</div>
+		</div>
+	</section>
+
+	<!-- CALCULATOR -->
+	<section class="calcsec" id="calc">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Play with the numbers</span></div>
+			<h2 class="title">See what a mortgage could look like.</h2>
+			<p class="lead">
+				Adjust the loan amount, rate, term and frequency for an instant illustration. It's a starting
+				point for a conversation — not a quote or an offer.
+			</p>
+			<div class="calc">
+				<div class="calc-in">
+					<h3>Your loan details</h3>
+					<div class="fld">
+						<label for="loan">Loan amount</label>
+						<div class="iw">
+							<span class="pfx">$</span><input type="number" id="loan" value="700000" min="10000" step="10000" />
+						</div>
+						<span class="help">How much you'd like to borrow</span>
+					</div>
+					<div class="fld">
+						<label for="rate">Interest rate</label>
+						<div class="iw">
+							<input
+								type="number"
+								id="rate"
+								class="sf"
+								value="6.49"
+								min="0"
+								max="30"
+								step="0.01"
+								style="padding-left:14px"
+							/><span class="sfx">%</span>
+						</div>
+						<span class="help">Use a rate close to what you'd realistically expect</span>
+					</div>
+					<div class="fld">
+						<label>Loan term</label>
+						<div class="pills" id="term">
+							<button type="button" class="pill" data-t="15">15y</button>
+							<button type="button" class="pill" data-t="20">20y</button>
+							<button type="button" class="pill" data-t="25">25y</button>
+							<button type="button" class="pill active" data-t="30">30y</button>
+						</div>
+					</div>
+					<div class="fld" style="margin-bottom:0">
+						<label>Repayment frequency</label>
+						<div class="pills" id="freq">
+							<button type="button" class="pill" data-f="weekly">Weekly</button>
+							<button type="button" class="pill" data-f="fortnightly">Fortnightly</button>
+							<button type="button" class="pill active" data-f="monthly">Monthly</button>
+						</div>
+					</div>
+				</div>
+				<div class="calc-out">
+					<p class="cap">Estimated repayment</p>
+					<div class="big" id="rAmt">$0</div>
+					<div class="per" id="rPer">per month</div>
+					<div class="brk">
+						<div class="r"><span>Loan amount</span><span id="rLoan">$0</span></div>
+						<div class="r"><span>Total repaid</span><span id="rTot">$0</span></div>
+						<div class="r"><span>Total interest</span><span id="rInt">$0</span></div>
+					</div>
+					<div class="cta"><a class="btn btn-gold" href="#contact">Talk through your real numbers <span class="arrow">→</span></a></div>
+				</div>
+			</div>
+			<p class="calc-note">
+				This is an illustration only, based on a single blended rate and principal-and-interest
+				repayments. It excludes fees, insurance, rates and any Low Equity Margin. Real lender offers
+				depend on your income, deposit, and circumstances — that's exactly what JJ works out with you.
+			</p>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="light" id="faq">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Good questions</span></div>
+			<h2 class="title">The things first home buyers actually ask.</h2>
+			<div class="faq-list">
+				{
+					FAQ_ENTRIES.map((entry, i) => (
+						<details open={i === 0}>
+							<summary>{entry.question}</summary>
+							<div class="a">{entry.answer}</div>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- REVIEWS -->
+	<section id="reviews">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">What clients say</span></div>
+			<h2 class="title">Five-star reviews from real first home buyers.</h2>
+			<div class="rev-head" data-anim>
+				<div class="rev-score">
+					<span class="rs-num">{STATS.googleRating.toFixed(1)}</span><span class="stars">★★★★★</span>
+				</div>
+				<div class="rev-meta">
+					<b>{STATS.googleReviewCount} Google reviews</b><span>Verified on Google Business Profile</span>
+				</div>
+				<a
+					class="btn btn-ghost"
+					href="https://www.google.com/maps/search/Mortgages+with+JJ+Orewa"
+					target="_blank"
+					rel="noopener"
+				>
+					Read all reviews <span class="arrow">→</span>
+				</a>
+			</div>
+			<div class="reviews-grid">
+				<div class="rev" data-anim>
+					<div class="stars">★★★★★</div>
+					<p>
+						JJ was awesome to deal with from start to finish. Buying a home and sorting a mortgage
+						can feel overwhelming, but he made the whole process far less stressful.
+					</p>
+					<div class="who">— Verified Google review</div>
+				</div>
+				<div class="rev" data-anim>
+					<div class="stars">★★★★★</div>
+					<p>
+						An amazing experience buying our first home in NZ — supportive, knowledgeable and
+						patient. We'd highly recommend JJ, especially to first home buyers.
+					</p>
+					<div class="who">— Verified Google review</div>
+				</div>
+				<div class="rev" data-anim>
+					<div class="stars">★★★★★</div>
+					<p>
+						Thanks to JJ for sorting the mortgage on our new property and making us feel at ease
+						with a daunting process. 10/10.
+					</p>
+					<div class="who">— Verified Google review</div>
+				</div>
+			</div>
+			<p class="rev-note">
+				Live site: this becomes the Trustindex Google reviews slider (Slider IV / Soft), pulling all
+				reviews from the Google Business Profile automatically — no manual updates.
+			</p>
+		</div>
+	</section>
+
+	<!-- FREE GUIDE -->
+	<section class="light guide" id="guide">
+		<div class="wrap">
+			<Image src={guideCover} alt="Mortgages with JJ — First Home Buyer Guide, Aotearoa New Zealand" class="cover" />
+			<div>
+				<div class="kicker"><span class="eyebrow">Free download</span></div>
+				<h2 class="title">The First Home Buyer Guide.</h2>
+				<p class="lead">
+					A practical, step-by-step guide for Kiwis getting onto the property ladder — from your
+					first KiwiSaver question to the day you collect the keys. Written in plain English, no
+					jargon.
+				</p>
+				<div style="margin-top:2em">
+					<a class="btn btn-gold" href="/first-home-buyer-guide/">Get the free guide <span class="arrow">→</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA BAND -->
+	<section
+		class="cta-band"
+		id="contact"
+		style="background-image:linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),var(--sky);background-size:cover;background-position:center"
+	>
+		<div class="wrap">
+			<h2>Ready to find out what's possible?</h2>
+			<p>
+				Book a no-obligation chat with JJ, or just pick up the phone. First conversation, no
+				pressure — just a clear picture of where you stand.
+			</p>
+			<div class="row">
+				<a class="btn btn-gold" href={`mailto:${BUSINESS.email}`}>Book a chat <span class="arrow">→</span></a>
+				<a class="btn btn-ghost" href={`tel:${BUSINESS.phoneE164}`}>Or call {BUSINESS.phoneDisplay}</a>
+			</div>
+		</div>
+	</section>
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/home-interactions.js"></script>
+	</Fragment>
+</Base>

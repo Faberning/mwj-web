@@ -1,0 +1,118 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo.png';
+import { ADVISER, BUSINESS, LICENSEE, SITE_URL } from '../consts';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL);
+---
+
+<!doctype html>
+<html lang="en-NZ">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="spine" aria-hidden="true">
+			<svg viewBox="0 0 56 1000" preserveAspectRatio="none">
+				<defs
+					><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"
+						><stop offset="0" stop-color="#c9a35e"></stop><stop offset="1" stop-color="#dcba78"
+						></stop></linearGradient
+					></defs
+				>
+				<path class="track" d="M28 4 C 6 170, 50 330, 28 500 C 6 670, 50 830, 28 996"></path>
+				<path class="fill" d="M28 4 C 6 170, 50 330, 28 500 C 6 670, 50 830, 28 996"></path>
+			</svg>
+			<span class="dot"></span>
+		</div>
+
+		<header class="site">
+			<div class="wrap nav">
+				<div class="brand">
+					<Image
+						class="logo"
+						alt="Mortgages with JJ logo"
+						src={logo}
+						width={34}
+						height={34}
+						loading="eager"
+					/>
+					 Mortgages with <b>JJ</b>
+				</div>
+				<nav class="nav-links">
+					<a href="#meet">About JJ</a>
+					<a href="#services">Services</a>
+					<a href="#process">How it works</a>
+					<a href="#calc">Calculator</a>
+					<a href="#faq">FAQ</a>
+				</nav>
+				<a class="nav-phone" href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a>
+			</div>
+		</header>
+
+		<main>
+			<slot />
+		</main>
+
+		<footer>
+			<div class="wrap">
+				<div class="foot-top">
+					<div>
+						<div class="brand">Mortgages with <b>JJ</b></div>
+						<p>
+							Senior Mortgage Adviser JJ van der Westhuizen — helping first home buyers and
+							property owners across Orewa, the Hibiscus Coast and all of New Zealand.
+						</p>
+					</div>
+					<div class="foot-col">
+						<h4>Services</h4>
+						<a href="/first-home-buyers/">First Home Buyers</a>
+						<a href="/refinance/">Refinance</a>
+						<a href="/investment-property/">Investment Property</a>
+						<a href="/new-build/">New Build</a>
+					</div>
+					<div class="foot-col">
+						<h4>Contact</h4>
+						<a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a>
+						<a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
+						<a href="#">{BUSINESS.address.suburb}, {BUSINESS.address.region}</a>
+					</div>
+				</div>
+				<div class="disc">
+					<p>
+						<b>{ADVISER.name}</b> ({ADVISER.fsp}) is a <b>{ADVISER.title}</b> operating under the
+						Financial Advice Provider licence of <b>{LICENSEE.name}</b> ({LICENSEE.fsp}). A copy of
+						our disclosure statement is available on request and free of charge. The information on
+						this site is general in nature and does not take your personal circumstances into
+						account. It is not personalised financial advice.
+					</p>
+				</div>
+				<div class="foot-bottom">
+					<span>© {new Date().getFullYear()} Mortgages with JJ</span>
+					<span>Privacy Policy · Important Information · Disclosure Statement</span>
+				</div>
+			</div>
+		</footer>
+
+		<slot name="scripts" />
+	</body>
+</html>

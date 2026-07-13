@@ -1,0 +1,93 @@
+---
+import {
+	ADVISER,
+	BUSINESS,
+	FAQ_ENTRIES,
+	LICENSEE,
+	SAME_AS,
+	SITE_URL,
+	STATS,
+	VIDEO,
+} from '../consts';
+
+interface Props {
+	includeFAQ?: boolean;
+	includeVideo?: boolean;
+}
+
+const { includeFAQ = false, includeVideo = false } = Astro.props;
+
+const graph: Record<string, unknown>[] = [
+	{
+		'@type': 'FinancialService',
+		'@id': `${SITE_URL}/#business`,
+		name: BUSINESS.name,
+		description: `Senior Mortgage Adviser ${ADVISER.name} — first home buyers, refinance, investment and new build across ${BUSINESS.address.suburb}, the Hibiscus Coast and all of New Zealand.`,
+		areaServed: BUSINESS.areaServed,
+		telephone: BUSINESS.phoneE164,
+		email: BUSINESS.email,
+		priceRange: 'No fee to you',
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: BUSINESS.address.street,
+			addressLocality: BUSINESS.address.suburb,
+			addressRegion: BUSINESS.address.region,
+			postalCode: BUSINESS.address.postcode,
+			addressCountry: BUSINESS.address.country,
+		},
+		aggregateRating: {
+			'@type': 'AggregateRating',
+			ratingValue: STATS.googleRating.toFixed(1),
+			reviewCount: String(STATS.googleReviewCount),
+			bestRating: '5',
+		},
+		provider: {
+			'@type': 'Organization',
+			name: LICENSEE.name,
+			identifier: LICENSEE.fsp,
+		},
+		sameAs: SAME_AS,
+		employee: { '@id': `${SITE_URL}/#jj` },
+	},
+	{
+		'@type': 'Person',
+		'@id': `${SITE_URL}/#jj`,
+		name: ADVISER.name,
+		jobTitle: ADVISER.title,
+		identifier: ADVISER.fsp,
+		worksFor: { '@type': 'Organization', name: LICENSEE.name, identifier: LICENSEE.fsp },
+		sameAs: SAME_AS.filter((url) => !url.includes('facebook.com')),
+	},
+];
+
+if (includeFAQ) {
+	graph.push({
+		'@type': 'FAQPage',
+		mainEntity: FAQ_ENTRIES.map((entry) => ({
+			'@type': 'Question',
+			name: entry.question,
+			acceptedAnswer: { '@type': 'Answer', text: entry.answer },
+		})),
+	});
+}
+
+if (includeVideo) {
+	graph.push({
+		'@type': 'VideoObject',
+		name: VIDEO.title,
+		description: VIDEO.description,
+		thumbnailUrl: `https://i.ytimg.com/vi/${VIDEO.youtubeId}/hqdefault.jpg`,
+		uploadDate: '2026-07-14',
+		contentUrl: `https://youtu.be/${VIDEO.youtubeId}`,
+		embedUrl: `https://www.youtube-nocookie.com/embed/${VIDEO.youtubeId}`,
+		publisher: { '@type': 'Organization', name: LICENSEE.name, identifier: LICENSEE.fsp },
+	});
+}
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': graph,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
