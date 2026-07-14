@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Schema from '../components/Schema.astro';
+import { AREAS, FAQ_ENTRIES, SITE_URL } from '../consts';
+
+const title = 'Areas We Serve | Mortgages with JJ';
+const description =
+	'JJ van der Westhuizen advises first home buyers, refinancers, investors and new build clients across the Hibiscus Coast, North Shore, Rodney, West Auckland and Auckland Central.';
+
+const areaFaq = FAQ_ENTRIES.slice(0, 6);
+---
+
+<Base title={title} description={description}>
+	<Schema
+		pageType="WebPage"
+		pageName={title}
+		pageDescription={description}
+		itemList={{
+			name: 'Areas served',
+			items: AREAS.map((a) => ({ name: a.name, url: `${SITE_URL}/${a.slug}/` })),
+		}}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Areas', url: `${SITE_URL}/areas/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Areas' }]}
+		eyebrow="Areas We Serve"
+		title="Local knowledge, wherever you are in Auckland."
+		lede="Based in Orewa, I work with clients across the Hibiscus Coast and the wider Auckland region — in person or fully remote, whichever suits you."
+		ctaPrimary={{ label: 'Talk to JJ', href: '/contact/' }}
+	/>
+
+	<section id="areas">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Where I work</span></div>
+			<h2 class="title">Pick your area for local detail.</h2>
+			<div class="area-grid">
+				{
+					AREAS.map((area) => (
+						<a class="area-card" href={`/${area.slug}/`} data-anim>
+							<h3>{area.name}</h3>
+							<p>{area.lede}</p>
+							<span class="more">
+								{area.name} <span class="arrow">→</span>
+							</span>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="light" id="why-local">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Why local knowledge matters</span></div>
+			<h2 class="title">Lending isn't one-size-fits-all across Auckland.</h2>
+			<p class="lead">
+				Property types, price points, and lender appetite vary a lot across the region. Working
+				with someone who knows your area means fewer surprises and a faster path to yes.
+			</p>
+		</div>
+	</section>
+
+	<FaqBlock entries={areaFaq} eyebrow="Common questions" title="Things people ask before getting in touch." />
+
+	<FinalCta />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/page-interactions.js"></script>
+	</Fragment>
+</Base>

@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProcessRail from '../../components/ProcessRail.astro';
+import FaqBlock from '../../components/FaqBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Schema from '../../components/Schema.astro';
+import { FAQ_ENTRIES, PROCESS_STEPS, SERVICES, SITE_URL, STATS } from '../../consts';
+
+const title = 'Mortgage Advice Services | Mortgages with JJ';
+const description =
+	'First home buyers, refinance, investment property and new build lending advice from JJ van der Westhuizen, Senior Mortgage Adviser in Orewa. 25+ lenders compared, no fee to you.';
+
+const serviceFaq = FAQ_ENTRIES.slice(0, 6);
+---
+
+<Base title={title} description={description}>
+	<Schema
+		pageType="WebPage"
+		pageName={title}
+		pageDescription={description}
+		itemList={{
+			name: 'Services',
+			items: SERVICES.map((s) => ({ name: s.name, url: `${SITE_URL}/services/${s.slug}/` })),
+		}}
+		includeFAQ
+		faqEntries={serviceFaq}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Services', url: `${SITE_URL}/services/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Services' }]}
+		eyebrow="Services"
+		title="Whatever stage you're at, there's a clear next step."
+		lede="First home buyers are the biggest part of my work, but I also help refinancers, investors, and new build clients — comparing 25+ lenders and structuring the deal properly, at no cost to you."
+		ctaPrimary={{ label: 'Talk to JJ', href: '/contact/' }}
+		ctaSecondary={{ label: 'Try the calculator', href: '/mortgage-calculator/' }}
+	/>
+
+	<section id="services">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Four ways I work with clients</span></div>
+			<h2 class="title">Pick the one that sounds like you.</h2>
+			<div class="svc-grid">
+				{
+					SERVICES.map((service, i) => (
+						<div class={`svc${i === 0 ? ' feat' : ''}`} data-anim>
+							<div>
+								<h3>{service.name}</h3>
+								<p>{service.lede}</p>
+								<a class="more" href={`/services/${service.slug}/`}>
+									{service.name} <span class="arrow">→</span>
+								</a>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="light" id="process">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">How it works</span></div>
+			<h2 class="title">From first chat to funded deal.</h2>
+			<p class="lead">
+				Four steps. Most clients move from initial conversation to settlement in 4 to 8 weeks,
+				depending on their situation.
+			</p>
+			<ProcessRail steps={[...PROCESS_STEPS]} />
+		</div>
+	</section>
+
+	<section id="why">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Why work with me</span></div>
+			<h2 class="title">A real person in your corner, not a call centre.</h2>
+			<div class="who-grid">
+				<div class="who" data-anim>
+					<h3>{STATS.lendersCompared}+ lenders compared</h3>
+					<p>Bank and non-bank, so you see the whole market, not just one bank's own products.</p>
+				</div>
+				<div class="who" data-anim>
+					<h3>No fee to you</h3>
+					<p>The lender pays my commission when your loan settles — full advice at no cost.</p>
+				</div>
+				<div class="who" data-anim>
+					<h3>Actual availability</h3>
+					<p>You get someone who picks up the phone, from first chat through to settlement and beyond.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<FaqBlock entries={serviceFaq} eyebrow="Common questions" title="Things people ask before getting in touch." />
+
+	<FinalCta />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../../scripts/page-interactions.js"></script>
+	</Fragment>
+</Base>

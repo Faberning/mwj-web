@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Schema from '../components/Schema.astro';
+import { CALCULATOR_FAQ, SITE_URL } from '../consts';
+
+const title = 'Mortgage Calculator | Mortgages with JJ';
+const description =
+	'Get an instant estimate of your mortgage repayments and total interest paid. Adjust the loan amount, interest rate, term and repayment frequency — the numbers update as you type.';
+---
+
+<Base title={title} description={description}>
+	<Schema
+		pageType="WebApplication"
+		pageName={title}
+		pageDescription={description}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Mortgage Calculator', url: `${SITE_URL}/mortgage-calculator/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Mortgage Calculator' }]}
+		eyebrow="Mortgage Calculator"
+		title="What will your mortgage actually cost?"
+		lede="Get an instant estimate of your repayments and total interest paid. The numbers update as you adjust the loan amount, interest rate, term, and repayment frequency."
+	/>
+
+	<section class="calcsec" id="calc">
+		<div class="wrap">
+			<div class="calc">
+				<div class="calc-in">
+					<h3>Your loan details</h3>
+					<div class="fld">
+						<label for="loan">Loan amount</label>
+						<div class="iw">
+							<span class="pfx">$</span><input type="number" id="loan" value="700000" min="10000" step="10000" />
+						</div>
+						<span class="help">How much you want to borrow</span>
+					</div>
+					<div class="fld">
+						<label for="rate">Interest rate</label>
+						<div class="iw">
+							<input
+								type="number"
+								id="rate"
+								class="sf"
+								value="6.49"
+								min="0"
+								max="30"
+								step="0.01"
+								style="padding-left:14px"
+							/><span class="sfx">%</span>
+						</div>
+						<span class="help">Use a rate close to what you'd realistically expect to be offered</span>
+					</div>
+					<div class="fld">
+						<label>Loan term</label>
+						<div class="pills" id="term">
+							<button type="button" class="pill" data-t="5">5y</button>
+							<button type="button" class="pill" data-t="10">10y</button>
+							<button type="button" class="pill" data-t="15">15y</button>
+							<button type="button" class="pill" data-t="20">20y</button>
+							<button type="button" class="pill" data-t="25">25y</button>
+							<button type="button" class="pill active" data-t="30">30y</button>
+						</div>
+						<span class="help">Total length of the loan</span>
+					</div>
+					<div class="fld" style="margin-bottom:0">
+						<label>Repayment frequency</label>
+						<div class="pills" id="freq">
+							<button type="button" class="pill" data-f="weekly">Weekly</button>
+							<button type="button" class="pill" data-f="fortnightly">Fortnightly</button>
+							<button type="button" class="pill active" data-f="monthly">Monthly</button>
+						</div>
+						<span class="help">How often you'll make repayments</span>
+					</div>
+				</div>
+				<div class="calc-out">
+					<p class="cap">Your indicative repayment</p>
+					<div class="big" id="rAmt">$0</div>
+					<div class="per" id="rPer">per month</div>
+					<div class="brk">
+						<div class="r"><span>Loan amount</span><span id="rLoan">$0</span></div>
+						<div class="r"><span>Total you'll repay</span><span id="rTot">$0</span></div>
+						<div class="r"><span>Total interest paid</span><span id="rInt">$0</span></div>
+					</div>
+					<div class="cta"><a class="btn btn-gold" href="/contact/">Talk to JJ about your options <span class="arrow">→</span></a></div>
+				</div>
+			</div>
+			<p class="calc-note">
+				This calculator gives an indicative estimate only, based on the figures you enter. It is a
+				general illustration and does not constitute personalised financial advice or a loan offer.
+				Actual repayments will depend on the lender, loan structure, fees, your individual
+				circumstances, and the rates available at the time of application. For advice tailored to
+				your situation, please get in touch.
+			</p>
+		</div>
+	</section>
+
+	<FaqBlock
+		entries={CALCULATOR_FAQ}
+		eyebrow="How this calculator works"
+		title="A few things worth knowing."
+		id="how-it-works"
+	/>
+
+	<FinalCta
+		heading="Numbers look about right? Let's talk specifics."
+		body="The calculator gives you a rough shape. A 30-minute conversation gives you an actual answer based on your real situation, the right lender, and the best structure."
+	/>
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/page-interactions.js"></script>
+		<script src="../scripts/calculator.js"></script>
+	</Fragment>
+</Base>

@@ -1,0 +1,32 @@
+---
+interface FaqEntry {
+	question: string;
+	answer: string;
+}
+
+interface Props {
+	entries: readonly FaqEntry[];
+	eyebrow: string;
+	title: string;
+	id?: string;
+}
+
+const { entries, eyebrow, title, id = 'faq' } = Astro.props;
+---
+
+<section class="light" id={id}>
+	<div class="wrap">
+		<div class="kicker"><span class="eyebrow">{eyebrow}</span></div>
+		<h2 class="title">{title}</h2>
+		<div class="faq-list">
+			{
+				entries.map((entry, i) => (
+					<details open={i === 0}>
+						<summary>{entry.question}</summary>
+						<div class="a">{entry.answer}</div>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>

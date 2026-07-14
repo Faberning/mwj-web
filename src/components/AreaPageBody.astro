@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import ProcessRail from './ProcessRail.astro';
+import FaqBlock from './FaqBlock.astro';
+import FinalCta from './FinalCta.astro';
+import Schema from './Schema.astro';
+import { PROCESS_STEPS, SERVICES, SITE_URL } from '../consts';
+
+interface Area {
+	slug: string;
+	name: string;
+	eyebrow: string;
+	title: string;
+	lede: string;
+	whyLocal: string;
+	faq: readonly { question: string; answer: string }[];
+}
+
+interface Props {
+	area: Area;
+}
+
+const { area } = Astro.props;
+
+const title = `Mortgage Adviser in ${area.name} | Mortgages with JJ`;
+const description = `${area.lede} JJ van der Westhuizen, Senior Mortgage Adviser in Orewa.`;
+---
+
+<Base title={title} description={description}>
+	<Schema
+		service={{
+			name: `Mortgage advice in ${area.name}`,
+			serviceType: 'Mortgage advice',
+			description: area.lede,
+			areaServed: area.name,
+		}}
+		includeFAQ
+		faqEntries={area.faq}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Areas', url: `${SITE_URL}/areas/` },
+			{ name: area.name, url: `${SITE_URL}/${area.slug}/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Areas', href: '/areas/' }, { name: area.name }]}
+		eyebrow={area.eyebrow}
+		title={area.title}
+		lede={area.lede}
+		ctaPrimary={{ label: 'Talk to JJ', href: '/contact/' }}
+		ctaSecondary={{ label: 'Try the calculator', href: '/mortgage-calculator/' }}
+	/>
+
+	<section id="why-local">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Local knowledge</span></div>
+			<h2 class="title">Why local knowledge matters here.</h2>
+			<p class="lead">{area.whyLocal}</p>
+		</div>
+	</section>
+
+	<section class="light" id="services">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">How I can help</span></div>
+			<h2 class="title">Whatever stage you're at, there's a clear next step.</h2>
+			<div class="svc-grid">
+				{
+					SERVICES.map((service) => (
+						<div class="svc" data-anim>
+							<h3>{service.name}</h3>
+							<p>{service.lede}</p>
+							<a class="more" href={`/services/${service.slug}/`}>
+								{service.name} <span class="arrow">→</span>
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section id="process">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">How it works</span></div>
+			<h2 class="title">From first chat to funded deal.</h2>
+			<ProcessRail steps={[...PROCESS_STEPS]} />
+		</div>
+	</section>
+
+	<FaqBlock entries={area.faq} eyebrow="Common questions" title={`Questions from ${area.name} clients.`} />
+
+	<FinalCta />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/page-interactions.js"></script>
+	</Fragment>
+</Base>
