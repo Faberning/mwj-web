@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Schema from '../components/Schema.astro';
+import { SITE_URL } from '../consts';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.data.slug },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, author } = post.data;
+const { Content } = await render(post);
+
+const pageTitle = `${title} | Mortgages with JJ`;
+const postUrl = `${SITE_URL}/${post.data.slug}/`;
+const isoDate = pubDate.toISOString();
+const displayDate = pubDate.toLocaleDateString('en-NZ', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Base title={pageTitle} description={description}>
+	<Schema
+		blogPosting={{
+			title,
+			description,
+			datePublished: isoDate,
+			url: postUrl,
+		}}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Blog', url: `${SITE_URL}/blog/` },
+			{ name: title, url: postUrl },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: title }]}
+		eyebrow="Blog"
+		title={title}
+	/>
+
+	<section class="light" id="post">
+		<div class="wrap">
+			<p class="calc-note" style="margin-bottom:2.5em">
+				By {author} &middot; {displayDate}
+			</p>
+			<article class="post-body">
+				<Content />
+			</article>
+		</div>
+	</section>
+
+	<FinalCta />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/page-interactions.js"></script>
+	</Fragment>
+</Base>
