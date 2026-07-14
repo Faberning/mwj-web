@@ -6,3 +6,9 @@ workers_dev = true
 [assets]
 directory = "./dist"
 binding = "ASSETS"
+
+# Cloudflare Email Routing send_email binding — restricted to this one verified
+# destination at the platform level (no third-party email API, no secrets).
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "freddieberning1@gmail.com"
