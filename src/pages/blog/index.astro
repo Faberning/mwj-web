@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Schema from '../../components/Schema.astro';
+import { SITE_URL } from '../../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const title = 'Blog | Mortgages with JJ';
+const description =
+	'Practical, plain-English guides on New Zealand mortgages — structuring, refinancing, LVR and DTI rules, KiwiSaver, and the Kainga Ora First Home Loan — from JJ van der Westhuizen.';
+---
+
+<Base title={title} description={description}>
+	<Schema
+		pageType="WebPage"
+		pageName={title}
+		pageDescription={description}
+		itemList={{
+			name: 'Blog posts',
+			items: posts.map((p) => ({ name: p.data.title, url: `${SITE_URL}/${p.data.slug}/` })),
+		}}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Blog', url: `${SITE_URL}/blog/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Blog' }]}
+		eyebrow="Blog"
+		title="Practical mortgage guides, plain English."
+		lede="Structuring, refinancing, LVR and DTI rules, KiwiSaver, and the Kainga Ora First Home Loan — written for Kiwis actually working through these decisions."
+	/>
+
+	<section id="posts">
+		<div class="wrap">
+			<div class="post-grid">
+				{
+					posts.map((post) => (
+						<a class="post-card" href={`/${post.data.slug}/`} data-anim>
+							<span class="date">
+								{post.data.pubDate.toLocaleDateString('en-NZ', {
+									day: 'numeric',
+									month: 'long',
+									year: 'numeric',
+								})}
+							</span>
+							<h3>{post.data.title}</h3>
+							<p>{post.data.description}</p>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<FinalCta />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../../scripts/page-interactions.js"></script>
+	</Fragment>
+</Base>

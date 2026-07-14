@@ -32,6 +32,14 @@ interface ItemListInfo {
 	items: { name: string; url: string }[];
 }
 
+interface BlogPostingInfo {
+	title: string;
+	description: string;
+	datePublished: string;
+	dateModified?: string;
+	url: string;
+}
+
 interface Props {
 	includeBusiness?: boolean;
 	includeFAQ?: boolean;
@@ -41,6 +49,7 @@ interface Props {
 	breadcrumb?: BreadcrumbEntry[];
 	service?: ServiceInfo;
 	itemList?: ItemListInfo;
+	blogPosting?: BlogPostingInfo;
 	pageType?: 'WebPage' | 'ContactPage' | 'WebApplication';
 	pageName?: string;
 	pageDescription?: string;
@@ -55,6 +64,7 @@ const {
 	breadcrumb,
 	service,
 	itemList,
+	blogPosting,
 	pageType,
 	pageName,
 	pageDescription,
@@ -164,6 +174,21 @@ if (itemList) {
 			name: item.name,
 			url: item.url,
 		})),
+	});
+}
+
+if (blogPosting) {
+	graph.push({
+		'@type': 'BlogPosting',
+		'@id': `${blogPosting.url}#post`,
+		headline: blogPosting.title,
+		description: blogPosting.description,
+		datePublished: blogPosting.datePublished,
+		dateModified: blogPosting.dateModified ?? blogPosting.datePublished,
+		url: blogPosting.url,
+		mainEntityOfPage: blogPosting.url,
+		author: { '@id': personId },
+		publisher: { '@id': businessId },
 	});
 }
 

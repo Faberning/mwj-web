@@ -89,9 +89,24 @@ async function handleGuideRequest(request) {
 	return Response.json({ ok: true }, { status: 200, headers: JSON_HEADERS });
 }
 
+// Keep-latest 301s for the 3 duplicate blog URLs — old→new pairs from
+// MWJ_URL_Migration_Map.md / the live post-sitemap.xml, not guessed.
+const BLOG_REDIRECTS = {
+	'/how-do-mortgage-brokers-get-paid-nz/': '/how-do-mortgage-brokers-get-paid-nz-2/',
+	'/can-you-use-kiwisaver-and-gifted-deposit-together-first-home/':
+		'/can-you-use-kiwisaver-and-gifted-deposit-together-first-home-2/',
+	'/what-is-fixed-floating-split-which-better-2026/':
+		'/what-is-a-fixed-and-floating-split-and-which-is-better-in-2026/',
+};
+
 export default {
 	async fetch(request, env) {
 		const url = new URL(request.url);
+
+		const redirectTarget = BLOG_REDIRECTS[url.pathname];
+		if (redirectTarget) {
+			return Response.redirect(new URL(redirectTarget, url.origin), 301);
+		}
 
 		if (request.method === 'POST' && url.pathname === '/api/contact') {
 			return handleContactSubmit(request);
