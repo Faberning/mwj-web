@@ -5,7 +5,7 @@ import PageHero from '../components/PageHero.astro';
 import FaqBlock from '../components/FaqBlock.astro';
 import Schema from '../components/Schema.astro';
 import guideCover from '../assets/images/guide-cover.jpg';
-import { FAQ_ENTRIES, FHB_GUIDE, SITE_URL } from '../consts';
+import { FAQ_ENTRIES, FHB_GUIDE, FHB_GUIDE_PATH, SITE_URL } from '../consts';
 
 const title = `${FHB_GUIDE.title} | Mortgages with JJ`;
 const description =
@@ -51,7 +51,7 @@ const guideFaq = FAQ_ENTRIES.slice(0, 4);
 			<h2 class="title">Download the guide, free.</h2>
 			<p class="lead">Enter your email and the guide downloads immediately — no spam, just the PDF.</p>
 			<div class="form-card" data-anim style="max-width:520px;margin-top:32px">
-				<form id="guideForm" data-pdf={FHB_GUIDE.pdfPath} novalidate>
+				<form id="guideForm" data-pdf={FHB_GUIDE_PATH} novalidate>
 					<div class="form-fld form-honeypot" aria-hidden="true">
 						<label for="gwebsite">Website</label>
 						<input type="text" id="gwebsite" name="website" tabindex="-1" autocomplete="off" />

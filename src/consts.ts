@@ -444,9 +444,12 @@ export const CALCULATOR_FAQ = [
 	},
 ] as const;
 
+// Re-hosted in-repo (public/downloads/) so it survives the WordPress → Astro
+// cutover — the old /wp-content/uploads/... path won't exist post-migration.
+export const FHB_GUIDE_PATH = '/downloads/MWJ_FirstHomeBuyer_Guide_v1.pdf';
+
 export const FHB_GUIDE = {
 	title: 'The First Home Buyer Guide',
-	pdfPath: '/guides/mwj-first-home-buyer-guide.pdf',
 	whatsInside: [
 		'How much deposit you actually need, and what counts towards it',
 		'Using KiwiSaver and the Kāinga Ora First Home Loan',
