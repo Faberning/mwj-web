@@ -1,43 +1,49 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Schema from '../components/Schema.astro';
 import Base from '../layouts/Base.astro';
 import guideCover from '../assets/images/guide-cover.jpg';
+import heroSky from '../assets/images/hero-sky.jpg';
 import jjPortrait from '../assets/images/jj-portrait.jpg';
 import videoPoster from '../assets/images/video-poster.jpg';
-import { ADVISER, BUSINESS, FAQ_ENTRIES, STATS, VIDEO } from '../consts';
+import { ADVISER, BUSINESS, FAQ_ENTRIES, GOOGLE_REVIEWS_URL, STATS, VIDEO } from '../consts';
 
 const title = 'Mortgages with JJ — First Home Buyers, Orewa & NZ-wide';
 const description =
 	'JJ van der Westhuizen is a Senior Mortgage Adviser in Orewa. First home buyers, refinance, investment and new build across the Hibiscus Coast and all of New Zealand. 25+ lenders compared, no fee to you.';
+
+// Used as a full-bleed CSS background (hero + CTA band), so it goes through
+// getImage() directly rather than <Image /> — optimized once, reused twice.
+const heroSkyOptimized = await getImage({ src: heroSky, format: 'webp', quality: 70, width: 1600 });
+const heroBackground = `linear-gradient(rgba(31,45,61,.8),rgba(31,45,61,.9)),url(${heroSkyOptimized.src})`;
+const ctaBackground = `linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),url(${heroSkyOptimized.src})`;
 ---
 
 <Base title={title} description={description}>
+	<Fragment slot="head">
+		<link rel="preload" as="image" href={heroSkyOptimized.src} fetchpriority="high" />
+	</Fragment>
 	<Schema includeFAQ includeVideo />
 
 	<!-- HERO -->
-	<section class="hero">
+	<section class="hero" style={`background-image:${heroBackground}`}>
 		<div class="wrap">
 			<div class="hero-copy">
-				<span class="eyebrow" data-anim>Orewa · Hibiscus Coast · NZ-wide</span>
+				<span class="eyebrow" data-anim>First Home Buyer Specialist · Hibiscus Coast</span>
 				<h1 data-anim>
-					<span class="w">The</span> <span class="w">clear</span> <span class="w">path</span>{' '}
-					<span class="w">to</span> <span class="w">your</span>
-					<span class="w hl">first</span> <span class="w hl">home.</span>
+					<span class="w">Buying</span> <span class="w">your</span> <span class="w">first</span>{' '}
+					<span class="w">home?</span> <span class="w hl">Let’s</span> <span class="w hl">get</span>{' '}
+					<span class="w hl">you</span> <span class="w hl">there.</span>
 				</h1>
 				<p class="lede" data-anim>
-					{ADVISER.name} is a {ADVISER.title} in {BUSINESS.address.suburb}, guiding first home buyers
-					across the Hibiscus Coast and all of New Zealand. One honest conversation, the whole lender
-					market compared, and no fee to you.
+					I am {ADVISER.name.split(' ')[0]} — a {ADVISER.title} based in {BUSINESS.address.suburb}. I
+					specialise in helping Kiwis buy their first home, and also work with refinancers,
+					investors, and new build clients across Auckland. I compare lenders, structure the deal
+					properly, and you pay nothing for the advice.
 				</p>
 				<div class="hero-cta" data-anim>
-					<a class="btn btn-gold" href="#contact">Book a chat <span class="arrow">→</span></a>
+					<a class="btn btn-gold" href="#contact">Talk to JJ <span class="arrow">→</span></a>
 					<a class="btn btn-ghost" href="#calc">Try the calculator</a>
-				</div>
-				<div class="hero-meta" data-anim>
-					<span><i></i>{STATS.lendersCompared}+ lenders compared</span>
-					<span><i></i>No fee to you</span>
-					<span><i></i>Local &amp; fully remote</span>
 				</div>
 			</div>
 		</div>
@@ -60,26 +66,30 @@ const description =
 		<div class="wrap">
 			<div class="row">
 				<div class="stat">
-					<div class="num" data-count={STATS.lendersCompared} data-suffix="+">
+					<div class="num" data-count={STATS.lendersCompared}>
 						<span class="v">0</span><span class="u">+</span>
 					</div>
-					<span class="lab">Lenders compared</span>
+					<span class="lab">Lenders on panel</span>
 				</div>
 				<div class="stat">
-					<div class="num">{STATS.googleRating.toFixed(1)}<span class="u"> ★</span></div>
-					<span class="lab">Google rating</span>
+					<div class="num" data-count={ADVISER.experienceYears}>
+						<span class="v">0</span><span class="u"> yrs</span>
+					</div>
+					<span class="lab">Finance experience</span>
+				</div>
+				<div class="stat">
+					<div class="num" data-count={STATS.settledVolume2025}>
+						<span class="u">$</span><span class="v">0</span><span class="u">M+</span>
+					</div>
+					<span class="lab">Settled in 2025</span>
 				</div>
 				<div class="stat">
 					<div class="num"><span class="u">$</span>{STATS.feeToClient}</div>
-					<span class="lab">Fee to you</span>
+					<span class="lab">Fee charged to you</span>
 				</div>
 				<div class="stat">
-					<div class="num">NZ<span class="u">-wide</span></div>
-					<span class="lab">Wherever you are</span>
-				</div>
-				<div class="stat">
-					<div class="num" data-count={STATS.googleReviewCount}><span class="v">0</span></div>
-					<span class="lab">Google reviews</span>
+					<div class="num">{Math.trunc(STATS.googleRating)}<span class="u">★</span></div>
+					<span class="lab">Google Reviews</span>
 				</div>
 			</div>
 		</div>
@@ -99,21 +109,22 @@ const description =
 				</div>
 			</div>
 			<div>
-				<div class="kicker"><span class="eyebrow">Meet your adviser</span></div>
-				<h2 class="title">A real person in your corner — not a call centre.</h2>
+				<div class="kicker"><span class="eyebrow">Meet JJ</span></div>
+				<h2 class="title">Hi, I am JJ — your local mortgage adviser on the Hibiscus Coast.</h2>
 				<p class="lead">
-					JJ brings 15 years as a commercial banker and six years advising Kiwis on mortgages — the
-					bank's side of the table and the client's side, both seen up close. He works across{' '}
-					{STATS.lendersCompared}+ bank and non-bank lenders, structures the deal properly, and
-					explains every step in plain English.
+					Most of the people I work with are buying their first home. Some are refinancing, some
+					are investing, some are building. The mix changes — but the approach does not. I take the
+					time to understand your situation, explain what is actually possible, and help you make a
+					confident decision.
 				</p>
 				<p class="lead" style="margin-top:1em">
-					Having moved to New Zealand himself, he also understands the income-documentation and
-					credit-history hurdles that come with arriving from overseas — and how different lenders
-					treat them.
+					I compare across {STATS.lendersCompared}+ lenders, structure the deal properly, and walk
+					you through every step. From the first conversation to the day the funds settle, you have
+					someone in your corner who actually picks up the phone. The first chat is free — no
+					pressure, no jargon, no obligation.
 				</p>
 				<div style="margin-top:2em">
-					<a class="btn btn-ghost" href="#contact">Have a no-obligation chat <span class="arrow">→</span></a>
+					<a class="btn btn-ghost" href="#contact">Talk to JJ <span class="arrow">→</span></a>
 				</div>
 			</div>
 		</div>
@@ -122,8 +133,13 @@ const description =
 	<!-- SERVICES -->
 	<section class="light" id="services">
 		<div class="wrap">
-			<div class="kicker"><span class="eyebrow">What JJ helps with</span></div>
-			<h2 class="title">Whatever stage you're at, there's a clear next step.</h2>
+			<div class="kicker"><span class="eyebrow">How I can help</span></div>
+			<h2 class="title">Four ways I work with clients.</h2>
+			<p class="lead">
+				First home buyers are the biggest part of my work, but I also help refinancers, investors,
+				and new build clients. Click through for the detail, or just call and we will work it out
+				together.
+			</p>
 			<div class="svc-grid">
 				<div class="svc feat" data-anim>
 					<div>
@@ -143,10 +159,10 @@ const description =
 						</div>
 						<h3>First Home Buyers</h3>
 						<p>
-							From deposit and KiwiSaver to pre-approval and settlement — a guided path built for
-							people doing this for the very first time. This is JJ's specialty.
+							Deposit options, KiwiSaver, Kāinga Ora First Home Loan eligibility, and lender
+							appetite for new buyers. The full path from "thinking about it" to keys in hand.
 						</p>
-						<a class="more" href="/first-home-buyers/">First home buyers <span class="arrow">→</span></a>
+						<a class="more" href="/services/first-home/">First home buyers <span class="arrow">→</span></a>
 					</div>
 					<div class="svc-art">
 						<svg
@@ -200,10 +216,10 @@ const description =
 					</div>
 					<h3>Refinance</h3>
 					<p>
-						Coming off a fixed term or feeling the squeeze? JJ reviews whether a better structure or
-						lender could work harder for you.
+						Rate reviews, cashback offers, structure rebuilds, and break-fee maths. If you have not
+						reviewed your loan in two years, you are probably overpaying.
 					</p>
-					<a class="more" href="/refinance/">Refinance <span class="arrow">→</span></a>
+					<a class="more" href="/services/refinance/">Refinance <span class="arrow">→</span></a>
 				</div>
 				<div class="svc" data-anim>
 					<div class="ic">
@@ -220,8 +236,11 @@ const description =
 						</svg>
 					</div>
 					<h3>Investment Property</h3>
-					<p>Grow a portfolio with lending structured around your goals, cashflow, and the current rules.</p>
-					<a class="more" href="/investment-property/">Investment <span class="arrow">→</span></a>
+					<p>
+						DTI rules, equity release, multi-property structures, and lender appetite for
+						investors. I help you grow without overstretching.
+					</p>
+					<a class="more" href="/services/investment/">Investment <span class="arrow">→</span></a>
 				</div>
 				<div class="svc wide" data-anim>
 					<div class="ic">
@@ -241,10 +260,10 @@ const description =
 					</div>
 					<h3>New Build</h3>
 					<p>
-						Building or buying off the plans comes with its own lending quirks. JJ handles the
-						staged-drawdown detail so you can focus on the house.
+						Building gives you flexibility on deposit and exemption from some LVR rules. The
+						financing process is different — I will walk beside you from start to finish.
 					</p>
-					<a class="more" href="/new-build/">New build <span class="arrow">→</span></a>
+					<a class="more" href="/services/new-build/">New build <span class="arrow">→</span></a>
 				</div>
 			</div>
 		</div>
@@ -254,31 +273,32 @@ const description =
 	<section id="process">
 		<div class="wrap">
 			<div class="kicker"><span class="eyebrow">How it works</span></div>
-			<h2 class="title">Four steps from wondering to walking through the door.</h2>
+			<h2 class="title">From first chat to funded deal.</h2>
+			<p class="lead">
+				Four steps. Most clients move from initial conversation to settlement in 4 to 8 weeks,
+				depending on their situation.
+			</p>
 			<div class="steps" id="steps">
 				<div class="prog"></div>
 				<div class="step" data-anim>
 					<div class="n">1</div>
-					<h3>Have a chat</h3>
-					<p>A relaxed, no-obligation conversation about where you're at and where you want to be.</p>
+					<h3>Free consultation</h3>
+					<p>30-minute chat. No cost. We work out what you actually need and whether I am the right person to help.</p>
 				</div>
 				<div class="step" data-anim>
 					<div class="n">2</div>
-					<h3>Get your numbers</h3>
-					<p>JJ works out what's realistic for your situation — deposit, borrowing power, and the real costs.</p>
+					<h3>Strategy &amp; lender match</h3>
+					<p>I compare your situation across the lender panel, structure the deal, and recommend the best path.</p>
 				</div>
 				<div class="step" data-anim>
 					<div class="n">3</div>
-					<h3>Compare lenders</h3>
-					<p>
-						He compares {STATS.lendersCompared}+ lenders and takes the application to the one most
-						likely to say yes on good terms.
-					</p>
+					<h3>Application &amp; approval</h3>
+					<p>I prepare and submit your application, manage the lender conversation, and chase down approvals.</p>
 				</div>
 				<div class="step" data-anim>
 					<div class="n">4</div>
-					<h3>Get the keys</h3>
-					<p>JJ manages the process to settlement and stays in touch long after you've moved in.</p>
+					<h3>Settlement &amp; ongoing review</h3>
+					<p>Funds settle, you get the keys (or the better rate), and I check in annually to keep your loan working.</p>
 				</div>
 			</div>
 		</div>
@@ -313,11 +333,11 @@ const description =
 	<!-- CALCULATOR -->
 	<section class="calcsec" id="calc">
 		<div class="wrap">
-			<div class="kicker"><span class="eyebrow">Play with the numbers</span></div>
-			<h2 class="title">See what a mortgage could look like.</h2>
+			<div class="kicker"><span class="eyebrow">Try it yourself</span></div>
+			<h2 class="title">Want to see what your repayments could look like?</h2>
 			<p class="lead">
-				Adjust the loan amount, rate, term and frequency for an instant illustration. It's a starting
-				point for a conversation — not a quote or an offer.
+				Adjust the loan amount, rate, term, and frequency — your numbers update instantly. It is a
+				starting point for a conversation, not a quote or an offer.
 			</p>
 			<div class="calc">
 				<div class="calc-in">
@@ -386,8 +406,8 @@ const description =
 	<!-- FAQ -->
 	<section class="light" id="faq">
 		<div class="wrap">
-			<div class="kicker"><span class="eyebrow">Good questions</span></div>
-			<h2 class="title">The things first home buyers actually ask.</h2>
+			<div class="kicker"><span class="eyebrow">Common questions</span></div>
+			<h2 class="title">Things people ask before getting in touch.</h2>
 			<div class="faq-list">
 				{
 					FAQ_ENTRIES.map((entry, i) => (
@@ -405,7 +425,11 @@ const description =
 	<section id="reviews">
 		<div class="wrap">
 			<div class="kicker"><span class="eyebrow">What clients say</span></div>
-			<h2 class="title">Five-star reviews from real first home buyers.</h2>
+			<h2 class="title">Real reviews from real Kiwis.</h2>
+			<p class="lead">
+				Verified five-star reviews from clients across the Hibiscus Coast and wider Auckland. Read
+				what working with JJ actually looks like.
+			</p>
 			<div class="rev-head" data-anim>
 				<div class="rev-score">
 					<span class="rs-num">{STATS.googleRating.toFixed(1)}</span><span class="stars">★★★★★</span>
@@ -413,12 +437,7 @@ const description =
 				<div class="rev-meta">
 					<b>{STATS.googleReviewCount} Google reviews</b><span>Verified on Google Business Profile</span>
 				</div>
-				<a
-					class="btn btn-ghost"
-					href="https://www.google.com/maps/search/Mortgages+with+JJ+Orewa"
-					target="_blank"
-					rel="noopener"
-				>
+				<a class="btn btn-ghost" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener">
 					Read all reviews <span class="arrow">→</span>
 				</a>
 			</div>
@@ -426,26 +445,26 @@ const description =
 				<div class="rev" data-anim>
 					<div class="stars">★★★★★</div>
 					<p>
-						JJ was awesome to deal with from start to finish. Buying a home and sorting a mortgage
-						can feel overwhelming, but he made the whole process far less stressful.
+						JJ is highly recommended. He helped and guided us successfully into our new home 3
+						years ago, and continues to be up front and honest with options moving forward.
 					</p>
-					<div class="who">— Verified Google review</div>
+					<div class="who">— Hayley Campbell · Google</div>
 				</div>
 				<div class="rev" data-anim>
 					<div class="stars">★★★★★</div>
 					<p>
-						An amazing experience buying our first home in NZ — supportive, knowledgeable and
-						patient. We'd highly recommend JJ, especially to first home buyers.
+						With the assistance of JJ at Mortgage Design we managed to buy our first house without
+						any dramas. The purchase was made easy, with JJ doing all the mortgage structure.
 					</p>
-					<div class="who">— Verified Google review</div>
+					<div class="who">— Gilla Breedt · Google</div>
 				</div>
 				<div class="rev" data-anim>
 					<div class="stars">★★★★★</div>
 					<p>
-						Thanks to JJ for sorting the mortgage on our new property and making us feel at ease
-						with a daunting process. 10/10.
+						JJ is by far and away the best broker we have ever dealt with. He has been with us
+						through two properties now and multiple refixes — couldn’t recommend higher!
 					</p>
-					<div class="who">— Verified Google review</div>
+					<div class="who">— James O’Brien · Google</div>
 				</div>
 			</div>
 			<p class="rev-note">
@@ -478,16 +497,13 @@ const description =
 	<section
 		class="cta-band"
 		id="contact"
-		style="background-image:linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),var(--sky);background-size:cover;background-position:center"
+		style={`background-image:${ctaBackground};background-size:cover;background-position:center`}
 	>
 		<div class="wrap">
-			<h2>Ready to find out what's possible?</h2>
-			<p>
-				Book a no-obligation chat with JJ, or just pick up the phone. First conversation, no
-				pressure — just a clear picture of where you stand.
-			</p>
+			<h2>Ready for a no-pressure conversation?</h2>
+			<p>30 minutes. No cost. No obligation. Just a clear answer on what is possible and what to do next.</p>
 			<div class="row">
-				<a class="btn btn-gold" href={`mailto:${BUSINESS.email}`}>Book a chat <span class="arrow">→</span></a>
+				<a class="btn btn-gold" href={`mailto:${BUSINESS.email}`}>Talk to JJ <span class="arrow">→</span></a>
 				<a class="btn btn-ghost" href={`tel:${BUSINESS.phoneE164}`}>Or call {BUSINESS.phoneDisplay}</a>
 			</div>
 		</div>

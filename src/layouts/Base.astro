@@ -7,10 +7,28 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description: string;
+	showSpine?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, showSpine = true } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, SITE_URL);
+const isHome = Astro.url.pathname === '/';
+
+const navLinks = isHome
+	? [
+			{ href: '#meet', label: 'About JJ' },
+			{ href: '#services', label: 'Services' },
+			{ href: '#process', label: 'How it works' },
+			{ href: '#calc', label: 'Calculator' },
+			{ href: '#faq', label: 'FAQ' },
+		]
+	: [
+			{ href: '/about/', label: 'About JJ' },
+			{ href: '/services/', label: 'Services' },
+			{ href: '/#process', label: 'How it works' },
+			{ href: '/mortgage-calculator/', label: 'Calculator' },
+			{ href: '/#faq', label: 'FAQ' },
+		];
 ---
 
 <!doctype html>
@@ -28,22 +46,35 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE_URL);
 		<link
 			href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"
 			rel="stylesheet"
+			media="print"
+			onload="this.media='all'"
 		/>
+		<noscript>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"
+				rel="stylesheet"
+			/>
+		</noscript>
+		<slot name="head" />
 	</head>
 	<body>
-		<div class="spine" aria-hidden="true">
-			<svg viewBox="0 0 56 1000" preserveAspectRatio="none">
-				<defs
-					><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"
-						><stop offset="0" stop-color="#c9a35e"></stop><stop offset="1" stop-color="#dcba78"
-						></stop></linearGradient
-					></defs
-				>
-				<path class="track" d="M28 4 C 6 170, 50 330, 28 500 C 6 670, 50 830, 28 996"></path>
-				<path class="fill" d="M28 4 C 6 170, 50 330, 28 500 C 6 670, 50 830, 28 996"></path>
-			</svg>
-			<span class="dot"></span>
-		</div>
+		{
+			showSpine && (
+				<div class="spine" aria-hidden="true">
+					<svg viewBox="0 0 56 1000" preserveAspectRatio="none">
+						<defs>
+							<linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+								<stop offset="0" stop-color="#c9a35e" />
+								<stop offset="1" stop-color="#dcba78" />
+							</linearGradient>
+						</defs>
+						<path class="track" d="M28 4 C 6 170, 50 330, 28 500 C 6 670, 50 830, 28 996" />
+						<path class="fill" d="M28 4 C 6 170, 50 330, 28 500 C 6 670, 50 830, 28 996" />
+					</svg>
+					<span class="dot" />
+				</div>
+			)
+		}
 
 		<header class="site">
 			<div class="wrap nav">
@@ -59,11 +90,7 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE_URL);
 					 Mortgages with <b>JJ</b>
 				</div>
 				<nav class="nav-links">
-					<a href="#meet">About JJ</a>
-					<a href="#services">Services</a>
-					<a href="#process">How it works</a>
-					<a href="#calc">Calculator</a>
-					<a href="#faq">FAQ</a>
+					{navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
 				</nav>
 				<a class="nav-phone" href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a>
 			</div>
@@ -85,10 +112,10 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE_URL);
 					</div>
 					<div class="foot-col">
 						<h4>Services</h4>
-						<a href="/first-home-buyers/">First Home Buyers</a>
-						<a href="/refinance/">Refinance</a>
-						<a href="/investment-property/">Investment Property</a>
-						<a href="/new-build/">New Build</a>
+						<a href="/services/first-home/">First Home Buyers</a>
+						<a href="/services/refinance/">Refinance</a>
+						<a href="/services/investment/">Investment Property</a>
+						<a href="/services/new-build/">New Build</a>
 					</div>
 					<div class="foot-col">
 						<h4>Contact</h4>
@@ -101,9 +128,10 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE_URL);
 					<p>
 						<b>{ADVISER.name}</b> ({ADVISER.fsp}) is a <b>{ADVISER.title}</b> operating under the
 						Financial Advice Provider licence of <b>{LICENSEE.name}</b> ({LICENSEE.fsp}). A copy of
-						our disclosure statement is available on request and free of charge. The information on
-						this site is general in nature and does not take your personal circumstances into
-						account. It is not personalised financial advice.
+						our publicly available disclosure document is available on request, free of charge.
+						This website is general information only and does not constitute personalised
+						financial advice. For advice tailored to your specific circumstances, please get in
+						touch.
 					</p>
 				</div>
 				<div class="foot-bottom">

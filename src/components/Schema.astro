@@ -10,15 +10,55 @@ import {
 	VIDEO,
 } from '../consts';
 
-interface Props {
-	includeFAQ?: boolean;
-	includeVideo?: boolean;
+interface BreadcrumbEntry {
+	name: string;
+	url: string;
 }
 
-const { includeFAQ = false, includeVideo = false } = Astro.props;
+interface Props {
+	includeBusiness?: boolean;
+	includeFAQ?: boolean;
+	includeVideo?: boolean;
+	profilePage?: boolean;
+	breadcrumb?: BreadcrumbEntry[];
+}
 
-const graph: Record<string, unknown>[] = [
-	{
+const {
+	includeBusiness = true,
+	includeFAQ = false,
+	includeVideo = false,
+	profilePage = false,
+	breadcrumb,
+} = Astro.props;
+
+const licenseeId = `${SITE_URL}/#licensee`;
+const personId = `${SITE_URL}/#jj`;
+const pageUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+
+// Defined once, referenced by @id everywhere else — avoids the repeated
+// inline Organization copies that used to collide across provider/worksFor/publisher.
+const licensee = {
+	'@type': 'Organization',
+	'@id': licenseeId,
+	name: LICENSEE.name,
+	identifier: LICENSEE.fsp,
+};
+
+const person = {
+	'@type': 'Person',
+	'@id': personId,
+	name: ADVISER.name,
+	jobTitle: ADVISER.title,
+	identifier: ADVISER.fsp,
+	description: ADVISER.bioDescription,
+	worksFor: { '@id': licenseeId },
+	sameAs: SAME_AS,
+};
+
+const graph: Record<string, unknown>[] = [person, licensee];
+
+if (includeBusiness) {
+	graph.push({
 		'@type': 'FinancialService',
 		'@id': `${SITE_URL}/#business`,
 		name: BUSINESS.name,
@@ -41,24 +81,11 @@ const graph: Record<string, unknown>[] = [
 			reviewCount: String(STATS.googleReviewCount),
 			bestRating: '5',
 		},
-		provider: {
-			'@type': 'Organization',
-			name: LICENSEE.name,
-			identifier: LICENSEE.fsp,
-		},
+		provider: { '@id': licenseeId },
 		sameAs: SAME_AS,
-		employee: { '@id': `${SITE_URL}/#jj` },
-	},
-	{
-		'@type': 'Person',
-		'@id': `${SITE_URL}/#jj`,
-		name: ADVISER.name,
-		jobTitle: ADVISER.title,
-		identifier: ADVISER.fsp,
-		worksFor: { '@type': 'Organization', name: LICENSEE.name, identifier: LICENSEE.fsp },
-		sameAs: SAME_AS.filter((url) => !url.includes('facebook.com')),
-	},
-];
+		employee: { '@id': personId },
+	});
+}
 
 if (includeFAQ) {
 	graph.push({
@@ -80,8 +107,31 @@ if (includeVideo) {
 		uploadDate: '2026-07-14',
 		contentUrl: `https://youtu.be/${VIDEO.youtubeId}`,
 		embedUrl: `https://www.youtube-nocookie.com/embed/${VIDEO.youtubeId}`,
-		publisher: { '@type': 'Organization', name: LICENSEE.name, identifier: LICENSEE.fsp },
+		publisher: { '@id': licenseeId },
 	});
+}
+
+if (profilePage) {
+	const pageId = `${pageUrl}#page`;
+	const breadcrumbId = `${pageUrl}#breadcrumb`;
+	graph.push({
+		'@type': 'ProfilePage',
+		'@id': pageId,
+		mainEntity: { '@id': personId },
+		...(breadcrumb ? { breadcrumb: { '@id': breadcrumbId } } : {}),
+	});
+	if (breadcrumb) {
+		graph.push({
+			'@type': 'BreadcrumbList',
+			'@id': breadcrumbId,
+			itemListElement: breadcrumb.map((entry, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				name: entry.name,
+				item: entry.url,
+			})),
+		});
+	}
 }
 
 const jsonLd = {

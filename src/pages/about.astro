@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import Schema from '../components/Schema.astro';
+import Base from '../layouts/Base.astro';
+import jjPortrait from '../assets/images/jj-portrait.jpg';
+import { ADVISER, BUSINESS, LICENSEE, SITE_URL, WHO_I_WORK_WITH } from '../consts';
+
+const title = 'About JJ van der Westhuizen — Senior Mortgage Adviser, Orewa | Mortgages with JJ';
+const description = `Meet ${ADVISER.name} — a ${ADVISER.title} in ${BUSINESS.address.suburb} with ${ADVISER.commercialBankingYears} years in commercial banking and six years advising Kiwis. First home buyers, refinance, investment and new build across Auckland and NZ.`;
+---
+
+<Base title={title} description={description} showSpine={false}>
+	<Schema
+		includeBusiness={false}
+		profilePage
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'About JJ', url: `${SITE_URL}/about/` },
+		]}
+	/>
+
+	<section class="phero">
+		<div class="wrap">
+			<div class="crumb"><a href="/">Home</a> / About JJ</div>
+			<span class="eyebrow">About</span>
+			<h1>Hi, I am {ADVISER.name}.</h1>
+			<div class="sub">{ADVISER.title} &middot; {ADVISER.fsp} &middot; {LICENSEE.name}</div>
+		</div>
+	</section>
+
+	<section class="bio">
+		<div class="wrap">
+			<div class="about">
+				<Image
+					class="aimg"
+					alt={`${ADVISER.name}, ${ADVISER.title} based in ${BUSINESS.address.suburb}`}
+					src={jjPortrait}
+				/>
+				<div class="tag">
+					<b>{ADVISER.name}</b><span>{ADVISER.title}</span>
+				</div>
+			</div>
+			<div>
+				<div class="kicker"><span class="eyebrow">My background</span></div>
+				<h2 class="title">{ADVISER.commercialBankingYears} years inside the banks. Six years in your corner.</h2>
+				<p>
+					I am an experienced Financial Adviser with over six years operating in Auckland and
+					accreditations with more than 25 lenders (bank and non-bank) across New Zealand. My
+					passion is delivering practical, first-hand finance solutions for Kiwis — from helping
+					first home buyers take their first step onto the property ladder to showing existing
+					homeowners smarter ways to reduce repayments and interest costs.
+				</p>
+				<p>
+					I also work closely with property investors, providing tailored strategies to grow and
+					optimise their portfolios. My approach is always client-centric: every solution is
+					custom-built to meet your goals while staying sustainable long term.
+				</p>
+				<p>
+					With a post-graduate degree in Economics, two years lecturing at university, and {ADVISER.commercialBankingYears}{' '}
+					years as a commercial banker, I bring depth and a unique perspective to every engagement —
+					the bank's side of the table and yours, both seen up close.
+				</p>
+				<div style="margin-top:2em">
+					<a class="btn btn-gold" href="/contact/">Talk to JJ <span class="arrow">→</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="trust">
+		<div class="wrap">
+			<div class="row">
+				<div class="stat">
+					<div class="num">{ADVISER.commercialBankingYears}<span class="u"> yrs</span></div>
+					<span class="lab">Commercial banking</span>
+				</div>
+				<div class="stat">
+					<div class="num">{ADVISER.advisingYears}<span class="u"> yrs</span></div>
+					<span class="lab">Advising Kiwis</span>
+				</div>
+				<div class="stat">
+					<div class="num">25<span class="u">+</span></div>
+					<span class="lab">Lenders on panel</span>
+				</div>
+				<div class="stat">
+					<div class="num">5<span class="u">★</span></div>
+					<span class="lab">Google reviews</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section>
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Who I work with</span></div>
+			<h2 class="title">The situations I know inside out.</h2>
+			<div class="who-grid">
+				{
+					WHO_I_WORK_WITH.map((entry) => (
+						<div class="who">
+							<h3>{entry.title}</h3>
+							<p>{entry.description}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-band" id="contact">
+		<div class="wrap">
+			<h2>Ready for a no-pressure conversation?</h2>
+			<p>30 minutes. No cost. No obligation. Just a clear answer on what is possible and what to do next.</p>
+			<div class="row">
+				<a class="btn btn-gold" href={`mailto:${BUSINESS.email}`}>Talk to JJ <span class="arrow">→</span></a>
+				<a class="btn btn-ghost" href={`tel:${BUSINESS.phoneE164}`}>Or call {BUSINESS.phoneDisplay}</a>
+			</div>
+		</div>
+	</section>
+</Base>
