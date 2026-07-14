@@ -78,7 +78,7 @@ const navLinks = isHome
 
 		<header class="site">
 			<div class="wrap nav">
-				<div class="brand">
+				<a class="brand" href="/" aria-label="Mortgages with JJ home">
 					<Image
 						class="logo"
 						alt="Mortgages with JJ logo"
@@ -88,7 +88,7 @@ const navLinks = isHome
 						loading="eager"
 					/>
 					 Mortgages with <b>JJ</b>
-				</div>
+				</a>
 				<nav class="nav-links">
 					{navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
 				</nav>
