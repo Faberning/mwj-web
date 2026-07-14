@@ -1,0 +1,26 @@
+---
+import { BUSINESS } from '../consts';
+
+interface Props {
+	heading?: string;
+	body?: string;
+	primaryLabel?: string;
+}
+
+const {
+	heading = 'Ready for a no-pressure conversation?',
+	body = '30 minutes. No cost. No obligation. Just a clear answer on what is possible and what to do next.',
+	primaryLabel = 'Talk to JJ',
+} = Astro.props;
+---
+
+<section class="cta-band" id="contact-cta">
+	<div class="wrap">
+		<h2>{heading}</h2>
+		<p>{body}</p>
+		<div class="row">
+			<a class="btn btn-gold" href={`mailto:${BUSINESS.email}`}>{primaryLabel} <span class="arrow">→</span></a>
+			<a class="btn btn-ghost" href={`tel:${BUSINESS.phoneE164}`}>Or call {BUSINESS.phoneDisplay}</a>
+		</div>
+	</div>
+</section>

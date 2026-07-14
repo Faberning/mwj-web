@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import Schema from '../components/Schema.astro';
+import { BUSINESS, FAQ_ENTRIES, SITE_URL } from '../consts';
+
+const title = 'Contact JJ | Mortgages with JJ';
+const description =
+	'Get in touch with JJ van der Westhuizen, Senior Mortgage Adviser in Orewa — a free, no-obligation chat about your first home, refinance, investment or new build.';
+
+const contactFaq = FAQ_ENTRIES.slice(0, 4);
+---
+
+<Base title={title} description={description}>
+	<Schema
+		pageType="ContactPage"
+		pageName={title}
+		pageDescription={description}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Contact', url: `${SITE_URL}/contact/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Contact' }]}
+		eyebrow="Get In Touch"
+		title="Ready for a no-pressure conversation?"
+		lede="30 minutes. No cost. No obligation. Send a message below, or just pick up the phone."
+	/>
+
+	<section id="contact-form">
+		<div class="wrap">
+			<div class="form-grid">
+				<div class="form-card" data-anim>
+					<h3 style="font-family:var(--display);color:var(--ink);font-size:1.14rem;margin:0 0 24px">
+						Send a message
+					</h3>
+					<form id="contactForm" novalidate>
+						<div class="form-fld form-honeypot" aria-hidden="true">
+							<label for="website">Website</label>
+							<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+						</div>
+						<div class="form-row">
+							<div class="form-fld">
+								<label for="name">Name</label>
+								<input type="text" id="name" name="name" required autocomplete="name" />
+							</div>
+							<div class="form-fld">
+								<label for="email">Email</label>
+								<input type="email" id="email" name="email" required autocomplete="email" />
+							</div>
+						</div>
+						<div class="form-fld">
+							<label for="phone">Phone (optional)</label>
+							<input type="tel" id="phone" name="phone" autocomplete="tel" />
+						</div>
+						<div class="form-fld">
+							<label for="message">What's on your mind?</label>
+							<textarea id="message" name="message" required></textarea>
+						</div>
+						<label class="form-consent">
+							<input type="checkbox" name="consent" required />
+							<span>
+								I agree to be contacted about my enquiry by {BUSINESS.name}. See our <a
+									href="#"
+									style="color:var(--gold-ink);text-decoration:underline">privacy policy</a
+								>.
+							</span>
+						</label>
+						<button type="submit" class="btn btn-gold">Send message <span class="arrow">→</span></button>
+						<div id="contactFormNote" class="form-note" role="status"></div>
+					</form>
+				</div>
+				<div class="get-in-touch" data-anim>
+					<h3>Get in touch directly</h3>
+					<div class="row"><a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a></div>
+					<div class="row"><a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a></div>
+					<div class="row"><span>{BUSINESS.address.street}, {BUSINESS.address.suburb}, {BUSINESS.address.region}</span></div>
+					<div class="row"><span>Local &amp; fully remote — wherever you are in NZ</span></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<FaqBlock entries={contactFaq} eyebrow="Before you send" title="A couple of quick answers." />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/page-interactions.js"></script>
+		<script src="../scripts/contact-form.js"></script>
+	</Fragment>
+</Base>

@@ -1,0 +1,8 @@
+---
+import AreaPageBody from '../components/AreaPageBody.astro';
+import { AREAS } from '../consts';
+
+const area = AREAS.find((a) => a.slug === 'auckland-city')!;
+---
+
+<AreaPageBody area={area} />

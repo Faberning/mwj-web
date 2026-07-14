@@ -15,25 +15,57 @@ interface BreadcrumbEntry {
 	url: string;
 }
 
+interface FaqEntry {
+	question: string;
+	answer: string;
+}
+
+interface ServiceInfo {
+	name: string;
+	serviceType: string;
+	description: string;
+	areaServed?: string;
+}
+
+interface ItemListInfo {
+	name: string;
+	items: { name: string; url: string }[];
+}
+
 interface Props {
 	includeBusiness?: boolean;
 	includeFAQ?: boolean;
+	faqEntries?: readonly FaqEntry[];
 	includeVideo?: boolean;
 	profilePage?: boolean;
 	breadcrumb?: BreadcrumbEntry[];
+	service?: ServiceInfo;
+	itemList?: ItemListInfo;
+	pageType?: 'WebPage' | 'ContactPage' | 'WebApplication';
+	pageName?: string;
+	pageDescription?: string;
 }
 
 const {
 	includeBusiness = true,
 	includeFAQ = false,
+	faqEntries,
 	includeVideo = false,
 	profilePage = false,
 	breadcrumb,
+	service,
+	itemList,
+	pageType,
+	pageName,
+	pageDescription,
 } = Astro.props;
 
 const licenseeId = `${SITE_URL}/#licensee`;
 const personId = `${SITE_URL}/#jj`;
+const businessId = `${SITE_URL}/#business`;
 const pageUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const pageId = `${pageUrl}#page`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
 
 // Defined once, referenced by @id everywhere else — avoids the repeated
 // inline Organization copies that used to collide across provider/worksFor/publisher.
@@ -60,7 +92,7 @@ const graph: Record<string, unknown>[] = [person, licensee];
 if (includeBusiness) {
 	graph.push({
 		'@type': 'FinancialService',
-		'@id': `${SITE_URL}/#business`,
+		'@id': businessId,
 		name: BUSINESS.name,
 		description: `Senior Mortgage Adviser ${ADVISER.name} — first home buyers, refinance, investment and new build across ${BUSINESS.address.suburb}, the Hibiscus Coast and all of New Zealand.`,
 		areaServed: BUSINESS.areaServed,
@@ -90,7 +122,7 @@ if (includeBusiness) {
 if (includeFAQ) {
 	graph.push({
 		'@type': 'FAQPage',
-		mainEntity: FAQ_ENTRIES.map((entry) => ({
+		mainEntity: (faqEntries ?? FAQ_ENTRIES).map((entry) => ({
 			'@type': 'Question',
 			name: entry.question,
 			acceptedAnswer: { '@type': 'Answer', text: entry.answer },
@@ -111,27 +143,60 @@ if (includeVideo) {
 	});
 }
 
+if (service) {
+	graph.push({
+		'@type': 'Service',
+		name: service.name,
+		serviceType: service.serviceType,
+		description: service.description,
+		provider: { '@id': businessId },
+		...(service.areaServed ? { areaServed: service.areaServed } : {}),
+	});
+}
+
+if (itemList) {
+	graph.push({
+		'@type': 'ItemList',
+		name: itemList.name,
+		itemListElement: itemList.items.map((item, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: item.name,
+			url: item.url,
+		})),
+	});
+}
+
+if (pageType) {
+	graph.push({
+		'@type': pageType,
+		'@id': pageId,
+		name: pageName,
+		description: pageDescription,
+		...(includeBusiness ? { mainEntity: { '@id': businessId } } : {}),
+	});
+}
+
 if (profilePage) {
-	const pageId = `${pageUrl}#page`;
-	const breadcrumbId = `${pageUrl}#breadcrumb`;
 	graph.push({
 		'@type': 'ProfilePage',
 		'@id': pageId,
 		mainEntity: { '@id': personId },
 		...(breadcrumb ? { breadcrumb: { '@id': breadcrumbId } } : {}),
 	});
-	if (breadcrumb) {
-		graph.push({
-			'@type': 'BreadcrumbList',
-			'@id': breadcrumbId,
-			itemListElement: breadcrumb.map((entry, i) => ({
-				'@type': 'ListItem',
-				position: i + 1,
-				name: entry.name,
-				item: entry.url,
-			})),
-		});
-	}
+}
+
+if (breadcrumb) {
+	graph.push({
+		'@type': 'BreadcrumbList',
+		'@id': breadcrumbId,
+		itemListElement: breadcrumb.map((entry, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: entry.name,
+			item: entry.url,
+		})),
+	});
 }
 
 const jsonLd = {

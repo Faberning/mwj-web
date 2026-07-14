@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProcessRail from '../../components/ProcessRail.astro';
+import FaqBlock from '../../components/FaqBlock.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Schema from '../../components/Schema.astro';
+import { PROCESS_STEPS, SERVICES, SITE_URL } from '../../consts';
+
+export function getStaticPaths() {
+	return SERVICES.map((service) => ({
+		params: { slug: service.slug },
+		props: { service },
+	}));
+}
+
+const { service } = Astro.props;
+
+const title = `${service.name} | Mortgage Advice | Mortgages with JJ`;
+const description = `${service.lede} JJ van der Westhuizen, Senior Mortgage Adviser in Orewa.`;
+---
+
+<Base title={title} description={description}>
+	<Schema
+		service={{
+			name: service.name,
+			serviceType: service.serviceType,
+			description: service.lede,
+		}}
+		includeFAQ
+		faqEntries={service.faq}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Services', url: `${SITE_URL}/services/` },
+			{ name: service.name, url: `${SITE_URL}/services/${service.slug}/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Services', href: '/services/' }, { name: service.name }]}
+		eyebrow={service.eyebrow}
+		title={service.title}
+		lede={service.lede}
+		ctaPrimary={{ label: 'Talk to JJ', href: '/contact/' }}
+		ctaSecondary={{ label: 'Try the calculator', href: '/mortgage-calculator/' }}
+	/>
+
+	<section id="who-its-for">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Is this you?</span></div>
+			<h2 class="title">Sound familiar?</h2>
+			<ul class="bullet-list">
+				{service.whoItsFor.map((item) => <li data-anim>{item}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<section class="light" id="process">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">How I help</span></div>
+			<h2 class="title">From first chat to funded deal.</h2>
+			<ProcessRail steps={[...PROCESS_STEPS]} />
+		</div>
+	</section>
+
+	<section id="checklist">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Getting ready</span></div>
+			<h2 class="title">What you'll need.</h2>
+			<div class="checklist-grid">
+				<div class="checklist-col" data-anim>
+					<h3>{service.checklistTitle1}</h3>
+					<ul>
+						{service.checklist1.map((item) => <li>{item}</li>)}
+					</ul>
+				</div>
+				<div class="checklist-col" data-anim>
+					<h3>{service.checklistTitle2}</h3>
+					<ul>
+						{service.checklist2.map((item) => <li>{item}</li>)}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<FaqBlock entries={service.faq} eyebrow="Common questions" title={`Questions about ${service.name.toLowerCase()}.`} />
+
+	<FinalCta />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../../scripts/page-interactions.js"></script>
+	</Fragment>
+</Base>

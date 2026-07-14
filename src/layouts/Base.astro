@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
-import { ADVISER, BUSINESS, LICENSEE, SITE_URL } from '../consts';
+import { ADVISER, AREAS, BUSINESS, LICENSEE, SERVICES, SITE_URL } from '../consts';
 import '../styles/global.css';
 
 interface Props {
@@ -18,14 +18,14 @@ const navLinks = isHome
 	? [
 			{ href: '#meet', label: 'About JJ' },
 			{ href: '#services', label: 'Services' },
-			{ href: '#process', label: 'How it works' },
+			{ href: '/areas/', label: 'Areas' },
 			{ href: '#calc', label: 'Calculator' },
 			{ href: '#faq', label: 'FAQ' },
 		]
 	: [
 			{ href: '/about/', label: 'About JJ' },
 			{ href: '/services/', label: 'Services' },
-			{ href: '/#process', label: 'How it works' },
+			{ href: '/areas/', label: 'Areas' },
 			{ href: '/mortgage-calculator/', label: 'Calculator' },
 			{ href: '/#faq', label: 'FAQ' },
 		];
@@ -112,16 +112,22 @@ const navLinks = isHome
 					</div>
 					<div class="foot-col">
 						<h4>Services</h4>
-						<a href="/services/first-home/">First Home Buyers</a>
-						<a href="/services/refinance/">Refinance</a>
-						<a href="/services/investment/">Investment Property</a>
-						<a href="/services/new-build/">New Build</a>
+						{SERVICES.map((s) => <a href={`/services/${s.slug}/`}>{s.name}</a>)}
+						<a href="/services/">All services</a>
 					</div>
 					<div class="foot-col">
-						<h4>Contact</h4>
+						<h4>Areas</h4>
+						{AREAS.map((a) => <a href={`/${a.slug}/`}>{a.name}</a>)}
+						<a href="/areas/">All areas</a>
+					</div>
+					<div class="foot-col">
+						<h4>More</h4>
+						<a href="/about/">About JJ</a>
+						<a href="/contact/">Contact</a>
+						<a href="/mortgage-calculator/">Mortgage Calculator</a>
+						<a href="/first-home-buyer-guide/">First Home Buyer Guide</a>
 						<a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a>
 						<a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
-						<a href="#">{BUSINESS.address.suburb}, {BUSINESS.address.region}</a>
 					</div>
 				</div>
 				<div class="disc">

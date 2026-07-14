@@ -1,0 +1,56 @@
+---
+interface TrailEntry {
+	name: string;
+	href?: string;
+}
+
+interface CtaLink {
+	label: string;
+	href: string;
+}
+
+interface Props {
+	trail: TrailEntry[];
+	eyebrow: string;
+	title: string;
+	lede?: string;
+	ctaPrimary?: CtaLink;
+	ctaSecondary?: CtaLink;
+}
+
+const { trail, eyebrow, title, lede, ctaPrimary, ctaSecondary } = Astro.props;
+---
+
+<section class="phero">
+	<div class="wrap">
+		<div class="crumb">
+			{
+				trail.map((entry, i) => (
+					<Fragment>
+						{entry.href ? <a href={entry.href}>{entry.name}</a> : <span>{entry.name}</span>}
+						{i < trail.length - 1 && ' / '}
+					</Fragment>
+				))
+			}
+		</div>
+		<span class="eyebrow">{eyebrow}</span>
+		<h1>{title}</h1>
+		{lede && <p class="lead">{lede}</p>}
+		{
+			(ctaPrimary || ctaSecondary) && (
+				<div class="hero-cta" style="margin-top:1.6em">
+					{ctaPrimary && (
+						<a class="btn btn-gold" href={ctaPrimary.href}>
+							{ctaPrimary.label} <span class="arrow">→</span>
+						</a>
+					)}
+					{ctaSecondary && (
+						<a class="btn btn-ghost" href={ctaSecondary.href}>
+							{ctaSecondary.label}
+						</a>
+					)}
+				</div>
+			)
+		}
+	</div>
+</section>

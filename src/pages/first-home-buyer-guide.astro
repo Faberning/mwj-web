@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import Schema from '../components/Schema.astro';
+import guideCover from '../assets/images/guide-cover.jpg';
+import { FAQ_ENTRIES, FHB_GUIDE, SITE_URL } from '../consts';
+
+const title = `${FHB_GUIDE.title} | Mortgages with JJ`;
+const description =
+	'A free, practical step-by-step guide for Kiwis getting onto the property ladder — deposit, KiwiSaver, lenders and settlement, written in plain English.';
+
+const guideFaq = FAQ_ENTRIES.slice(0, 4);
+---
+
+<Base title={title} description={description}>
+	<Schema
+		pageType="WebPage"
+		pageName={title}
+		pageDescription={description}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'First Home Buyer Guide', url: `${SITE_URL}/first-home-buyer-guide/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'First Home Buyer Guide' }]}
+		eyebrow="Free Download"
+		title={FHB_GUIDE.title}
+		lede="A practical, step-by-step guide for Kiwis getting onto the property ladder — from your first KiwiSaver question to the day you collect the keys. Written in plain English, no jargon."
+	/>
+
+	<section class="light guide" id="whats-inside">
+		<div class="wrap">
+			<Image src={guideCover} alt={`${FHB_GUIDE.title}, Aotearoa New Zealand`} class="cover" />
+			<div data-anim>
+				<div class="kicker"><span class="eyebrow">What's inside</span></div>
+				<h2 class="title">Everything you need before you start looking.</h2>
+				<ul class="bullet-list">
+					{FHB_GUIDE.whatsInside.map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="light" id="guide-form">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Get your copy</span></div>
+			<h2 class="title">Download the guide, free.</h2>
+			<p class="lead">Enter your email and the guide downloads immediately — no spam, just the PDF.</p>
+			<div class="form-card" data-anim style="max-width:520px;margin-top:32px">
+				<form id="guideForm" data-pdf={FHB_GUIDE.pdfPath} novalidate>
+					<div class="form-fld form-honeypot" aria-hidden="true">
+						<label for="gwebsite">Website</label>
+						<input type="text" id="gwebsite" name="website" tabindex="-1" autocomplete="off" />
+					</div>
+					<div class="form-fld">
+						<label for="gemail">Email</label>
+						<input type="email" id="gemail" name="email" required autocomplete="email" />
+					</div>
+					<button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">
+						Get the free guide <span class="arrow">→</span>
+					</button>
+					<div id="guideFormNote" class="form-note" role="status"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<FaqBlock entries={guideFaq} eyebrow="Common questions" title="Before you download." />
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/page-interactions.js"></script>
+		<script src="../scripts/guide-form.js"></script>
+	</Fragment>
+</Base>
