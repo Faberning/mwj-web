@@ -2,6 +2,7 @@ name = "mwj-web"
 main = "worker/index.js"
 compatibility_date = "2026-07-14"
 workers_dev = true
+account_id = "d4c8bcc6bebc81d6e41b0c90ca3af7f6"
 
 [assets]
 directory = "./dist"
