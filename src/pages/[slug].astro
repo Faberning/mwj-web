@@ -15,10 +15,10 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, author } = post.data;
+const { title, seoTitle, description, pubDate, author } = post.data;
 const { Content } = await render(post);
 
-const pageTitle = `${title} | Mortgages with JJ`;
+const pageTitle = seoTitle ?? `${title} | Mortgages with JJ`;
 const postUrl = `${SITE_URL}/${post.data.slug}/`;
 const isoDate = pubDate.toISOString();
 const displayDate = pubDate.toLocaleDateString('en-NZ', { day: 'numeric', month: 'long', year: 'numeric' });

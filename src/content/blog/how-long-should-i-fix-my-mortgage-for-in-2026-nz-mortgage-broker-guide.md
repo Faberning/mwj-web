@@ -1,12 +1,13 @@
 ---
 title: "How Long Should I Fix My Mortgage For in 2026? | NZ Mortgage Adviser Guide"
-description: "How the Iran conflict, oil prices, and inflation risk are shaping refix decisions in 2026 — and how to choose a fixed term without trying to predict the market."
+seoTitle: "How Long Should I Fix My Mortgage For in 2026?"
+description: "How the Iran conflict, oil prices, and inflation risk are shaping refix decisions in 2026, and how to choose a fixed term without trying to predict the market."
 pubDate: 2026-06-06
 author: "JJ van der Westhuizen"
 slug: "how-long-should-i-fix-my-mortgage-for-in-2026-nz-mortgage-broker-guide"
 ---
 
-# How Long Should I Refix My Mortgage For? What the Iran Conflict, Oil Prices, and Inflation Could Mean for New Zealand Homeowners
+## How Long Should I Refix My Mortgage For? What the Iran Conflict, Oil Prices, and Inflation Could Mean for New Zealand Homeowners
 
 One of the most common questions I'm being asked by clients right now is: "How long should I fix my mortgage for?" Under normal circumstances, that's a difficult question to answer. In today's environment, it's even more challenging.
 

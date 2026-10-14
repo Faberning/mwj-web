@@ -1,6 +1,7 @@
 ---
 title: "Can You Use KiwiSaver and a Gifted Deposit Together for a First Home?"
-description: "Combining a KiwiSaver first-home withdrawal with a gifted deposit is one of the most common ways first home buyers put together a deposit sooner — how the two sources work together."
+seoTitle: "KiwiSaver and a Gifted Deposit Together for a First Home"
+description: "Most first home buyers can combine a KiwiSaver first-home withdrawal with a gifted deposit. How the two sources work together and what lenders check."
 pubDate: 2026-06-11
 author: "JJ van der Westhuizen"
 slug: "can-you-use-kiwisaver-and-gifted-deposit-together-first-home-2"

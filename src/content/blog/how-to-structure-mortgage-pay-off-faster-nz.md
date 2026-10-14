@@ -1,6 +1,7 @@
 ---
 title: "How do you structure a mortgage to pay it off faster in NZ?"
-description: "Split terms, offset and revolving credit facilities, increased repayments, and refix timing — the structures that actually shave years off a mortgage."
+seoTitle: "How to Structure a Mortgage to Pay It Off Faster in NZ"
+description: "Split terms, offset and revolving credit, extra repayments and refix timing: the structures that actually shave years off a mortgage."
 pubDate: 2026-07-13
 author: "JJ van der Westhuizen"
 slug: "how-to-structure-mortgage-pay-off-faster-nz"
