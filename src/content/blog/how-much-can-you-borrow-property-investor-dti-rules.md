@@ -1,6 +1,7 @@
 ---
 title: "How much can you borrow as a property investor under the new DTI rules?"
-description: "Debt to Income restrictions ration high-DTI investor lending — how rental income is assessed, what improves your position, and which levers actually move the number."
+seoTitle: "How Much Can Property Investors Borrow Under DTI Rules?"
+description: "Debt to Income rules limit high-DTI investor lending. How rental income is assessed, what improves your position, and which levers move the number."
 pubDate: 2026-05-20
 author: "JJ van der Westhuizen"
 slug: "how-much-can-you-borrow-property-investor-dti-rules"

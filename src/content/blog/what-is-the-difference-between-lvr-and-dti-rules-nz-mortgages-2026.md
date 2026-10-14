@@ -1,6 +1,7 @@
 ---
 title: "What is the difference between LVR and DTI rules for NZ mortgages in 2026"
-description: "LVR limits lending against your deposit, DTI limits lending against your income — both are active Reserve Bank rules in 2026, and understanding the difference shapes your borrowing strategy."
+seoTitle: "LVR vs DTI Rules for NZ Mortgages in 2026 | Mortgages with JJ"
+description: "LVR limits lending against your deposit and DTI limits it against your income. Both Reserve Bank rules are active in 2026; here is how they differ."
 pubDate: 2026-07-02
 author: "JJ van der Westhuizen"
 slug: "what-is-the-difference-between-lvr-and-dti-rules-nz-mortgages-2026"
