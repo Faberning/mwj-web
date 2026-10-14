@@ -337,6 +337,45 @@ export const AREAS = [
 		],
 	},
 	{
+		slug: 'whangaparaoa',
+		metaDescription: 'Mortgage adviser for the Whangaparāoa Peninsula, from Red Beach and Stanmore Bay to Gulf Harbour and Army Bay. Based in Orewa. No fee to you.',
+		name: 'Whangaparāoa',
+		eyebrow: 'Whangaparāoa Peninsula',
+		title: 'Mortgage adviser for the Whangaparāoa Peninsula.',
+		lede: 'Based just up the road in Orewa, I help first home buyers, families, refinancers and investors across the Peninsula, from Red Beach and Stanmore Bay to Gulf Harbour and Army Bay.',
+		whyLocal: 'The Peninsula has a real mix of homes: established family houses, beachside sections, and newer homes around Gulf Harbour and the marina. Lenders look at each of those a little differently, and I work with clients across all of them, in person on the Coast or remotely.',
+		faq: [
+			{
+				question: 'Is there a local mortgage adviser for Whangaparāoa?',
+				answer: 'Yes. I am JJ van der Westhuizen, a Senior Mortgage Adviser based at 14 Nukumea Common in Orewa, a short drive from the Peninsula. I can meet you locally or run the whole process remotely, whichever suits you.',
+			},
+			{
+				question: 'What is the difference between a mortgage broker and a mortgage adviser?',
+				answer: 'In New Zealand they usually describe the same job: someone who compares lenders and helps you apply for a home loan. "Mortgage adviser" is the term the law uses, because anyone giving mortgage advice must be licensed or work under a licensed Financial Advice Provider. I work under the licence of Mortgage Design Limited (FSP752291).',
+			},
+			{
+				question: 'How much does a mortgage adviser cost?',
+				answer: 'In most cases, nothing. The lender pays my commission when your loan settles, so there is no fee to you. If a deal would not be paid by the lender, I tell you upfront before any work starts.',
+			},
+			{
+				question: 'Is it cheaper to go through a mortgage adviser than my bank?',
+				answer: 'It can be, but nobody can promise you a better rate. A bank can only offer its own products, while I compare 25+ bank and non-bank lenders and structure the loan around your situation. Where it often helps most is getting the structure and the lender right the first time.',
+			},
+			{
+				question: 'What is the downside of using a mortgage adviser?',
+				answer: 'The main things to understand are how your adviser is paid and which lenders they can use. Advisers are paid commission by lenders, and not every adviser can place loans with every lender. I am required to put your interests first and to tell you how I am paid, and you can read that on my Important Information page.',
+			},
+			{
+				question: 'Can I buy a new build on the Peninsula with a smaller deposit?',
+				answer: "Possibly. New builds are treated differently under the Reserve Bank's loan-to-value ratio (LVR) rules, so some lenders will consider a smaller deposit than for an existing home. Whether that works for you depends on the build, the lender and your income, which is what we work through together.",
+			},
+			{
+				question: 'Can I use my KiwiSaver to buy my first home in Whangaparāoa?',
+				answer: 'Often, yes, if you meet the criteria. Many first home buyers combine a KiwiSaver withdrawal with their savings and gifted funds. I help you work out what counts and whether the Kāinga Ora First Home Loan could fit as well.',
+			},
+		],
+	},
+	{
 		slug: 'north-shore',
 		metaDescription: 'Mortgage advice for North Shore buyers and homeowners, from Albany to Devonport. First home, refinance, investment and new build. No fee to you.',
 		name: 'North Shore',

@@ -1,0 +1,68 @@
+---
+import AreaPageBody from '../components/AreaPageBody.astro';
+import { ADVISER, AREAS, STATS } from '../consts';
+
+const area = AREAS.find((a) => a.slug === 'whangaparaoa')!;
+
+// GEO lever (Oct 2026): guides that answer the Peninsula's follow-up questions in depth.
+const relatedGuides = [
+	{ href: '/mortgage-broker-vs-mortgage-adviser-nz/', label: 'What is the difference between a mortgage broker and a mortgage adviser in NZ?' },
+	{ href: '/how-do-mortgage-brokers-get-paid-nz-2/', label: 'How do mortgage advisers get paid, and is there a cost to you?' },
+	{ href: '/can-you-use-kiwisaver-and-gifted-deposit-together-first-home-2/', label: 'Can you use KiwiSaver and a gifted deposit together for a first home?' },
+	{ href: '/kainga-ora-first-home-loan-low-deposit-buyers-nz/', label: 'How does the Kāinga Ora First Home Loan work for low deposit buyers?' },
+	{ href: '/what-is-the-difference-between-lvr-and-dti-rules-nz-mortgages-2026/', label: 'What is the difference between LVR and DTI rules?' },
+];
+---
+
+<AreaPageBody area={area}>
+	<section class="light" id="proof">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Who you would be working with</span></div>
+			<h2 class="title">One adviser, start to settlement.</h2>
+			<ul class="related-guides">
+				<li><b>{STATS.lendersCompared}+</b> bank and non-bank lenders compared</li>
+				<li><b>{ADVISER.experienceYears} years</b> in finance: {ADVISER.commercialBankingYears} in commercial banking, {ADVISER.advisingYears} advising Kiwis on mortgages</li>
+				<li><b>{STATS.googleRating.toFixed(1)} stars</b> from {STATS.googleReviewCount} Google reviews</li>
+				<li><b>No fee</b> to you in most cases: the lender pays when your loan settles</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- VIDEO SLOT: DORMANT. Uncomment this section AND the VideoObject below; replace {{YOUTUBE_ID}}.
+	<section class="video">
+		<div class="wrap video-inner">
+			<div class="kicker"><span class="eyebrow">Watch</span></div>
+			<h2 class="title">Buying on the Whangaparāoa Peninsula: the short version.</h2>
+			<div class="video-frame">
+				<iframe src="https://www.youtube-nocookie.com/embed/{{YOUTUBE_ID}}" title="Buying on the Whangaparāoa Peninsula | Mortgages with JJ" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	-->
+
+	<!-- VIDEO SLOT: DORMANT VideoObject. Uncomment with the .video section; replace {{YOUTUBE_ID}} and {{UPLOAD_DATE}}.
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "VideoObject",
+		"name": "Buying on the Whangaparāoa Peninsula | Mortgages with JJ",
+		"description": "JJ van der Westhuizen, Senior Mortgage Adviser in Orewa, on the questions Whangaparāoa buyers ask about mortgage advice.",
+		"thumbnailUrl": "https://img.youtube.com/vi/{{YOUTUBE_ID}}/maxresdefault.jpg",
+		"uploadDate": "{{UPLOAD_DATE}}",
+		"contentUrl": "https://www.youtube.com/watch?v={{YOUTUBE_ID}}",
+		"embedUrl": "https://www.youtube-nocookie.com/embed/{{YOUTUBE_ID}}",
+		"publisher": { "@type": "Organization", "name": "Mortgages with JJ", "url": "https://mortgageswithjj.co.nz" }
+	}
+	</script>
+	-->
+
+	<section id="guides">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Read more</span></div>
+			<h2 class="title">Guides Peninsula buyers ask about.</h2>
+			<ul class="related-guides">
+				{relatedGuides.map((g) => <li><a href={g.href}>{g.label} <span class="arrow">→</span></a></li>)}
+			</ul>
+		</div>
+	</section>
+</AreaPageBody>
