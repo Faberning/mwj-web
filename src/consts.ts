@@ -373,6 +373,18 @@ export const AREAS = [
 				question: 'Can I use my KiwiSaver to buy my first home in Whangaparāoa?',
 				answer: 'Often, yes, if you meet the criteria. Many first home buyers combine a KiwiSaver withdrawal with their savings and gifted funds. I help you work out what counts and whether the Kāinga Ora First Home Loan could fit as well.',
 			},
+			{
+				question: 'Which lenders can you use, and do you work with non-bank lenders?',
+				answer: 'I compare 25+ lenders, including the main banks and a range of non-bank lenders. Non-bank lenders can suit people whose situation does not fit a bank\'s criteria, for example after a decline or with less common income. I explain why I am recommending a lender, and you always choose.',
+			},
+			{
+				question: 'Can you help if I am self-employed or on contract or casual income?',
+				answer: 'Often, yes. Lenders assess self-employed, contract and casual income differently, and some are more flexible than others about how long you have been earning it and how it is shown. I look at how your income is set up and take your application to the lenders most likely to accept it.',
+			},
+			{
+				question: 'What will a mortgage adviser ask me for?',
+				answer: 'Usually proof of ID, recent payslips or other proof of income, a few months of bank statements, details of any debts, and where your deposit is coming from. If you are self-employed, lenders also want your tax summaries or financial statements. I give you a checklist at the start so nothing is missed.',
+			},
 		],
 	},
 	{
