@@ -4,6 +4,7 @@ import {
 	BUSINESS,
 	FAQ_ENTRIES,
 	LICENSEE,
+	LICENSEE_PROFILE_URL,
 	SAME_AS,
 	SITE_URL,
 	STATS,
@@ -90,11 +91,12 @@ const person = {
 	'@type': 'Person',
 	'@id': personId,
 	name: ADVISER.name,
+	alternateName: 'J.J. van der Westhuizen',
 	jobTitle: ADVISER.title,
 	identifier: ADVISER.fsp,
 	description: ADVISER.bioDescription,
 	worksFor: { '@id': licenseeId },
-	sameAs: SAME_AS,
+	sameAs: [...SAME_AS, LICENSEE_PROFILE_URL],
 };
 
 const graph: Record<string, unknown>[] = [person, licensee];
