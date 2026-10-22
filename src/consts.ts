@@ -45,8 +45,8 @@ export const BUSINESS = {
 
 export const ADVISER = {
 	name: 'JJ van der Westhuizen',
-	// FAP compliance: always "Senior Mortgage Adviser" — never "Mortgage Broker" or "AFA".
-	title: 'Senior Mortgage Adviser',
+	// FAP compliance: always "Independent Mortgage Adviser" (per JJ, 22 Oct 2026, KAN audit) — never "Senior", "Mortgage Broker" or "AFA".
+	title: 'Independent Mortgage Adviser',
 	fsp: 'FSP1000031',
 	commercialBankingYears: 15,
 	advisingYears: 6,
@@ -54,7 +54,7 @@ export const ADVISER = {
 		return this.commercialBankingYears + this.advisingYears;
 	},
 	bioDescription:
-		'Senior Mortgage Adviser in Orewa with 15 years in commercial banking and six years advising Kiwis on mortgages; accredited with 25+ bank and non-bank lenders across New Zealand.',
+		'Independent Mortgage Adviser in Orewa with 15 years in commercial banking and six years advising Kiwis on mortgages; accredited with 25+ bank and non-bank lenders across New Zealand.',
 };
 
 export const LICENSEE = {
@@ -83,7 +83,7 @@ export const VIDEO = {
 	youtubeId: 'BQYhx7n1gPk',
 	title: 'Buying Your First Home in NZ | First Home Buyers | Mortgages with JJ',
 	description:
-		'Senior Mortgage Adviser JJ van der Westhuizen explains how first home buyers in Auckland and across New Zealand get onto the property ladder — deposit, KiwiSaver, lenders and the steps between.',
+		'Independent Mortgage Adviser JJ van der Westhuizen explains how first home buyers in Auckland and across New Zealand get onto the property ladder — deposit, KiwiSaver, lenders and the steps between.',
 };
 
 // Single canonical set — rendered as both the on-page FAQ accordion and the
@@ -186,7 +186,7 @@ export const SERVICES = [
 	},
 	{
 		slug: 'refinance',
-		metaDescription: 'Coming off a fixed term? Rate reviews, restructures, cashback and break-fee maths from a Senior Mortgage Adviser in Orewa. No fee to you.',
+		metaDescription: 'Coming off a fixed term? Rate reviews, restructures, cashback and break-fee maths from an Independent Mortgage Adviser in Orewa. No fee to you.',
 		name: 'Refinance',
 		serviceType: 'Mortgage refinance advice',
 		eyebrow: 'Refinance',
@@ -270,7 +270,7 @@ export const SERVICES = [
 	},
 	{
 		slug: 'new-build',
-		metaDescription: 'New build and off-the-plans finance: staged drawdowns, deposit options and lenders that suit your build, from a Senior Mortgage Adviser in Orewa.',
+		metaDescription: 'New build and off-the-plans finance: staged drawdowns, deposit options and lenders that suit your build, from an Independent Mortgage Adviser in Orewa.',
 		name: 'New Build',
 		serviceType: 'New build mortgage advice',
 		eyebrow: 'New Build',
@@ -315,7 +315,7 @@ export const SERVICES = [
 export const AREAS = [
 	{
 		slug: 'hibiscus-coast',
-		metaDescription: 'Senior Mortgage Adviser based in Orewa, helping first home buyers, refinancers and investors across Orewa, Whangaparāoa and Silverdale. No fee to you.',
+		metaDescription: 'Independent Mortgage Adviser based in Orewa, helping first home buyers, refinancers and investors across Orewa, Whangaparāoa and Silverdale. No fee to you.',
 		name: 'Hibiscus Coast',
 		eyebrow: 'Hibiscus Coast',
 		title: 'Your local mortgage adviser on the Hibiscus Coast.',
