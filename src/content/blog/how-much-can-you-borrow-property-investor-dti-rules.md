@@ -9,7 +9,7 @@ slug: "how-much-can-you-borrow-property-investor-dti-rules"
 
 Property investors now face Debt to Income (DTI) restrictions that limit how much banks can lend relative to your total household income. The Reserve Bank sets caps on how many high-DTI loans each bank can write, and within those caps, every lender applies different policies depending on their risk appetite, your deposit, your rental income treatment, and whether you are a new or existing customer. What you can borrow is not a fixed multiple anymore — it is a negotiation between your income structure, your equity position, and which lender is currently most open to investor lending.
 
-I am JJ van der Westhuizen, a Senior Mortgage Adviser based on Auckland's Hibiscus Coast, and I work with property investors across Auckland navigating exactly this question. The DTI framework has fundamentally changed how investors scale portfolios, and understanding the mechanics is the difference between a declined application and a structured growth plan.
+I am JJ van der Westhuizen, an Independent Mortgage Adviser based on Auckland's Hibiscus Coast, and I work with property investors across Auckland navigating exactly this question. The DTI framework has fundamentally changed how investors scale portfolios, and understanding the mechanics is the difference between a declined application and a structured growth plan.
 
 ## What are DTI restrictions and how do they work for investors?
 
@@ -124,4 +124,4 @@ Reserve Bank macroprudential settings are reviewed periodically, and individual 
 
 Bank policies, DTI thresholds, lender appetite, and rental income assessment methods all shift over time. If you are a property investor working through your next purchase or refinancing your portfolio and want a current read on what is possible, get in touch. I work with investors across Auckland and the Hibiscus Coast to structure lending that fits both your goals and the current rules.
 
-JJ van der Westhuizen (FSP1000031) is a Senior Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.

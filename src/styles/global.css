@@ -422,7 +422,7 @@ header.site {
 }
 .trust .row {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 }
 .stat {
 	padding: 34px 18px;
@@ -475,9 +475,6 @@ header.site {
 	}
 	.stat:nth-child(-n + 2) {
 		border-top: none;
-	}
-	.stat:nth-child(5) {
-		grid-column: 1/-1;
 	}
 }
 

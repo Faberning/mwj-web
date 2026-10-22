@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base title="Complaints Procedure | Mortgages with JJ" description="How to raise a complaint about advice or service from JJ van der Westhuizen under Mortgage Design Limited (FSP752291), including Financial Services Complaints Limited (FSCL).">
+	<Fragment slot="head">
+		<meta name="robots" content="noindex,follow" />
+	</Fragment>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Complaints' }]}
+		eyebrow="Important information"
+		title="Complaints Procedure"
+	/>
+
+	<section class="light" id="legal">
+		<div class="wrap">
+			<article class="post-body">
+          <!-- Copied verbatim from Mortgage Design's complaints page (mortgagedesign.co.nz/complaints/, modified 2026-03-31) at JJ's request. Do not edit the wording. -->
+          <h2>Have a Complaint? We're Here to Help</h2>
+          <p>At MortgageDesign, we aim to provide you with the highest level of service and support. However, if you are dissatisfied for any reason, we want to know as soon as possible. Our complaints process is designed to make it simple, clear, and fair, ensuring your concerns are heard and addressed properly.</p>
+
+          <h3>Step 1 – Let's Understand Your Concern</h3>
+          <p>The first step is to share your complaint with your adviser so they can fully understand your situation. This helps us address the matter directly and learn from any mistakes. You can also formally lodge your complaint by clicking the button at the bottom of this page. Once submitted, our team will acknowledge it and aim to contact you within 48 hours to discuss your concerns.</p>
+
+          <h3>Step 2 – Review and Response</h3>
+          <p>After receiving your complaint, we carefully review the details to determine the best way to resolve it. We will keep you informed throughout the process and aim to provide a resolution within 5 working days. Our goal is to ensure the matter is handled promptly, fairly, and without unnecessary stress for you.</p>
+
+          <h3>Step 3 – Independent Dispute Resolution</h3>
+          <p>If your complaint cannot be resolved through Step 2, you are encouraged to refer your matter to Financial Services Complaints Limited (FSCL). FSCL is an independent and free dispute resolution service that reviews complaints professionally and impartially.</p>
+          <p>For more information about the FSCL scheme, visit <a href="https://www.fscl.org.nz" target="_blank" rel="noopener">www.fscl.org.nz</a> or call <a href="tel:0800347257">0800 347 257</a>. Please note that this process may take a few weeks, as an independent adjudicator oversees the procedure to ensure fairness and thoroughness.</p>
+
+          <p>At MortgageDesign, your feedback matters. We are committed to listening, resolving concerns, and improving our service every step of the way.</p>
+
+          <p class="mwj-complaint-cta"><a class="btn btn-gold" href="https://mortgagedesign.co.nz/complaints/" target="_blank" rel="noopener">Lodge a complaint</a></p>
+			</article>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.mwj-complaint-cta { margin-top: 2em; }
+	.mwj-complaint-cta a.btn { color: var(--ink); text-decoration: none; }
+</style>
