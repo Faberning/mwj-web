@@ -10,7 +10,7 @@ A fixed and floating split means dividing your home loan into two or more portio
 
 Whether a split suits you in 2026 depends on your financial goals, how much flexibility you need, and where you think interest rates are heading. There is no universal better answer — it comes down to your situation and your tolerance for rate movement.
 
-I am JJ van der Westhuizen, a Senior Mortgage Adviser based on Auckland's Hibiscus Coast, and I see clients in Orewa, Whangaparaoa, Silverdale, and across the wider Auckland region work through this question regularly. Let me walk you through how splits work, why people use them, and how to think about your own structure in the current environment.
+I am JJ van der Westhuizen, an Independent Mortgage Adviser based on Auckland's Hibiscus Coast, and I see clients in Orewa, Whangaparaoa, Silverdale, and across the wider Auckland region work through this question regularly. Let me walk you through how splits work, why people use them, and how to think about your own structure in the current environment.
 
 ## How does a fixed and floating split work?
 
@@ -116,4 +116,4 @@ If you refinance, you will need to break any fixed portions that have not yet ex
 
 Bank policies, rate environments, and your own financial situation all shift over time. If you are working through your mortgage structure on the Hibiscus Coast or anywhere in Auckland and want a current read on what makes sense for your situation, get in touch.
 
-JJ van der Westhuizen (FSP1000031) is a Senior Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.

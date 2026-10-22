@@ -8,7 +8,7 @@ slug: "kainga-ora-first-home-loan-low-deposit-buyers-nz"
 
 The Kainga Ora First Home Loan is a government-backed scheme that lets eligible first home buyers purchase a property with a much smaller deposit than most banks would otherwise require. It's designed for low-to-moderate income earners who have some savings but not enough for a standard deposit, and it's available nationwide including across Auckland and the Hibiscus Coast.
 
-I'm JJ van der Westhuizen, a Senior Mortgage Adviser based in Orewa, and I work with first home buyers navigating this scheme regularly. It's one of the most misunderstood pathways into home ownership, so let's break down how it actually works, who it suits, and what you need to know before you apply.
+I'm JJ van der Westhuizen, an Independent Mortgage Adviser based in Orewa, and I work with first home buyers navigating this scheme regularly. It's one of the most misunderstood pathways into home ownership, so let's break down how it actually works, who it suits, and what you need to know before you apply.
 
 ## What is the Kainga Ora First Home Loan and how is it different from a normal mortgage?
 
@@ -124,4 +124,4 @@ Yes, you can refinance, but if you do so within the first few years, you may nee
 
 Bank policies, government caps, and lender appetite all shift. If you're working through this on the Hibiscus Coast or anywhere in Auckland and want a current read on your situation, get in touch.
 
-JJ van der Westhuizen (FSP1000031) is a Senior Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
