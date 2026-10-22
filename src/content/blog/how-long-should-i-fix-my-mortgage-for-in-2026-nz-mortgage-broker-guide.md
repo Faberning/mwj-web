@@ -13,7 +13,7 @@ One of the most common questions I'm being asked by clients right now is: "How l
 
 Over the past few months, we've seen increasing uncertainty driven by the conflict involving Iran, rising oil prices, inflation concerns, and changing expectations around future interest rates. As homeowners and borrowers, it's natural to wonder whether now is the time to lock in a longer-term fixed rate or remain on shorter-term lending.
 
-As a Senior Mortgage Adviser, I don't have a crystal ball. Nobody does. However, understanding how these global events affect interest rates can help you make a more informed decision.
+As an Independent Mortgage Adviser, I don't have a crystal ball. Nobody does. However, understanding how these global events affect interest rates can help you make a more informed decision.
 
 ## Why Does the Iran Conflict Matter to New Zealand Mortgage Rates?
 
@@ -81,7 +81,7 @@ This strategy can reduce the risk of getting the timing wrong while maintaining 
 
 The truth is that there is no universal answer. Some borrowers are fixing shorter because they believe inflation will settle and rates could fall further. Others are locking in longer terms because they see increasing geopolitical risks, rising energy costs, and the possibility that current rates may look attractive in hindsight. Both approaches can be valid depending on your circumstances. The mistake is assuming that there is a guaranteed outcome. There isn't.
 
-## My Advice as a Senior Mortgage Adviser
+## My Advice as an Independent Mortgage Adviser
 
 When clients ask me how long they should fix their mortgage for, I encourage them to focus on three things:
 
@@ -102,4 +102,4 @@ For homeowners approaching a refix date, this isn't necessarily a reason to pani
 
 If your mortgage is due for review in the next six months and you'd like to discuss the options available, feel free to reach out. Together, we can build a lending strategy that aligns with your goals, your cashflow, and the realities of today's changing market.
 
-JJ van der Westhuizen (FSP1000031) is a Senior Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.

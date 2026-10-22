@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 
-<Base title="Important Information | Mortgages with JJ" description="Disclosure for JJ van der Westhuizen, Senior Mortgage Adviser under Mortgage Design Limited (FSP752291): services, fees, commissions, conflicts and complaints.">
+<Base title="Important Information | Mortgages with JJ" description="Disclosure for JJ van der Westhuizen, Independent Mortgage Adviser under Mortgage Design Limited (FSP752291): services, fees, commissions, conflicts and complaints.">
 	<Fragment slot="head">
 		<meta name="robots" content="noindex,follow" />
 	</Fragment>
@@ -18,22 +18,9 @@ import PageHero from '../components/PageHero.astro';
 	<section class="light" id="legal">
 		<div class="wrap">
 			<article class="post-body">
-    <h2>Who I am</h2>
+    <h2>Important Information about JJ and MortgageDesign</h2>
 
-          <div class="mwj-info-identity">
-            <div class="mwj-info-identity-card">
-              <p class="label">The adviser</p>
-              <p class="name">JJ van der Westhuizen</p>
-              <p class="meta">Senior Mortgage Adviser<br>FSP1000031</p>
-            </div>
-            <div class="mwj-info-identity-card">
-              <p class="label">The licensed FAP</p>
-              <p class="name">Mortgage Design Limited</p>
-              <p class="meta">Licensed Financial Advice Provider<br>FSP752291</p>
-            </div>
-          </div>
-
-          <p>I provide financial advice as an authorised body under <strong>Mortgage Design Limited</strong> (FSP752291), a Licensed Financial Advice Provider authorised by the Financial Markets Authority (FMA) under the Financial Markets Conduct Act.</p>
+          <p>JJ is an independent mortgage adviser operating under the license of MortgageDesign. At MortgageDesign, we are here to provide transparent and reliable financial advice. Mortgage Design Limited is a Licensed Financial Advice Provider authorised by the Financial Markets Authority (FMA) to provide financial advice services. Mortgage Design Limited (FSP752291) holds a Financial Advice Provider (FAP) licence issued by the FMA.</p>
 
           <h3>Office contact details</h3>
           <p>
@@ -184,39 +171,6 @@ import PageHero from '../components/PageHero.astro';
 
 <style>
 
-	.mwj-info-identity {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 16px;
-		margin: 1.4em 0 1.8em;
-	}
-	.mwj-info-identity-card {
-		border: 1px solid var(--paper-line);
-		border-radius: var(--r);
-		padding: 20px 22px;
-		background: #fff;
-	}
-	.mwj-info-identity-card .label {
-		font-family: var(--data);
-		font-size: 0.72rem;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--gold-ink);
-		margin: 0 0 8px;
-	}
-	.mwj-info-identity-card .name {
-		font-family: var(--display);
-		font-size: 1.15rem;
-		font-weight: 600;
-		color: var(--ink);
-		margin: 0 0 6px;
-	}
-	.mwj-info-identity-card .meta {
-		font-size: 0.92rem;
-		color: var(--on-light-mut);
-		margin: 0;
-		line-height: 1.5;
-	}
 	.mwj-info-lenders {
 		display: flex;
 		flex-wrap: wrap;
@@ -240,7 +194,4 @@ import PageHero from '../components/PageHero.astro';
 		margin: 1.6em 0;
 	}
 	.mwj-info-callout p { margin: 0.35em 0; }
-	@media (max-width: 640px) {
-		.mwj-info-identity { grid-template-columns: 1fr; }
-	}
 </style>
