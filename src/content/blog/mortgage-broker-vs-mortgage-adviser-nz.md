@@ -27,7 +27,7 @@ New Zealand's financial advice regime changed in March 2021. Under the updated F
 
 That change retired some older titles and brought mortgage advice under the same framework as other financial advice. A person giving that advice is a financial adviser in the eyes of the law, and the Code of Professional Conduct for Financial Advice Services applies to them.
 
-In my case, I am a Senior Mortgage Adviser and I give advice under the FAP licence of Mortgage Design Limited (FSP752291). My own registration is FSP1000031. You can look up any adviser's registration on the Financial Service Providers Register, and I would encourage you to do that with anyone you are thinking of working with.
+In my case, I am an Independent Mortgage Adviser and I give advice under the FAP licence of Mortgage Design Limited (FSP752291). My own registration is FSP1000031. You can look up any adviser's registration on the Financial Service Providers Register, and I would encourage you to do that with anyone you are thinking of working with.
 
 ### What does that licence actually require?
 
@@ -114,4 +114,4 @@ A mortgage adviser is a type of financial adviser. Under New Zealand law, advice
 
 If you are working through this and want a no-cost conversation about your own situation, get in touch. I am based in Orewa and work with clients across the Hibiscus Coast, Auckland and New Zealand.
 
-JJ van der Westhuizen (FSP1000031) is a Senior Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice.
+JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice.

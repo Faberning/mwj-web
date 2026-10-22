@@ -347,7 +347,7 @@ export const AREAS = [
 		faq: [
 			{
 				question: 'Is there a local mortgage adviser for Whangaparāoa?',
-				answer: 'Yes. I am JJ van der Westhuizen, a Senior Mortgage Adviser based at 14 Nukumea Common in Orewa, a short drive from the Peninsula. I can meet you locally or run the whole process remotely, whichever suits you.',
+				answer: 'Yes. I am JJ van der Westhuizen, an Independent Mortgage Adviser based at 14 Nukumea Common in Orewa, a short drive from the Peninsula. I can meet you locally or run the whole process remotely, whichever suits you.',
 			},
 			{
 				question: 'What is the difference between a mortgage broker and a mortgage adviser?',
