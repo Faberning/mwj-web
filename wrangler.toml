@@ -1,7 +1,10 @@
 name = "mwj-web"
 main = "worker/index.js"
 compatibility_date = "2026-07-14"
-workers_dev = true
+# Production is served only on mortgageswithjj.co.nz. The *.workers.dev copy
+# was a duplicate of the whole site under a second address.
+workers_dev = false
+preview_urls = false
 account_id = "d4c8bcc6bebc81d6e41b0c90ca3af7f6"
 
 [assets]

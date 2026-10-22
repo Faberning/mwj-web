@@ -10,7 +10,7 @@ import { ADVISER, AREAS, BUSINESS, FAQ_ENTRIES, GOOGLE_REVIEWS_URL, STATS, VIDEO
 
 const title = 'Mortgages with JJ — First Home Buyers, Orewa & NZ-wide';
 const description =
-	'JJ van der Westhuizen is an Independent Mortgage Adviser in Orewa. First home buyers, refinance, investment and new build across the Hibiscus Coast and all of New Zealand. 25+ lenders compared, no fee to you.';
+	'JJ van der Westhuizen, Independent Mortgage Adviser in Orewa. First home, refinance, investment and new build across the Hibiscus Coast and NZ. No fee to you.';
 
 // Used as a full-bleed CSS background (hero + CTA band), so it goes through
 // getImage() directly rather than <Image /> — optimized once, reused twice.
@@ -67,21 +67,15 @@ const ctaBackground = `linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),ur
 			<div class="row">
 				<div class="stat">
 					<div class="num" data-count={STATS.lendersCompared}>
-						<span class="v">0</span><span class="u">+</span>
+						<span class="v">{STATS.lendersCompared}</span><span class="u">+</span>
 					</div>
 					<span class="lab">Lenders on panel</span>
 				</div>
 				<div class="stat">
 					<div class="num" data-count={ADVISER.experienceYears}>
-						<span class="v">0</span><span class="u"> yrs</span>
+						<span class="v">{ADVISER.experienceYears}</span><span class="u"> yrs</span>
 					</div>
 					<span class="lab">Finance experience</span>
-				</div>
-				<div class="stat">
-					<div class="num" data-count={STATS.settledVolume2025}>
-						<span class="u">$</span><span class="v">0</span><span class="u">M+</span>
-					</div>
-					<span class="lab">Settled in 2025</span>
 				</div>
 				<div class="stat">
 					<div class="num"><span class="u">$</span>{STATS.feeToClient}</div>
@@ -496,10 +490,6 @@ const ctaBackground = `linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),ur
 					<div class="who">— James O’Brien · Google</div>
 				</div>
 			</div>
-			<p class="rev-note">
-				Live site: this becomes the Trustindex Google reviews slider (Slider IV / Soft), pulling all
-				reviews from the Google Business Profile automatically — no manual updates.
-			</p>
 		</div>
 	</section>
 
