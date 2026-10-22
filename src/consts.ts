@@ -72,6 +72,10 @@ export const STATS = {
 	settledVolume2025Label: '$26M+',
 };
 
+// JJ's adviser profile on the licensee's site. Google AI Mode cites it for "mortgages with jj",
+// so linking it from the Person node helps keep JJ apart from other brokers called JJ.
+export const LICENSEE_PROFILE_URL = 'https://mortgagedesign.co.nz/j-j-van-der-westhuizen/';
+
 export const SAME_AS = [
 	'https://www.linkedin.com/in/jwest1977/',
 	'https://www.youtube.com/channel/UClIagO25SaM_mjQV7NdlBKQ',
