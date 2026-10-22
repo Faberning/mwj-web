@@ -10,7 +10,7 @@ Paying off your mortgage faster in New Zealand comes down to structure, not just
 
 I see this question all the time from clients on the Hibiscus Coast and across Auckland, especially first home buyers in Orewa, Whangaparaoa, and Silverdale who want to build equity fast and reduce interest costs over the life of the loan.
 
-JJ van der Westhuizen, Senior Mortgage Adviser, here. Let me walk you through the main strategies and how they actually work in practice.
+JJ van der Westhuizen, Independent Mortgage Adviser, here. Let me walk you through the main strategies and how they actually work in practice.
 
 ## Why does mortgage structure matter for paying it off faster?
 
@@ -165,4 +165,4 @@ If you pay your revolving credit portion down to zero, you have effectively paid
 
 Bank policies, government caps, and lender appetite all shift. If you are working through this on the Hibiscus Coast or anywhere in Auckland and want a current read on your situation, get in touch.
 
-JJ van der Westhuizen (FSP1000031) is a Senior Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.

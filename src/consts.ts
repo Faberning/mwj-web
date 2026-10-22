@@ -45,8 +45,8 @@ export const BUSINESS = {
 
 export const ADVISER = {
 	name: 'JJ van der Westhuizen',
-	// FAP compliance: always "Senior Mortgage Adviser" — never "Mortgage Broker" or "AFA".
-	title: 'Senior Mortgage Adviser',
+	// FAP compliance: always "Independent Mortgage Adviser" (per JJ, 22 Oct 2026, KAN audit) — never "Senior", "Mortgage Broker" or "AFA".
+	title: 'Independent Mortgage Adviser',
 	fsp: 'FSP1000031',
 	commercialBankingYears: 15,
 	advisingYears: 6,
@@ -54,7 +54,7 @@ export const ADVISER = {
 		return this.commercialBankingYears + this.advisingYears;
 	},
 	bioDescription:
-		'Senior Mortgage Adviser in Orewa with 15 years in commercial banking and six years advising Kiwis on mortgages; accredited with 25+ bank and non-bank lenders across New Zealand.',
+		'Independent Mortgage Adviser in Orewa with 15 years in commercial banking and six years advising Kiwis on mortgages; accredited with 25+ bank and non-bank lenders across New Zealand.',
 };
 
 export const LICENSEE = {
@@ -83,7 +83,7 @@ export const VIDEO = {
 	youtubeId: 'BQYhx7n1gPk',
 	title: 'Buying Your First Home in NZ | First Home Buyers | Mortgages with JJ',
 	description:
-		'Senior Mortgage Adviser JJ van der Westhuizen explains how first home buyers in Auckland and across New Zealand get onto the property ladder — deposit, KiwiSaver, lenders and the steps between.',
+		'Independent Mortgage Adviser JJ van der Westhuizen explains how first home buyers in Auckland and across New Zealand get onto the property ladder — deposit, KiwiSaver, lenders and the steps between.',
 };
 
 // Single canonical set — rendered as both the on-page FAQ accordion and the
