@@ -1,6 +1,7 @@
 ---
 title: "How does the Kainga Ora First Home Loan work for low deposit buyers in NZ?"
-description: "A government-backed guarantee scheme that lets eligible first home buyers purchase with a much smaller deposit than standard bank lending — eligibility, process, and trade-offs."
+seoTitle: "Kāinga Ora First Home Loan for Low Deposit Buyers in NZ"
+description: "A government-backed scheme that lets eligible first home buyers purchase with a smaller deposit than standard bank lending. Eligibility, process, trade-offs."
 pubDate: 2026-06-22
 author: "JJ van der Westhuizen"
 slug: "kainga-ora-first-home-loan-low-deposit-buyers-nz"
@@ -24,7 +25,7 @@ The loan itself works like any other mortgage. You make regular repayments, you 
 
 ## Who is eligible for the Kainga Ora First Home Loan?
 
-Eligibility comes down to two main criteria: your income, the property and your deposit.
+Eligibility comes down to three main things: your income, your deposit, and your residency and how you will use the home.
 
 There are income caps that differ depending on whether you're buying solo, buying with a partner or flatmate, or buying as a single person with dependants. These caps are set nationally and reviewed periodically by Kainga Ora. They're designed to target low-to-moderate income earners, not high earners who could save a larger deposit on their own.
 

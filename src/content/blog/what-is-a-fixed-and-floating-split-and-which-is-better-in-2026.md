@@ -1,6 +1,7 @@
 ---
 title: "What is a fixed and floating split and which is better in 2026?"
-description: "Dividing a home loan into fixed and floating portions balances rate certainty against flexibility — here's how splits work and how to think about your own structure."
+seoTitle: "Fixed and Floating Split: Which Is Better in 2026?"
+description: "Splitting a home loan into fixed and floating portions balances rate certainty against flexibility. How splits work and how to think about your structure."
 pubDate: 2026-07-09
 author: "JJ van der Westhuizen"
 slug: "what-is-a-fixed-and-floating-split-and-which-is-better-in-2026"

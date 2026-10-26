@@ -1,5 +1,6 @@
 ---
 title: "What happens if your bank declines your mortgage application in NZ"
+seoTitle: "What Happens If Your Bank Declines Your Mortgage?"
 description: "A decline from one bank doesn't mean every lender will say no. How to read the decline, what to do next, and when a non-bank lender is worth considering."
 pubDate: 2026-06-08
 author: "JJ van der Westhuizen"

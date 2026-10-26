@@ -66,7 +66,7 @@ export const LICENSEE = {
 export const STATS = {
 	lendersCompared: 25,
 	googleRating: 5.0,
-	googleReviewCount: 42,
+	googleReviewCount: 46,
 	feeToClient: 0,
 	settledVolume2025: 26,
 	settledVolume2025Label: '$26M+',
@@ -144,6 +144,7 @@ export const FAQ_ENTRIES = [
 export const SERVICES = [
 	{
 		slug: 'first-home',
+		metaDescription: 'First home buyer mortgage advice in Orewa and NZ-wide: deposit, KiwiSaver, the Kāinga Ora First Home Loan, pre-approval and settlement.',
 		name: 'First Home Buyers',
 		serviceType: 'First home buyer mortgage advice',
 		eyebrow: 'First Home Buyers',
@@ -185,6 +186,7 @@ export const SERVICES = [
 	},
 	{
 		slug: 'refinance',
+		metaDescription: 'Coming off a fixed term? Rate reviews, restructures, cashback and break-fee maths from an Independent Mortgage Adviser in Orewa. No fee to you.',
 		name: 'Refinance',
 		serviceType: 'Mortgage refinance advice',
 		eyebrow: 'Refinance',
@@ -226,6 +228,7 @@ export const SERVICES = [
 	},
 	{
 		slug: 'investment',
+		metaDescription: 'Investment property mortgage advice: DTI rules, equity release, portfolio structure and lender appetite for investors. No fee to you.',
 		name: 'Investment Property',
 		serviceType: 'Investment property mortgage advice',
 		eyebrow: 'Investment Property',
@@ -267,6 +270,7 @@ export const SERVICES = [
 	},
 	{
 		slug: 'new-build',
+		metaDescription: 'New build and off-the-plans finance: staged drawdowns, deposit options and lenders that suit your build, from an Independent Mortgage Adviser in Orewa.',
 		name: 'New Build',
 		serviceType: 'New build mortgage advice',
 		eyebrow: 'New Build',
@@ -311,6 +315,7 @@ export const SERVICES = [
 export const AREAS = [
 	{
 		slug: 'hibiscus-coast',
+		metaDescription: 'Independent Mortgage Adviser based in Orewa, helping first home buyers, refinancers and investors across Orewa, Whangaparāoa and Silverdale. No fee to you.',
 		name: 'Hibiscus Coast',
 		eyebrow: 'Hibiscus Coast',
 		title: 'Your local mortgage adviser on the Hibiscus Coast.',
@@ -333,6 +338,7 @@ export const AREAS = [
 	},
 	{
 		slug: 'north-shore',
+		metaDescription: 'Mortgage advice for North Shore buyers and homeowners, from Albany to Devonport. First home, refinance, investment and new build. No fee to you.',
 		name: 'North Shore',
 		eyebrow: 'North Shore',
 		title: 'Mortgage advice for North Shore buyers and homeowners.',
@@ -355,6 +361,7 @@ export const AREAS = [
 	},
 	{
 		slug: 'rodney',
+		metaDescription: 'Mortgage advice across Warkworth, Wellsford, Helensville and the wider Rodney district, including lifestyle blocks and new subdivisions.',
 		name: 'Rodney',
 		eyebrow: 'Rodney',
 		title: 'Local mortgage advice across the Rodney district.',
@@ -377,6 +384,7 @@ export const AREAS = [
 	},
 	{
 		slug: 'west-coast',
+		metaDescription: 'Mortgage advice for West Auckland, from Henderson and New Lynn to Titirangi and Te Atatū. First home, refinance, investment and new build.',
 		name: 'West Auckland',
 		eyebrow: 'West Auckland',
 		title: 'Mortgage advice for West Auckland buyers and homeowners.',
@@ -399,6 +407,7 @@ export const AREAS = [
 	},
 	{
 		slug: 'auckland-city',
+		metaDescription: 'Mortgage advice for Auckland Central, from the CBD to Ponsonby and Mount Eden, including apartments and character homes. No fee to you.',
 		name: 'Auckland Central',
 		eyebrow: 'Auckland Central',
 		title: 'Mortgage advice for Auckland Central buyers and homeowners.',

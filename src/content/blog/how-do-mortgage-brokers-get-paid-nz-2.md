@@ -1,6 +1,7 @@
 ---
 title: "How Do Mortgage Advisers Get Paid and Is There a Cost to the Borrower in NZ?"
-description: "Mortgage advisers in New Zealand are typically paid by the lender, not the borrower — how commission works, whether it affects your rate, and what to ask upfront."
+seoTitle: "How Do Mortgage Advisers Get Paid in NZ? | Mortgages with JJ"
+description: "Mortgage advisers in NZ are usually paid by the lender, not you. How commission works, whether it affects your rate, and what to ask upfront."
 pubDate: 2026-06-25
 author: "JJ van der Westhuizen"
 slug: "how-do-mortgage-brokers-get-paid-nz-2"

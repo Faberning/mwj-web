@@ -1,6 +1,7 @@
 ---
 title: "When Should You Refinance Your NZ Mortgage and How Do Break Fees Work?"
-description: "Refinancing makes sense when savings and structural improvements outweigh the cost of breaking your fixed term — how break fees are calculated and when the numbers stack up."
+seoTitle: "When to Refinance Your NZ Mortgage and How Break Fees Work"
+description: "Refinancing makes sense when the savings outweigh the cost of breaking your fixed term. How break fees are calculated and when the numbers stack up."
 pubDate: 2026-06-04
 author: "JJ van der Westhuizen"
 slug: "when-should-you-refinance-nz-mortgage-break-fees"

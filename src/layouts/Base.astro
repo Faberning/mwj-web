@@ -1,7 +1,8 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import logo from '../assets/images/logo.png';
-import { ADVISER, AREAS, BUSINESS, LICENSEE, SERVICES, SITE_URL } from '../consts';
+import shareImageSrc from '../assets/images/video-poster.jpg';
+import { ADVISER, AREAS, BUSINESS, LICENSEE, SERVICES, SITE_NAME, SITE_URL } from '../consts';
 import '../styles/global.css';
 
 interface Props {
@@ -13,6 +14,9 @@ interface Props {
 const { title, description, showSpine = true } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, SITE_URL);
 const isHome = Astro.url.pathname === '/';
+// Link-preview card for LinkedIn, Facebook and GBP shares.
+const shareImage = await getImage({ src: shareImageSrc, format: 'jpg', width: 1200 });
+const shareImageUrl = new URL(shareImage.src, SITE_URL);
 
 const navLinks = isHome
 	? [
@@ -40,6 +44,14 @@ const navLinks = isHome
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonicalUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:locale" content="en_NZ" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={shareImageUrl} />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
