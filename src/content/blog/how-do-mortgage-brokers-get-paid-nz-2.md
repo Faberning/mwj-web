@@ -7,7 +7,7 @@ author: "JJ van der Westhuizen"
 slug: "how-do-mortgage-brokers-get-paid-nz-2"
 ---
 
-Mortgage advisers in New Zealand are typically paid by the lender, not by you. When you work with a mortgage adviser like me, there is usually no cost to you as the borrower — the bank or lender that writes your loan pays the adviser a commission for bringing them your business.
+Mortgage advisers in New Zealand are typically paid by the lender, not by you. When you work with me and your loan is with one of the main banks, there is no cost to you as the borrower — the bank that writes your loan pays the adviser a commission for bringing them your business. With non-bank lenders, a fee applies, and I will tell you upfront before any work starts.
 
 This model has been the standard in New Zealand for decades, and it means you get access to professional mortgage advice, lender comparison, and application support without writing a cheque for the service.
 
@@ -93,7 +93,7 @@ I have seen clients come to me after getting a rate from their own bank, and I h
 
 The commission the bank pays me does not come out of your pocket. It comes out of the bank's margin. They have already factored distribution costs into their business model. Whether they pay an adviser, pay a branch manager's salary, or spend money on advertising, they are paying to acquire customers. The adviser channel is just one of those distribution costs.
 
-You are not subsidising the adviser's commission by paying a higher rate. You are getting access to advice and lender comparison at no cost, and often getting a better outcome than you would have on your own.
+You are not subsidising the adviser's commission by paying a higher rate. With the main banks, you are getting access to advice and lender comparison at no cost, and often getting a better outcome than you would have on your own.
 
 ### What should I ask a mortgage adviser about how they get paid?
 
@@ -110,7 +110,7 @@ And if you are refinancing within a couple of years of your last mortgage, menti
 ### Key takeaways
 
 - Mortgage advisers in New Zealand are typically paid by the lender through commission, not by the borrower.
-- You usually pay nothing to use a mortgage adviser — the service is free to you, funded by lender commission on settlement.
+- With the main banks you pay nothing to use me as your mortgage adviser — the service is funded by bank commission on settlement. With non-bank lenders, a fee applies.
 - Advisers are legally required to act in your best interests, regardless of who pays the commission.
 - The commission does not increase your interest rate or loan cost — it comes out of the lender's distribution budget.
 - Advisers must disclose their remuneration structure upfront, and you are entitled to ask how they get paid.
