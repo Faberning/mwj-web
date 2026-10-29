@@ -27,7 +27,7 @@ New Zealand's financial advice regime changed in March 2021. Under the updated F
 
 That change retired some older titles and brought mortgage advice under the same framework as other financial advice. A person giving that advice is a financial adviser in the eyes of the law, and the Code of Professional Conduct for Financial Advice Services applies to them.
 
-In my case, I am an Independent Mortgage Adviser and I give advice under the FAP licence of Mortgage Design Limited (FSP752291). My own registration is FSP1000031. You can look up any adviser's registration on the Financial Service Providers Register, and I would encourage you to do that with anyone you are thinking of working with.
+In my case, I am a Mortgage Adviser and I give advice under the FAP licence of Mortgage Design Limited (FSP752291). My own registration is FSP1000031. You can look up any adviser's registration on the Financial Service Providers Register, and I would encourage you to do that with anyone you are thinking of working with.
 
 ### What does that licence actually require?
 
@@ -39,7 +39,7 @@ They also have to give you clear information before you go ahead: how they are p
 
 Not quite. A bank's mobile mortgage manager or branch lender works for that bank and can only offer that bank's products. They can be very helpful, but their job is to place your loan with their employer.
 
-An independent mortgage adviser works across a panel of lenders. I compare more than two dozen bank and non-bank lenders, which means I can look at where your situation actually fits rather than trying to make it fit one bank's policy.
+A mortgage adviser works across a panel of lenders. I compare more than two dozen bank and non-bank lenders, which means I can look at where your situation actually fits rather than trying to make it fit one bank's policy.
 
 That matters most when your situation is a little out of the ordinary. Self-employed income, a smaller deposit, a recent job change, a new build or a property type some banks are cautious about can all change which lender is the right fit.
 
@@ -86,7 +86,7 @@ If you are on the Whangaparaoa Peninsula, I have put together a page answering t
 - In New Zealand, "mortgage broker" and "mortgage adviser" usually describe the same job.
 - "Mortgage adviser" is the legal term: anyone giving mortgage advice must be licensed or work under a licensed Financial Advice Provider.
 - Licensed advisers must put your interests first and disclose how they are paid, and their provider must belong to a dispute resolution scheme.
-- A bank's mortgage manager can only offer that bank's products; an independent adviser compares a panel of lenders.
+- A bank's mortgage manager can only offer that bank's products; a mortgage adviser compares a panel of lenders.
 - Most advisers are paid by the lender, so in most cases there is no fee to you, but always ask.
 - Check any adviser's registration on the Financial Service Providers Register before you go ahead.
 
@@ -114,4 +114,4 @@ A mortgage adviser is a type of financial adviser. Under New Zealand law, advice
 
 If you are working through this and want a no-cost conversation about your own situation, get in touch. I am based in Orewa and work with clients across the Hibiscus Coast, Auckland and New Zealand.
 
-JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice.
+JJ van der Westhuizen (FSP1000031) is a Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice.

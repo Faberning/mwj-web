@@ -11,7 +11,7 @@ Most first home buyers in New Zealand need less than the full standard deposit b
 
 Which of those works for you depends on your income, your savings, the property and the lender. Most buyers end up combining two or three of them.
 
-I'm JJ van der Westhuizen, an Independent Mortgage Adviser based in Orewa, and "how much deposit do I actually need?" is the first question almost every first home buyer on the Hibiscus Coast asks me. Here is how it works.
+I'm JJ van der Westhuizen, a Mortgage Adviser based in Orewa, and "how much deposit do I actually need?" is the first question almost every first home buyer on the Hibiscus Coast asks me. Here is how it works.
 
 ## Do you need a full standard deposit to buy your first home?
 
@@ -113,4 +113,4 @@ Usually, yes. Lenders like to see a history of your own saving, or of paying ren
 
 For a step-by-step view of the whole process, see my [first home buyer guide](/first-home-buyer-guide/). If you are working through this and want a no-cost conversation about your own deposit options, get in touch. I am based in Orewa and work with first home buyers across the Hibiscus Coast, Auckland and New Zealand.
 
-JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice.
+JJ van der Westhuizen (FSP1000031) is a Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice.

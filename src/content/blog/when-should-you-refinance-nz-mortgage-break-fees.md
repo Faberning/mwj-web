@@ -11,7 +11,7 @@ Refinancing your mortgage makes sense when the potential savings or structural i
 
 I see this question all the time from homeowners on the Hibiscus Coast and across Auckland. The decision isn't just about rates. It's also about cashback offers, better loan structures, access to offset or revolving credit facilities, and whether your current lender is still competitive for your situation.
 
-As an Independent Mortgage Adviser, I work through these refinance scenarios regularly. The right time to refinance depends on your fixed term end date, current market conditions, what your existing lender offers at refix, and what competing lenders are willing to put on the table.
+As a Mortgage Adviser, I work through these refinance scenarios regularly. The right time to refinance depends on your fixed term end date, current market conditions, what your existing lender offers at refix, and what competing lenders are willing to put on the table.
 
 ### What is refinancing and how is it different from refixing?
 
@@ -146,4 +146,4 @@ From application to settlement, refinancing typically takes two to four weeks, d
 
 Bank policies, break fee calculations, and cashback offers all shift regularly. If you're weighing up a refinance on the Hibiscus Coast, in Orewa, Whangaparaoa, or anywhere in Auckland, and want a current read on your situation, get in touch.
 
-JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is a Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
