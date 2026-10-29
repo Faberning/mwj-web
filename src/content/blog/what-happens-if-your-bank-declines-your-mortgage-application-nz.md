@@ -31,7 +31,7 @@ First, get the decline reason in writing or clearly explained by your bank or ad
 
 Don't immediately apply to another bank yourself. Multiple credit applications in a short period can hurt your credit score and signal desperation to lenders. Each hard credit inquiry is recorded, and too many can make the next lender nervous.
 
-Instead, talk to a mortgage adviser. As an Independent Mortgage Adviser, I can often tell you within a conversation which lenders are likely to take a different view and whether it's worth applying now or waiting to improve something first. Advisers see the decline from the outside and know which banks are currently more open to your specific situation.
+Instead, talk to a mortgage adviser. As a Mortgage Adviser, I can often tell you within a conversation which lenders are likely to take a different view and whether it's worth applying now or waiting to improve something first. Advisers see the decline from the outside and know which banks are currently more open to your specific situation.
 
 If the decline was due to something fixable — a small debt, a probation period ending soon, or needing a bit more deposit — sometimes the best move is to pause, fix it, and reapply in a few weeks or months rather than rushing to the next lender.
 
@@ -128,4 +128,4 @@ Once you've submitted a formal application and the bank has run a credit check, 
 
 Bank policies, lender appetite, and your own situation all shift over time. If you've been declined and you're working through what to do next on the Hibiscus Coast, Orewa, Whangaparaoa, or anywhere in Auckland, get in touch. I can give you a clear read on why it happened and what the best path forward looks like for you right now.
 
-JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is a Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.

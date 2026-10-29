@@ -134,4 +134,4 @@ Not negatively, as long as the gift is genuinely a gift and documented correctly
 
 Bank policies, government scheme thresholds, and lender appetite all shift. If you're working through this on the Hibiscus Coast or anywhere in Auckland and want a current read on your situation, get in touch.
 
-JJ van der Westhuizen (FSP1000031) is an Independent Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031) is a Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
