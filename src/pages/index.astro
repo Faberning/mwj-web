@@ -10,7 +10,7 @@ import { ADVISER, AREAS, BUSINESS, FAQ_ENTRIES, GOOGLE_REVIEWS_URL, STATS, VIDEO
 
 const title = 'Mortgages with JJ — First Home Buyers, Orewa & NZ-wide';
 const description =
-	'JJ van der Westhuizen, Mortgage Adviser in Orewa. First home, refinance, investment and new build across the Hibiscus Coast and NZ. No fee to you.';
+	'JJ van der Westhuizen, Mortgage Adviser in Orewa. First home, refinance, investment and new build across the Hibiscus Coast and NZ. No fee when dealing with main banks.';
 
 // Used as a full-bleed CSS background (hero + CTA band), so it goes through
 // getImage() directly rather than <Image /> — optimized once, reused twice.
@@ -39,7 +39,7 @@ const ctaBackground = `linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),ur
 					I am {ADVISER.name.split(' ')[0]} — a {ADVISER.title} based in {BUSINESS.address.suburb}. I
 					specialise in helping Kiwis buy their first home, and also work with refinancers,
 					investors, and new build clients across Auckland. I compare lenders, structure the deal
-					properly, and you pay nothing for the advice.
+					properly, and with main banks you pay nothing for the advice.
 				</p>
 				<div class="hero-cta" data-anim>
 					<a class="btn btn-gold" href="#contact">Talk to JJ <span class="arrow">→</span></a>
@@ -54,10 +54,10 @@ const ctaBackground = `linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),ur
 		<div class="mtrack">
 			<span>First home buyers</span><span>Refinance</span><span>Investment property</span>
 			<span>New builds</span><span>{STATS.lendersCompared}+ lenders compared</span>
-			<span>No fee to you</span><span>Orewa &amp; Hibiscus Coast</span><span>NZ-wide</span>
+			<span>No fee with main banks</span><span>Orewa &amp; Hibiscus Coast</span><span>NZ-wide</span>
 			<span>First home buyers</span><span>Refinance</span><span>Investment property</span>
 			<span>New builds</span><span>{STATS.lendersCompared}+ lenders compared</span>
-			<span>No fee to you</span><span>Orewa &amp; Hibiscus Coast</span><span>NZ-wide</span>
+			<span>No fee with main banks</span><span>Orewa &amp; Hibiscus Coast</span><span>NZ-wide</span>
 		</div>
 	</div>
 
@@ -79,7 +79,7 @@ const ctaBackground = `linear-gradient(rgba(31,45,61,.84),rgba(31,45,61,.93)),ur
 				</div>
 				<div class="stat">
 					<div class="num"><span class="u">$</span>{STATS.feeToClient}</div>
-					<span class="lab">Fee charged to you</span>
+					<span class="lab">Fee with main banks</span>
 				</div>
 				<div class="stat">
 					<div class="num">{Math.trunc(STATS.googleRating)}<span class="u">★</span></div>

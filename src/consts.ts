@@ -101,7 +101,7 @@ export const FAQ_ENTRIES = [
 	{
 		question: 'How much does it cost to use a mortgage adviser?',
 		answer:
-			'Nothing to you. The lender pays my commission when your loan settles. You get full advice, application support, and ongoing reviews at no cost. If for some reason a deal is not paid by the lender, I will tell you upfront before any work starts.',
+			'With the main banks, nothing. The bank pays my commission when your loan settles, and you get full advice, application support, and ongoing reviews at no cost. If you go with a non-bank lender, a fee applies, and I will tell you upfront before any work starts.',
 	},
 	{
 		question: 'How long does pre-approval take?',
@@ -121,7 +121,7 @@ export const FAQ_ENTRIES = [
 	{
 		question: 'How are you different from going direct to a bank?',
 		answer:
-			'A bank can only offer its own products. I compare the whole panel, structure the deal around your situation, and manage the process from first chat to settlement — and there is no fee to you.',
+			'A bank can only offer its own products. I compare the whole panel, structure the deal around your situation, and manage the process from first chat to settlement — and there is no fee to you when dealing with main banks.',
 	},
 	{
 		question: 'Can I use my KiwiSaver towards the deposit?',
@@ -190,7 +190,7 @@ export const SERVICES = [
 	},
 	{
 		slug: 'refinance',
-		metaDescription: 'Coming off a fixed term? Rate reviews, restructures, cashback and break-fee maths from a Mortgage Adviser in Orewa. No fee to you.',
+		metaDescription: 'Coming off a fixed term? Rate reviews, restructures, cashback and break-fee maths from a Mortgage Adviser in Orewa. No fee when dealing with main banks.',
 		name: 'Refinance',
 		serviceType: 'Mortgage refinance advice',
 		eyebrow: 'Refinance',
@@ -214,7 +214,7 @@ export const SERVICES = [
 		faq: [
 			{
 				question: 'Should I go to my bank or use a mortgage adviser?',
-				answer: 'A bank only offers its own products. I compare 25+ bank and non-bank lenders and manage the whole application — and in most cases there is no fee to you.',
+				answer: 'A bank only offers its own products. I compare 25+ bank and non-bank lenders and manage the whole application — and there is no fee to you when dealing with main banks.',
 			},
 			{
 				question: 'Is it worth breaking my fixed term early?',
@@ -232,7 +232,7 @@ export const SERVICES = [
 	},
 	{
 		slug: 'investment',
-		metaDescription: 'Investment property mortgage advice: DTI rules, equity release, portfolio structure and lender appetite for investors. No fee to you.',
+		metaDescription: 'Investment property mortgage advice: DTI rules, equity release, portfolio structure and lender appetite for investors. No fee when dealing with main banks.',
 		name: 'Investment Property',
 		serviceType: 'Investment property mortgage advice',
 		eyebrow: 'Investment Property',
@@ -268,7 +268,7 @@ export const SERVICES = [
 			},
 			{
 				question: 'How much does it cost to use a mortgage adviser?',
-				answer: 'Nothing to you. The lender pays my commission when your loan settles. You get full advice, application support, and ongoing reviews at no cost.',
+				answer: 'With the main banks, nothing. The bank pays my commission when your loan settles, and you get full advice, application support, and ongoing reviews at no cost. If you go with a non-bank lender, a fee applies, and I will tell you upfront before any work starts.',
 			},
 		],
 	},
@@ -319,7 +319,7 @@ export const SERVICES = [
 export const AREAS = [
 	{
 		slug: 'hibiscus-coast',
-		metaDescription: 'Mortgage Adviser based in Orewa, helping first home buyers, refinancers and investors across Orewa, Whangaparāoa and Silverdale. No fee to you.',
+		metaDescription: 'Mortgage Adviser based in Orewa, helping first home buyers, refinancers and investors across Orewa, Whangaparāoa and Silverdale. No fee when dealing with main banks.',
 		name: 'Hibiscus Coast',
 		eyebrow: 'Hibiscus Coast',
 		title: 'Your local mortgage adviser on the Hibiscus Coast.',
@@ -336,13 +336,13 @@ export const AREAS = [
 			},
 			{
 				question: 'How much does it cost to use a mortgage adviser?',
-				answer: 'Nothing to you. The lender pays my commission when your loan settles.',
+				answer: 'With the main banks, nothing. The bank pays my commission when your loan settles. If you go with a non-bank lender, a fee applies, and I will tell you upfront before any work starts.',
 			},
 		],
 	},
 	{
 		slug: 'whangaparaoa',
-		metaDescription: 'Mortgage adviser for the Whangaparāoa Peninsula, from Red Beach and Stanmore Bay to Gulf Harbour and Army Bay. Based in Orewa. No fee to you.',
+		metaDescription: 'Mortgage adviser for the Whangaparāoa Peninsula, from Red Beach and Stanmore Bay to Gulf Harbour and Army Bay. Based in Orewa. No fee when dealing with main banks.',
 		name: 'Whangaparāoa',
 		eyebrow: 'Whangaparāoa Peninsula',
 		title: 'Mortgage adviser for the Whangaparāoa Peninsula.',
@@ -359,7 +359,7 @@ export const AREAS = [
 			},
 			{
 				question: 'How much does a mortgage adviser cost?',
-				answer: 'In most cases, nothing. The lender pays my commission when your loan settles, so there is no fee to you. If a deal would not be paid by the lender, I tell you upfront before any work starts.',
+				answer: 'With the main banks, nothing. The bank pays my commission when your loan settles, so there is no fee to you. If you go with a non-bank lender, a fee applies, and I will tell you upfront before any work starts.',
 			},
 			{
 				question: 'Is it cheaper to go through a mortgage adviser than my bank?',
@@ -393,7 +393,7 @@ export const AREAS = [
 	},
 	{
 		slug: 'north-shore',
-		metaDescription: 'Mortgage advice for North Shore buyers and homeowners, from Albany to Devonport. First home, refinance, investment and new build. No fee to you.',
+		metaDescription: 'Mortgage advice for North Shore buyers and homeowners, from Albany to Devonport. First home, refinance, investment and new build. No fee when dealing with main banks.',
 		name: 'North Shore',
 		eyebrow: 'North Shore',
 		title: 'Mortgage advice for North Shore buyers and homeowners.',
@@ -406,7 +406,7 @@ export const AREAS = [
 			},
 			{
 				question: 'Should I go to my bank or use a mortgage adviser?',
-				answer: 'A bank only offers its own products. I compare 25+ bank and non-bank lenders and manage the whole application — and in most cases there is no fee to you.',
+				answer: 'A bank only offers its own products. I compare 25+ bank and non-bank lenders and manage the whole application — and there is no fee to you when dealing with main banks.',
 			},
 			{
 				question: 'How much can I borrow?',
@@ -452,7 +452,7 @@ export const AREAS = [
 			},
 			{
 				question: 'How are you different from going direct to a bank?',
-				answer: 'A bank can only offer its own products. I compare the whole panel, structure the deal around your situation, and manage the process from first chat to settlement — and there is no fee to you.',
+				answer: 'A bank can only offer its own products. I compare the whole panel, structure the deal around your situation, and manage the process from first chat to settlement — and there is no fee to you when dealing with main banks.',
 			},
 			{
 				question: 'Can I use my KiwiSaver towards the deposit?',
@@ -462,7 +462,7 @@ export const AREAS = [
 	},
 	{
 		slug: 'auckland-city',
-		metaDescription: 'Mortgage advice for Auckland Central, from the CBD to Ponsonby and Mount Eden, including apartments and character homes. No fee to you.',
+		metaDescription: 'Mortgage advice for Auckland Central, from the CBD to Ponsonby and Mount Eden, including apartments and character homes. No fee when dealing with main banks.',
 		name: 'Auckland Central',
 		eyebrow: 'Auckland Central',
 		title: 'Mortgage advice for Auckland Central buyers and homeowners.',

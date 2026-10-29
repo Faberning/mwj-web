@@ -45,7 +45,7 @@ That matters most when your situation is a little out of the ordinary. Self-empl
 
 ## How are mortgage advisers paid?
 
-Most mortgage advisers in New Zealand are paid commission by the lender when your loan settles, so in most cases there is no fee to you. The commission comes from the lender's distribution budget, not from your loan or your interest rate.
+Most mortgage advisers in New Zealand are paid commission by the lender when your loan settles, so with the main banks there is usually no fee to you. With non-bank lenders a fee may apply, so always ask. The commission comes from the lender's distribution budget, not from your loan or your interest rate.
 
 Some advisers also receive an ongoing trail commission while the loan stays with that lender. A small number charge a fee in certain situations, for example if a loan is repaid very early or if a deal is not one a lender will pay on. Whatever the arrangement, a licensed adviser has to tell you upfront, in writing.
 
@@ -87,7 +87,7 @@ If you are on the Whangaparaoa Peninsula, I have put together a page answering t
 - "Mortgage adviser" is the legal term: anyone giving mortgage advice must be licensed or work under a licensed Financial Advice Provider.
 - Licensed advisers must put your interests first and disclose how they are paid, and their provider must belong to a dispute resolution scheme.
 - A bank's mortgage manager can only offer that bank's products; a mortgage adviser compares a panel of lenders.
-- Most advisers are paid by the lender, so in most cases there is no fee to you, but always ask.
+- Most advisers are paid by the lender, so with the main banks there is usually no fee to you; with non-bank lenders a fee may apply, so always ask.
 - Check any adviser's registration on the Financial Service Providers Register before you go ahead.
 
 ## Frequently asked questions
