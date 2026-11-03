@@ -1280,7 +1280,7 @@ footer {
 }
 .foot-top {
 	display: grid;
-	grid-template-columns: 1.2fr 1fr 1fr 1fr;
+	grid-template-columns: 1.2fr 1fr 1fr 1fr 0.8fr;
 	gap: 32px;
 	padding-bottom: 40px;
 	border-bottom: 1px solid var(--ink-line);
