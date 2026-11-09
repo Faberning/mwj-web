@@ -66,7 +66,7 @@ export const LICENSEE = {
 export const STATS = {
 	lendersCompared: 25,
 	googleRating: 5.0,
-	googleReviewCount: 46,
+	googleReviewCount: 47, // Google, checked 10 Nov 2026
 	feeToClient: 0,
 	settledVolume2025: 26,
 	settledVolume2025Label: '$26M+',
