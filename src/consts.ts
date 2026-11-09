@@ -392,6 +392,57 @@ export const AREAS = [
 		],
 	},
 	{
+		slug: 'silverdale',
+		metaDescription: 'Mortgage adviser for Silverdale and Millwater, based just up the road in Orewa. First home, new build, self-employed and refinance advice. No fee when dealing with main banks.',
+		name: 'Silverdale and Millwater',
+		eyebrow: 'Silverdale and Millwater',
+		title: 'Mortgage adviser for Silverdale and Millwater.',
+		lede: 'Based a few minutes away in Orewa, I help first home buyers, new build clients, self-employed locals and refinancers across Silverdale, Millwater, Milldale and out towards Dairy Flat.',
+		whyLocal: 'Silverdale and Millwater have grown fast, with whole streets of newer homes, house and land packages, and plenty of tradespeople and small business owners. Lenders look at new builds, contract income and self-employed income in their own ways, and that is most of the work I do here, in person on the Coast or remotely.',
+		faq: [
+			{
+				question: 'Is there a local mortgage adviser for Silverdale and Millwater?',
+				answer: 'Yes. I am JJ van der Westhuizen, a Mortgage Adviser based at 14 Nukumea Common in Orewa, a short drive from Silverdale and Millwater. I can meet you locally or run the whole process remotely, whichever suits you.',
+			},
+			{
+				question: 'Can you help me buy my first home in Millwater or Silverdale?',
+				answer: 'Yes. We start by working out what your deposit really looks like, from savings, KiwiSaver and any gifted funds, and whether the Kāinga Ora First Home Loan could fit. Then we get you to pre-approval so you can make an offer with confidence.',
+			},
+			{
+				question: 'How does finance work for a new build or house and land package?',
+				answer: 'Most construction loans are paid out in stages as the build reaches agreed milestones, rather than in one lump sum. Turnkey contracts usually work more like buying an existing home, with most of the money paid at completion. I explain which applies to your contract and line up a lender that suits it.',
+			},
+			{
+				question: 'I am self-employed or a contractor. Can I still get a mortgage?',
+				answer: 'Often, yes. Lenders assess self-employed, contract and fluctuating income differently, and some are more flexible than others about how long you have been trading and how your income is shown. I look at how your income is set up and take your application to the lenders most likely to accept it.',
+			},
+			{
+				question: 'Can you help with a top-up for renovations or consolidating debt?',
+				answer: 'Yes. A top-up adds to your existing home loan, and some people use one to pay off higher-interest debts. It can lower what you pay each month, but spreading short-term debt over a long mortgage term can cost more overall. I go through the trade-offs with you before you decide.',
+			},
+			{
+				question: 'When would a non-bank lender make sense?',
+				answer: 'Non-bank lenders can suit people whose situation does not fit a bank, for example after a decline, with a short trading history, or with less common income. Their pricing and fees usually differ from the main banks, and with a non-bank lender a fee applies, which I tell you about upfront before any work starts.',
+			},
+			{
+				question: 'How much does a mortgage adviser cost?',
+				answer: 'With the main banks, nothing. The bank pays my commission when your loan settles, so there is no fee to you. If you go with a non-bank lender, a fee applies, and I will tell you upfront before any work starts.',
+			},
+			{
+				question: 'What will a mortgage adviser ask me for?',
+				answer: 'Usually proof of ID, recent payslips or other proof of income, a few months of bank statements, details of any debts, and where your deposit is coming from. If you are self-employed, lenders also want your tax summaries or financial statements. I give you a checklist at the start so nothing is missed.',
+			},
+			{
+				question: 'What should I tell my mortgage adviser?',
+				answer: 'Everything that affects your finances: all your debts, including buy now pay later and credit cards, any changes coming up at work, and anything that has gone wrong with credit before. Lenders usually find these things anyway, and knowing early lets me pick a lender that fits instead of facing a surprise decline.',
+			},
+			{
+				question: 'What are the red flags to watch for with a mortgage?',
+				answer: 'Watch for advice that never explains why a lender was chosen, pressure to sign quickly, a structure you do not understand, or costs that only show up late. You should always be told how your adviser is paid and which lenders they can use. If something does not make sense, ask until it does.',
+			},
+		],
+	},
+	{
 		slug: 'north-shore',
 		metaDescription: 'Mortgage advice for North Shore buyers and homeowners, from Albany to Devonport. First home, refinance, investment and new build. No fee when dealing with main banks.',
 		name: 'North Shore',

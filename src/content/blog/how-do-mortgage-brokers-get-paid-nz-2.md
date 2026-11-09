@@ -1,7 +1,7 @@
 ---
 title: "How Do Mortgage Advisers Get Paid and Is There a Cost to the Borrower in NZ?"
 seoTitle: "How Do Mortgage Advisers Get Paid in NZ? | Mortgages with JJ"
-description: "Mortgage advisers in NZ are usually paid by the lender, not you. How commission works, whether it affects your rate, and what to ask upfront."
+description: "Mortgage advisers in NZ are usually paid by the lender, not you. How commission works, whether it is cheaper than going to your bank, and what to ask upfront."
 pubDate: 2026-06-25
 author: "JJ van der Westhuizen"
 slug: "how-do-mortgage-brokers-get-paid-nz-2"
@@ -15,6 +15,14 @@ But I know that raises questions. If the lender pays, whose side is the adviser 
 
 Let me walk you through exactly how mortgage adviser payment works in New Zealand, what it means for you, and why the model exists the way it does.
 
+### Is it cheaper to use a mortgage adviser than going straight to your bank?
+
+It can be, but nobody can honestly promise you a lower rate. What you can count on is this: with the main banks, using me costs you nothing, because the bank pays my commission when your loan settles. So you are not paying extra for the advice.
+
+Where the savings usually come from is not the headline rate. A bank can only offer its own products. I compare 25+ bank and non-bank lenders, so I can look at which lender's policy fits your income, deposit and plans, and how to structure the loan, for example how to split fixed and floating, or whether an offset account suits you. Getting the lender and the structure right the first time can matter more over the life of a loan than a small difference in rate, and it can save you the cost of a decline and a second application.
+
+Going direct can still make sense. If your situation is simple and you are happy with your bank's offer, you may not need an adviser. It is worth comparing, though, and an adviser does that comparison for you at no cost when your loan is with a main bank. With a non-bank lender a fee applies, and I tell you upfront before any work starts.
+
 ### How does lender-paid commission work?
 
 When a mortgage adviser arranges a home loan for you and it settles, the lender pays the adviser a commission. This is usually structured as an upfront commission based on the loan amount, plus in some cases a trailing commission paid over the life of the loan as long as it remains active.
@@ -25,11 +33,11 @@ The exact commission rates vary by lender and by the type of loan. Different ban
 
 Importantly, the commission comes out of the lender's margin — it is not added to your interest rate or your loan amount. You do not pay more interest because you used an adviser. The lender has already budgeted for distribution costs, whether that is paying an adviser, running their own branch network, or advertising directly to customers.
 
-In fact, advisers often secure the same or better rates than you would get going direct to a bank, because advisers bring volume and the lender wants the business.
+Advisers can sometimes negotiate on pricing because lenders want the business they bring, but no adviser can promise you a better rate than going direct.
 
 ### Does using a mortgage adviser cost me anything?
 
-In the vast majority of cases, no. Most mortgage advisers in New Zealand operate on the lender-paid commission model and do not charge the borrower a fee.
+With the main banks, no. Most mortgage advisers in New Zealand operate on the lender-paid commission model and do not charge the borrower a fee for standard home loans with the banks.
 
 This applies whether you are a first home buyer in Orewa, refinancing your existing mortgage, or buying an investment property. The service — comparing lenders, structuring your application, managing the paperwork, liaising with the bank — is provided at no direct cost to you.
 
@@ -37,7 +45,7 @@ There are some exceptions. A small number of advisers do charge a fee for servic
 
 If an adviser does charge a fee, they must disclose it upfront before you engage them. It is a legal requirement under the Financial Markets Conduct Act. You will know before you proceed.
 
-I operate on the standard lender-paid model. My clients on the Hibiscus Coast and across Auckland do not pay me a fee. The lender pays the commission once your loan settles, and that is how I am remunerated for the work.
+I operate on the standard lender-paid model. When your loan is with one of the main banks, you do not pay me a fee: the bank pays the commission once your loan settles, and that is how I am remunerated for the work. With a non-bank lender a fee applies, and I tell you upfront before any work starts.
 
 ### If the lender pays you, are you working for them or for me?
 
@@ -87,9 +95,7 @@ No. This is a myth that persists, but it is not how the model works.
 
 The interest rate you are offered is based on your borrowing profile, the lender's current pricing, and sometimes the loan structure or term you choose. It is not based on whether you came through an adviser or walked into a branch.
 
-In fact, mortgage advisers often secure better rates than branch customers because advisers bring volume to lenders and have relationships with bank business development managers. If a lender wants to win business from an adviser who writes a lot of loans, they will sharpen their pricing.
-
-I have seen clients come to me after getting a rate from their own bank, and I have placed them with the same bank at a better rate just by going through the adviser channel and negotiating. The bank wants the deal, and they know I have other options.
+Advisers bring volume to lenders and work with bank business development managers, and sometimes a lender will sharpen its pricing to win a deal. That is not guaranteed, and no adviser can promise it.
 
 The commission the bank pays me does not come out of your pocket. It comes out of the bank's margin. They have already factored distribution costs into their business model. Whether they pay an adviser, pay a branch manager's salary, or spend money on advertising, they are paying to acquire customers. The adviser channel is just one of those distribution costs.
 
@@ -101,7 +107,7 @@ You are entitled to know. In fact, advisers are required to disclose how they ar
 
 Ask whether they charge a fee or work on commission. If they work on commission, ask whether commission rates differ between lenders and how they manage that. A good adviser will be transparent about it.
 
-You can also ask whether they are restricted to a panel of lenders or have access to the full market. Some advisers work under aggregator models or franchise groups that limit which lenders they can place with. Others, like me, have access to the whole market. That can affect the range of options you are presented with.
+You can also ask whether they are restricted to a panel of lenders or have access to the full market. Some advisers work under aggregator models or franchise groups that limit which lenders they can place with. I compare 25+ bank and non-bank lenders. The size of an adviser's panel affects the range of options you are shown.
 
 If you are doing something unusual — construction lending, large loan, non-resident borrower — ask upfront whether there will be a fee. Most of the time there will not be, but it is worth confirming.
 
@@ -114,7 +120,7 @@ And if you are refinancing within a couple of years of your last mortgage, menti
 - Advisers are legally required to act in your best interests, regardless of who pays the commission.
 - The commission does not increase your interest rate or loan cost — it comes out of the lender's distribution budget.
 - Advisers must disclose their remuneration structure upfront, and you are entitled to ask how they get paid.
-- Using an adviser often results in better rates and outcomes than going direct, because advisers have market access and negotiating relationships.
+- An adviser cannot promise a lower rate than your bank, but comparing lenders and getting the structure right the first time can save you money and stress.
 - If an adviser does charge a fee, it must be disclosed before you engage them, and this is rare in standard residential lending.
 
 ### Why the model works for borrowers
@@ -129,9 +135,17 @@ The key is transparency. As long as you know how your adviser is paid, and as lo
 
 ### Frequently asked questions
 
+**Do you have to pay your mortgage adviser?**
+
+With the main banks, no. I am paid commission by the bank when your loan settles, so there is no fee to you. If you go with a non-bank lender, a fee applies, and I will tell you upfront before any work starts.
+
+**Is it cheaper to go through a mortgage adviser than my bank?**
+
+It can be, but nobody can promise a better rate. With the main banks the advice costs you nothing, and comparing 25+ lenders and getting the structure right the first time is where most of the value usually is.
+
 **Do I pay more interest if I use a mortgage adviser?**
 
-No. The interest rate you are offered is based on your borrowing profile and the lender's pricing, not on whether you used an adviser. Advisers often secure the same or better rates than going direct because they bring volume to lenders and have negotiating relationships.
+No. The interest rate you are offered is based on your borrowing profile and the lender's pricing, not on whether you used an adviser. The commission comes out of the lender's distribution budget, not your rate.
 
 **Can a mortgage adviser charge me a fee as well as earning commission?**
 
@@ -151,8 +165,12 @@ Not always. Some advisers work under franchise or aggregator models that limit t
 
 **Is using a mortgage adviser really free, or is there a catch?**
 
-It is genuinely free in the vast majority of cases. The lender pays the adviser a commission once your loan settles, and that cost is not passed on to you. There is no catch, but you should always ask upfront how the adviser is remunerated so you know exactly how the relationship works.
+With the main banks, there is no fee to you. The bank pays the adviser a commission once your loan settles, and that cost is not passed on to you. With non-bank lenders a fee applies. Always ask upfront how your adviser is paid so you know exactly how the relationship works.
+
+**What should I tell my mortgage adviser, and is there anything I should not say?**
+
+Tell your adviser everything that affects your finances: all your debts, including buy now pay later and credit cards, any changes coming up at work, and anything that has gone wrong with credit before. Holding things back rarely helps, because lenders usually find them, and a surprise late in the process can mean a decline. The more I know early, the better I can match you to a lender.
 
 Bank commission structures, lender appetite, and regulatory settings all shift over time. If you are buying your first home on the Hibiscus Coast, refinancing in Whangaparaoa, or restructuring anywhere in Auckland and want to understand how your specific situation would be handled, get in touch. I will walk you through it with no cost and no obligation.
 
-JJ van der Westhuizen (FSP1000031) is a Mortgage Adviser operating under the FAP licence of Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
+JJ van der Westhuizen (FSP1000031), Mortgage Adviser operating under Mortgage Design Limited (FSP752291). This article is general information only and does not constitute personalised financial advice. Specific lender policies, government scheme thresholds, and interest rates change frequently — for advice tailored to your situation, please get in touch.
