@@ -1,0 +1,66 @@
+---
+// Ring-fence block for a GEO lever page: links to this lever's post on every platform
+// (falls back to JJ's profile on that platform until the post exists), and embeds the
+// YouTube cut once its ID is in LEVER_POSTS. Renders nothing for pages that aren't levers.
+import { LEVER_POSTS, PLATFORM_PROFILES } from '../consts';
+
+interface Props {
+	slug: string;
+	videoTitle?: string;
+}
+const { slug, videoTitle = 'Mortgages with JJ' } = Astro.props;
+const posts = LEVER_POSTS[slug];
+
+const platforms = posts
+	? ([
+			{ key: 'youtube', name: 'YouTube', post: posts.youtubeId ? `https://www.youtube.com/watch?v=${posts.youtubeId}` : undefined },
+			{ key: 'facebook', name: 'Facebook', post: posts.facebook },
+			{ key: 'linkedin', name: 'LinkedIn', post: posts.linkedin },
+			{ key: 'google', name: 'Google', post: posts.google },
+			{ key: 'instagram', name: 'Instagram', post: posts.instagram },
+		] as const)
+			.map((p) => ({
+				name: p.name,
+				url: p.post ?? PLATFORM_PROFILES[p.key],
+				label: p.post
+					? p.key === 'youtube'
+						? 'Watch the video on YouTube'
+						: `See this on ${p.name}`
+					: p.key === 'google'
+						? 'JJ on Google'
+						: `JJ on ${p.name}`,
+			}))
+			.filter((p) => p.url)
+	: [];
+---
+
+{
+	posts && (
+		<section class="light" id="elsewhere">
+			<div class="wrap">
+				<div class="kicker"><span class="eyebrow">Elsewhere</span></div>
+				<h2 class="title">Watch, follow or share this guide.</h2>
+				{posts.youtubeId && (
+					<div class="video-frame" style="margin-top:28px">
+						<iframe
+							src={`https://www.youtube-nocookie.com/embed/${posts.youtubeId}`}
+							title={videoTitle}
+							loading="lazy"
+							allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						/>
+					</div>
+				)}
+				<ul class="related-guides">
+					{platforms.map((p) => (
+						<li>
+							<a href={p.url} target="_blank" rel="noopener">
+								{p.label} <span class="arrow">→</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+	)
+}

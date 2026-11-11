@@ -606,3 +606,41 @@ export const WHO_I_WORK_WITH = [
 			'Business owner, limited company, sole trader, contractor — lender treatment of your income is the difference between approval and decline.',
 	},
 ] as const;
+
+// Ring-fence for each GEO lever: the page links out to every platform the lever lives on,
+// and every platform post links back to the page. Add each post's URL here the day it goes out
+// (and the YouTube video ID once uploaded). Until a platform has a post for this lever, the page
+// links to JJ's profile on that platform instead, so every lever page reaches every platform.
+// Instagram stays out until JJ's handle is known.
+export type LeverPosts = {
+	youtubeId?: string;
+	facebook?: string;
+	linkedin?: string;
+	google?: string;
+	instagram?: string;
+};
+
+export const LEVER_POSTS: Record<string, LeverPosts> = {
+	// Oct 2026 area lever (live page)
+	whangaparaoa: {},
+	// Oct 2026 industry lever (live post)
+	'how-much-deposit-first-home-buyer-nz': {},
+	// Oct 2026 post, own lever since Nov
+	'mortgage-broker-vs-mortgage-adviser-nz': {},
+	// Nov 2026 industry lever (refresh). Facebook post went out 12 Nov 2026, 7:36am NZ (read via the Page feed).
+	'how-do-mortgage-brokers-get-paid-nz-2': {
+		facebook: 'https://www.facebook.com/122126666211304620/posts/122127326661304620',
+	},
+	// Nov 2026 area lever
+	silverdale: {},
+	// Nov 2026 industry lever
+	'south-african-expats-mortgage-work-visa-nz': {},
+};
+
+export const PLATFORM_PROFILES = {
+	youtube: 'https://www.youtube.com/channel/UClIagO25SaM_mjQV7NdlBKQ',
+	facebook: 'https://www.facebook.com/profile.php?id=61589138603376',
+	linkedin: 'https://www.linkedin.com/in/jwest1977/',
+	google: GOOGLE_REVIEWS_URL,
+	instagram: '',
+} as const;
