@@ -1,0 +1,73 @@
+---
+import AreaPageBody from '../components/AreaPageBody.astro';
+import LeverRing from '../components/LeverRing.astro';
+import { ADVISER, AREAS, STATS } from '../consts';
+
+const area = AREAS.find((a) => a.slug === 'silverdale')!;
+
+// GEO lever (Nov 2026, area track): guides that answer Silverdale and Millwater's follow-up questions in depth.
+const relatedGuides = [
+	{ href: '/services/new-build/', label: 'How does new build and construction finance work?' },
+	{ href: '/how-much-deposit-first-home-buyer-nz/', label: 'How much deposit do you need for a first home in NZ?' },
+	{ href: '/can-you-use-kiwisaver-and-gifted-deposit-together-first-home-2/', label: 'Can you use KiwiSaver and a gifted deposit together for a first home?' },
+	{ href: '/what-happens-if-your-bank-declines-your-mortgage-application-nz/', label: 'What happens if your bank declines your mortgage application?' },
+	{ href: '/how-do-mortgage-brokers-get-paid-nz-2/', label: 'How do mortgage advisers get paid, and is it cheaper than going to your bank?' },
+	{ href: '/when-should-you-refinance-nz-mortgage-break-fees/', label: 'When should you refinance, and what about break fees?' },
+	{ href: '/hibiscus-coast/', label: 'Mortgage advice across the Hibiscus Coast' },
+	{ href: '/whangaparaoa/', label: 'Mortgage advice on the Whangaparāoa Peninsula' },
+]
+---
+
+<AreaPageBody area={area}>
+	<section class="light" id="proof">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Who you would be working with</span></div>
+			<h2 class="title">One adviser, start to settlement.</h2>
+			<ul class="related-guides">
+				<li><b>{STATS.lendersCompared}+</b> bank and non-bank lenders compared</li>
+				<li><b>{ADVISER.experienceYears} years</b> in finance: {ADVISER.commercialBankingYears} in commercial banking, {ADVISER.advisingYears} advising Kiwis on mortgages</li>
+				<li><b>{STATS.googleRating.toFixed(1)} stars</b> from {STATS.googleReviewCount} Google reviews</li>
+				<li><b>No fee</b> with main banks: the bank pays my commission when your loan settles</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- VIDEO SLOT: DORMANT. Uncomment this section AND the VideoObject below; replace {{YOUTUBE_ID}}.
+	<section class="video">
+		<div class="wrap video-inner">
+			<div class="kicker"><span class="eyebrow">Watch</span></div>
+			<h2 class="title">Buying in Silverdale and Millwater: the short version.</h2>
+			<div class="video-frame">
+				<iframe src="https://www.youtube-nocookie.com/embed/{{YOUTUBE_ID}}" title="Buying in Silverdale and Millwater | Mortgages with JJ" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+	-->
+
+	<!-- VIDEO SLOT: DORMANT VideoObject. Uncomment with the .video section; replace {{YOUTUBE_ID}} and {{UPLOAD_DATE}}.
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "VideoObject",
+		"name": "Buying in Silverdale and Millwater | Mortgages with JJ",
+		"description": "JJ van der Westhuizen, Mortgage Adviser in Orewa, on the questions Silverdale and Millwater buyers ask about mortgage advice.",
+		"thumbnailUrl": "https://img.youtube.com/vi/{{YOUTUBE_ID}}/maxresdefault.jpg",
+		"uploadDate": "{{UPLOAD_DATE}}",
+		"contentUrl": "https://www.youtube.com/watch?v={{YOUTUBE_ID}}",
+		"embedUrl": "https://www.youtube-nocookie.com/embed/{{YOUTUBE_ID}}",
+		"publisher": { "@type": "Organization", "name": "Mortgages with JJ", "url": "https://mortgageswithjj.co.nz" }
+	}
+	</script>
+	-->
+
+	<section id="guides">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Read more</span></div>
+			<h2 class="title">Guides Silverdale and Millwater buyers ask about.</h2>
+			<ul class="related-guides">
+				{relatedGuides.map((g) => <li><a href={g.href}>{g.label} <span class="arrow">→</span></a></li>)}
+			</ul>
+		</div>
+	</section>
+	<LeverRing slug="silverdale" />
+</AreaPageBody>

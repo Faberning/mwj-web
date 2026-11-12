@@ -1,5 +1,6 @@
 ---
 import AreaPageBody from '../components/AreaPageBody.astro';
+import LeverRing from '../components/LeverRing.astro';
 import { ADVISER, AREAS, STATS } from '../consts';
 
 const area = AREAS.find((a) => a.slug === 'whangaparaoa')!;
@@ -65,4 +66,5 @@ const relatedGuides = [
 			</ul>
 		</div>
 	</section>
+	<LeverRing slug="whangaparaoa" />
 </AreaPageBody>
