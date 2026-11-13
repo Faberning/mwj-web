@@ -630,6 +630,9 @@ export const LEVER_POSTS: Record<string, LeverPosts> = {
 	// Nov 2026 industry lever (refresh). Facebook post went out 12 Nov 2026, 7:36am NZ (read via the Page feed).
 	'how-do-mortgage-brokers-get-paid-nz-2': {
 		facebook: 'https://www.facebook.com/122126666211304620/posts/122127326661304620',
+		// YouTube and GBP posted 13 Nov 2026, 8:40pm NZ.
+		youtubeId: 'DoABoqRbFX0',
+		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDpFN3FEaV9ocjRIWDJManhWb0NxcTJ3',
 	},
 	// Nov 2026 area lever
 	silverdale: {},
