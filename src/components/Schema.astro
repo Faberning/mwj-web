@@ -200,6 +200,9 @@ if (pageType) {
 		'@id': pageId,
 		name: pageName,
 		description: pageDescription,
+		...(pageType === 'WebApplication'
+			? { applicationCategory: 'FinanceApplication', operatingSystem: 'Any', isAccessibleForFree: true }
+			: {}),
 		...(includeBusiness ? { mainEntity: { '@id': businessId } } : {}),
 	});
 }

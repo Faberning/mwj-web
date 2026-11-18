@@ -1,0 +1,139 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Schema from '../components/Schema.astro';
+import LeverRing from '../components/LeverRing.astro';
+import { ADVISER, LICENSEE, RATES_FAQ, SITE_URL } from '../consts';
+
+// GEO lever page for the "mortgage rates nz / home loan rates nz / mortgage deals nz" cluster.
+// Explainer only, no rate figures (Freddie, 18 Nov 2026): rates move weekly, and the site
+// rules say never quote current rates as definite numbers. Link out to where rates live.
+const title = 'Mortgage Rates NZ: How Home Loan Rates Work | Mortgages with JJ';
+const description =
+	'How NZ mortgage rates are set, why special and standard home loan rates differ, how bank deals and cash contributions work, and how to compare rates fairly.';
+const updated = '18 November 2026';
+---
+
+<Base title={title} description={description}>
+	<Schema
+		pageType="WebPage"
+		pageName={title}
+		pageDescription={description}
+		includeFAQ
+		faqEntries={RATES_FAQ}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'Mortgage Rates NZ', url: `${SITE_URL}/mortgage-rates-nz/` },
+		]}
+	/>
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'Mortgage Rates NZ' }]}
+		eyebrow="Mortgage Rates NZ"
+		title="How do mortgage rates in NZ work, and how do you compare home loan deals?"
+		lede="New Zealand home loan rates are set by each lender, shaped by the Official Cash Rate (OCR) and wholesale swap rates, and priced on your equity and fixed term. The advertised rate is only part of the deal: break fees, cash contributions and loan features matter too."
+	/>
+
+	<section class="light" id="explainer">
+		<div class="wrap">
+			<article class="post-body">
+				<p class="calc-note">
+					Updated {updated}. General information only. This page doesn't list current rates, because they change often. For today's numbers, see the <a href="#where-to-check">sources below</a>.
+				</p>
+
+				<h2>What sets mortgage rates in New Zealand?</h2>
+				<p>
+					Each lender sets its own home loan rates, but they all respond to the same forces. The Reserve Bank of New Zealand sets the Official Cash Rate (OCR), which flows most quickly into floating rates and shorter fixed terms. Longer fixed rates follow wholesale swap rates, which move on what markets expect the OCR and inflation to do over the next few years.
+				</p>
+				<p>
+					On top of that, each lender adds its own funding costs and margin, and competition between lenders can push rates for particular terms up or down. That is why two banks can advertise quite different rates for the same term in the same week.
+				</p>
+
+				<h2>Why is the advertised rate not always the rate you get?</h2>
+				<p>
+					Most NZ banks show two sets of rates: special rates and standard (or carded) rates. Special rates are usually for borrowers with more equity, a lower loan-to-value ratio (LVR), and some need you to take a particular package. With a smaller deposit, a standard rate or a Low Equity Margin can apply.
+				</p>
+				<p>
+					Your income, your other debts, the property and the lender's appetite at the time also shape the offer. The rate on a website is a starting point, not a promise.
+				</p>
+
+				<h2>Fixed or floating: how do the terms compare?</h2>
+				<p>
+					A fixed rate stays the same for the term you choose, so your repayments are predictable. A floating rate can change at any time, but you can usually repay extra or move without a break fee. Many Kiwi borrowers split their loan across both, or across more than one fixed term, so not all of it rolls over at once.
+				</p>
+				<p>
+					For more on choosing a term, see <a href="/how-long-should-i-fix-my-mortgage-for-in-2026-nz-mortgage-broker-guide/">how long to fix your mortgage for</a> and <a href="/what-is-a-fixed-and-floating-split-and-which-is-better-in-2026/">fixed and floating splits</a>.
+				</p>
+
+				<h2>What counts as a mortgage deal in NZ?</h2>
+				<p>
+					Beyond the rate, lenders compete with extras. The most common is a cash contribution: money the lender pays when you take out or move a home loan. It usually comes with a minimum stay, and if you leave or repay early within that period you may have to pay some or all of it back (a clawback).
+				</p>
+				<h3>Other things lenders offer</h3>
+				<ul>
+					<li>Waived or reduced fees on the application or account.</li>
+					<li>Packages that bundle the home loan with transaction accounts or cards.</li>
+					<li>Offset or revolving credit facilities that let spare cash reduce your interest.</li>
+					<li>Separate lower-rate loans for things like insulation or solar, on some lenders' terms.</li>
+				</ul>
+
+				<h2>How do you compare home loan rates fairly?</h2>
+				<p>
+					Compare the total cost over the period you'll be with the lender, not the headline rate alone. A slightly higher rate with no clawback can work out better than a lower rate if you expect to sell, refinance or restructure soon.
+				</p>
+				<h3>Questions worth asking</h3>
+				<ul>
+					<li>Is this a special rate, and do I qualify for it with my equity?</li>
+					<li>What would it cost to break this fixed term early?</li>
+					<li>Does the cash contribution have a clawback, and for how long?</li>
+					<li>Can I make extra repayments without a fee?</li>
+					<li>Which part of my loan comes off fixed first, and when?</li>
+				</ul>
+				<p>
+					To see what a rate means in dollars, put it into the <a href="/mortgage-calculator/">NZ mortgage calculator</a> and compare repayments and total interest side by side. If you're already fixed, read about <a href="/when-should-you-refinance-nz-mortgage-break-fees/">refinancing and break fees</a> first.
+				</p>
+
+				<h2 id="where-to-check">Where can you check current mortgage rates in NZ?</h2>
+				<p>
+					Every lender publishes its own current home loan rates on its website. Independent comparison tables, such as <a href="https://www.interest.co.nz/borrowing" target="_blank" rel="noopener">interest.co.nz</a>, list many lenders side by side. The <a href="https://www.rbnz.govt.nz/" target="_blank" rel="noopener">Reserve Bank of New Zealand</a> publishes the current OCR and the dates of its next decisions. Whatever you look at, check the date it was updated.
+				</p>
+
+				<h2>Where does a Mortgage Adviser fit in?</h2>
+				<p>
+					A Mortgage Adviser compares lenders for you, explains how each offer is structured and presents your application. Lenders sometimes respond to that with a sharper offer, but no one can promise a particular rate: the final decision is always the lender's. I work with clients from Orewa and the Hibiscus Coast to anywhere in New Zealand.
+				</p>
+
+				<h2>Key takeaways</h2>
+				<ul>
+					<li>Each lender sets its own rates, shaped by the OCR, swap rates and competition.</li>
+					<li>Special rates usually need more equity; standard rates and Low Equity Margins cost more.</li>
+					<li>Cash contributions often come with a clawback if you leave early.</li>
+					<li>Compare the total cost over your time with the lender, not the headline rate.</li>
+					<li>Check the date on any rate you see. They change often.</li>
+				</ul>
+
+				<p class="calc-note">
+					{ADVISER.name} ({ADVISER.fsp}), {ADVISER.title} operating under {LICENSEE.name} ({LICENSEE.fsp}). This page is general information only and does not constitute personalised financial advice. See <a href="/important-information/">Important Information</a>.
+				</p>
+			</article>
+		</div>
+	</section>
+
+	<FaqBlock entries={RATES_FAQ} eyebrow="Mortgage rates questions" title="Common questions about NZ home loan rates." />
+
+	<LeverRing slug="mortgage-rates-nz" videoTitle="How NZ mortgage rates work" />
+
+	<FinalCta
+		heading="Want to know what's realistic for you?"
+		body="Rates on a website are a starting point. A conversation about your equity, income and plans gives you an actual comparison."
+	/>
+
+	<Fragment slot="scripts">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+		></script>
+		<script src="../scripts/page-interactions.js"></script>
+	</Fragment>
+</Base>

@@ -3,7 +3,7 @@
 	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	/* ---- calculator ---- */
-	var st = { loan: 700000, rate: 6.49, term: 30, freq: 'monthly' };
+	var st = { loan: 700000, rate: 5.0, term: 30, freq: 'monthly' };
 	var PER = { weekly: 52, fortnightly: 26, monthly: 12 },
 		LAB = { weekly: 'per week', fortnightly: 'per fortnight', monthly: 'per month' };
 	var $ = function (id) {
