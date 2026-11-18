@@ -551,13 +551,59 @@ export const CALCULATOR_FAQ = [
 	},
 	{
 		question: 'What interest rate should I put in?',
-		answer: 'Use a rate close to what you would realistically expect to be offered. Current advertised rates for owner-occupied home loans in NZ vary by lender, term, and loan-to-value ratio — I can help you use a realistic figure for your situation.',
+		answer: "The 5.00% already in the box is an example only, not a current rate or an offer. Replace it with a rate you have been quoted, or one from a lender's published rate page. Advertised home loan rates in NZ vary by lender, fixed term and loan-to-value ratio (LVR), so I can help you use a realistic figure for your situation.",
 	},
 	{
 		question: 'What about a fixed/floating split?',
 		answer: 'Most home loans in NZ are split between a fixed-rate portion and a floating-rate portion. The right split depends on your circumstances. This calculator uses a single blended rate to keep things simple — if you would like to model a specific split for your situation, that is exactly the kind of conversation worth having.',
 	},
+	{
+		question: 'How much will I repay on a $500,000 mortgage in New Zealand?',
+		answer: 'It depends on the interest rate, the loan term and how often you pay. Type 500000 into the loan amount above, enter the rate you have been offered, and pick your term and frequency; the repayment and total interest update straight away. A shorter term means higher repayments but much less interest over the life of the loan.',
+	},
+	{
+		question: 'Is it cheaper to pay my mortgage weekly or fortnightly instead of monthly?',
+		answer: 'Paying more often at the same interest rate trims the interest slightly, because the balance comes down a little sooner. The bigger saving usually comes from paying a bit more than the minimum. Switch the frequency in the calculator to see the difference for your numbers.',
+	},
+	{
+		question: 'Does this home loan calculator work anywhere in New Zealand?',
+		answer: 'Yes. The maths is the same for a home loan in Orewa, Auckland or anywhere else in New Zealand. What changes from place to place is the property price, and so the loan amount you enter.',
+	},
+	{
+		question: 'Where can I find current mortgage rates in NZ?',
+		answer: 'Each lender publishes its own home loan rates, and comparison sites list them side by side. Rates change often, so check the date on whatever you are looking at. My guide to how NZ mortgage rates work explains what sits behind the numbers and how to compare them fairly.',
+	},
 ] as const;
+
+// Rates explainer (/mortgage-rates-nz/). Deliberately no rate figures: rates move weekly
+// and the site rules say never quote current rates as definite numbers (Freddie, 18 Nov 2026).
+export const RATES_FAQ = [
+	{
+		question: 'What are mortgage rates in NZ right now?',
+		answer: 'Rates change often, sometimes weekly, so I do not list them here. Each lender publishes its own current rates, and comparison sites such as interest.co.nz show them side by side. Check the date on any rate you see, and look at the term you are actually considering.',
+	},
+	{
+		question: 'Why do banks have two different rates for the same fixed term?',
+		answer: 'Most NZ banks advertise a special rate and a standard (or carded) rate. Special rates are usually for borrowers with more equity (a lower loan-to-value ratio, or LVR), and sometimes need a particular package. With a smaller deposit, a higher rate or a Low Equity Margin can apply.',
+	},
+	{
+		question: 'Does the Official Cash Rate (OCR) set my mortgage rate?',
+		answer: 'Not directly. The Reserve Bank of New Zealand sets the OCR, and it flows most quickly into floating rates and short fixed terms. Longer fixed rates follow wholesale (swap) rates, which move on what markets expect the OCR to do in future.',
+	},
+	{
+		question: 'What is a mortgage cash contribution in NZ?',
+		answer: 'Some lenders pay a cash contribution when you take out or move a home loan. It usually comes with a minimum stay, and if you leave early you may have to pay some or all of it back. Compare the total cost, not just the cash up front.',
+	},
+	{
+		question: 'Is the lowest advertised rate always the best deal?',
+		answer: 'Not always. Break fees, cash contribution conditions, fees, and features like offset or revolving credit can matter as much as the rate. What suits you depends on your plans for the next few years.',
+	},
+	{
+		question: 'Can a Mortgage Adviser get me a better rate than going to my bank?',
+		answer: "A Mortgage Adviser compares lenders for you and presents your application, and lenders sometimes respond with a sharper offer. No one can promise a particular rate, because the final offer is the lender's decision based on your situation.",
+	},
+] as const;
+
 
 // Re-hosted in-repo (public/downloads/) so it survives the WordPress → Astro
 // cutover — the old /wp-content/uploads/... path won't exist post-migration.
@@ -638,6 +684,9 @@ export const LEVER_POSTS: Record<string, LeverPosts> = {
 	silverdale: {},
 	// Nov 2026 industry lever
 	'south-african-expats-mortgage-work-visa-nz': {},
+	// Nov 2026 keyword levers: mortgage calculator NZ + mortgage rates NZ clusters (not yet approved by JJ)
+	'mortgage-calculator': {},
+	'mortgage-rates-nz': {},
 };
 
 export const PLATFORM_PROFILES = {

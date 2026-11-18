@@ -4,11 +4,12 @@ import PageHero from '../components/PageHero.astro';
 import FaqBlock from '../components/FaqBlock.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Schema from '../components/Schema.astro';
+import LeverRing from '../components/LeverRing.astro';
 import { CALCULATOR_FAQ, SITE_URL } from '../consts';
 
-const title = 'Mortgage Calculator | Mortgages with JJ';
+const title = 'Mortgage Calculator NZ | Home Loan Repayments | Mortgages with JJ';
 const description =
-	'Estimate your mortgage repayments and total interest. Change the loan amount, interest rate, term and repayment frequency and the numbers update as you type.';
+	'Free NZ mortgage calculator. Work out your home loan repayments weekly, fortnightly or monthly, and the total interest, as you type. From JJ in Orewa.';
 ---
 
 <Base title={title} description={description}>
@@ -16,6 +17,8 @@ const description =
 		pageType="WebApplication"
 		pageName={title}
 		pageDescription={description}
+		includeFAQ
+		faqEntries={CALCULATOR_FAQ}
 		breadcrumb={[
 			{ name: 'Home', url: `${SITE_URL}/` },
 			{ name: 'Mortgage Calculator', url: `${SITE_URL}/mortgage-calculator/` },
@@ -24,9 +27,9 @@ const description =
 
 	<PageHero
 		trail={[{ name: 'Home', href: '/' }, { name: 'Mortgage Calculator' }]}
-		eyebrow="Mortgage Calculator"
-		title="What will your mortgage actually cost?"
-		lede="Get an instant estimate of your repayments and total interest paid. The numbers update as you adjust the loan amount, interest rate, term, and repayment frequency."
+		eyebrow="NZ Mortgage Calculator"
+		title="Mortgage calculator NZ: what will your home loan repayments be?"
+		lede="Work out your weekly, fortnightly or monthly home loan repayments and the total interest you'd pay. The numbers update as you change the loan amount, interest rate, term and repayment frequency."
 	/>
 
 	<section class="calcsec" id="calc">
@@ -48,14 +51,14 @@ const description =
 								type="number"
 								id="rate"
 								class="sf"
-								value="6.49"
+								value="5.00"
 								min="0"
 								max="30"
 								step="0.01"
 								style="padding-left:14px"
 							/><span class="sfx">%</span>
 						</div>
-						<span class="help">Use a rate close to what you'd realistically expect to be offered</span>
+						<span class="help">5.00% is an example rate only, not a current rate or offer. Enter the rate you've been quoted, or see <a href="/mortgage-rates-nz/">how NZ mortgage rates work</a>.</span>
 					</div>
 					<div class="fld">
 						<label>Loan term</label>
@@ -80,7 +83,9 @@ const description =
 					</div>
 				</div>
 				<div class="calc-out">
-					<p class="cap">Your indicative repayment</p>
+					<p class="cap">
+					Your indicative repayment
+				</p>
 					<div class="big" id="rAmt">$0</div>
 					<div class="per" id="rPer">per month</div>
 					<div class="brk">
@@ -92,21 +97,40 @@ const description =
 				</div>
 			</div>
 			<p class="calc-note">
-				This calculator gives an indicative estimate only, based on the figures you enter. It is a
-				general illustration and does not constitute personalised financial advice or a loan offer.
-				Actual repayments will depend on the lender, loan structure, fees, your individual
-				circumstances, and the rates available at the time of application. For advice tailored to
-				your situation, please get in touch.
-			</p>
+					This calculator gives an indicative estimate only, based on the figures you enter. It is a general illustration and does not constitute personalised financial advice or a loan offer. Actual repayments will depend on the lender, loan structure, fees, your individual circumstances, and the rates available at the time of application. For advice tailored to your situation, please get in touch.
+				</p>
+		</div>
+	</section>
+
+	<section class="light" id="using-the-calculator">
+		<div class="wrap">
+			<article class="post-body">
+				<h2>How to use this NZ home loan calculator</h2>
+				<p>
+					Enter how much you want to borrow, the interest rate, the loan term and how often you'll pay. The calculator works out a standard principal-and-interest repayment, the same way New Zealand lenders do for a table loan, and shows how much interest you'd pay over the full term.
+				</p>
+				<h3>Try a few what-ifs</h3>
+				<ul>
+					<li>Shorten the term to see how much interest a faster payoff saves.</li>
+					<li>Switch between weekly, fortnightly and monthly repayments.</li>
+					<li>Nudge the rate up and down to see how sensitive your repayments are to a refix.</li>
+				</ul>
+				<h3>Before you rely on the numbers</h3>
+				<p>
+					The rate is the number that matters most, and it changes often. Rates differ by lender, fixed term and how much equity you have. Read <a href="/mortgage-rates-nz/">how NZ mortgage rates and deals work</a> before you pick a figure, and see <a href="/how-long-should-i-fix-my-mortgage-for-in-2026-nz-mortgage-broker-guide/">how long to fix for</a>, <a href="/what-is-a-fixed-and-floating-split-and-which-is-better-in-2026/">fixed and floating splits</a> and <a href="/how-to-structure-mortgage-pay-off-faster-nz/">structuring a mortgage to pay it off faster</a>. Buying your first home? Start with <a href="/how-much-deposit-first-home-buyer-nz/">how much deposit you need</a>.
+				</p>
+			</article>
 		</div>
 	</section>
 
 	<FaqBlock
 		entries={CALCULATOR_FAQ}
-		eyebrow="How this calculator works"
-		title="A few things worth knowing."
+		eyebrow="Mortgage calculator questions"
+		title="Common questions about NZ mortgage repayments."
 		id="how-it-works"
 	/>
+
+	<LeverRing slug="mortgage-calculator" videoTitle="NZ mortgage calculator" />
 
 	<FinalCta
 		heading="Numbers look about right? Let's talk specifics."
