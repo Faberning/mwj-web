@@ -624,7 +624,12 @@ export const LEVER_POSTS: Record<string, LeverPosts> = {
 	// Oct 2026 area lever (live page)
 	whangaparaoa: {},
 	// Oct 2026 industry lever (live post)
-	'how-much-deposit-first-home-buyer-nz': {},
+	'how-much-deposit-first-home-buyer-nz': {
+		// YouTube, Facebook (4:5 video) and GBP posted 18 Nov 2026, 10:44pm NZ.
+		youtubeId: 'OCqxrmya8MA',
+		facebook: 'https://www.facebook.com/reel/3589376374565723/',
+		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDpMUmZmVHBqbnJDeW1MZXpJamtRNld3',
+	},
 	// Oct 2026 post, own lever since Nov
 	'mortgage-broker-vs-mortgage-adviser-nz': {},
 	// Nov 2026 industry lever (refresh). Facebook post went out 12 Nov 2026, 7:36am NZ (read via the Page feed).
@@ -635,7 +640,12 @@ export const LEVER_POSTS: Record<string, LeverPosts> = {
 		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDpFN3FEaV9ocjRIWDJManhWb0NxcTJ3',
 	},
 	// Nov 2026 area lever
-	silverdale: {},
+	silverdale: {
+		// YouTube, Facebook (4:5 video) and GBP posted 18 Nov 2026, 10:43pm NZ.
+		youtubeId: 'sllWcKlz9cA',
+		facebook: 'https://www.facebook.com/reel/1657340182418895/',
+		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDowUm1najhGT3hXUzRrUmg5eUR3QlZ3',
+	},
 	// Nov 2026 industry lever
 	'south-african-expats-mortgage-work-visa-nz': {},
 };
