@@ -631,7 +631,12 @@ export const LEVER_POSTS: Record<string, LeverPosts> = {
 		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDpMUmZmVHBqbnJDeW1MZXpJamtRNld3',
 	},
 	// Oct 2026 post, own lever since Nov
-	'mortgage-broker-vs-mortgage-adviser-nz': {},
+	'mortgage-broker-vs-mortgage-adviser-nz': {
+		// YouTube, Facebook (4:5 video) and GBP posted 21 Nov 2026, 4:33pm NZ.
+		youtubeId: 'zXqAAPJJ8cQ',
+		facebook: 'https://www.facebook.com/reel/1022559224245375/',
+		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDpaWlFFMDN0bTJrUjVnakktdnRodi1n',
+	},
 	// Nov 2026 industry lever (refresh). Facebook post went out 12 Nov 2026, 7:36am NZ (read via the Page feed).
 	'how-do-mortgage-brokers-get-paid-nz-2': {
 		facebook: 'https://www.facebook.com/122126666211304620/posts/122127326661304620',
@@ -647,7 +652,12 @@ export const LEVER_POSTS: Record<string, LeverPosts> = {
 		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDowUm1najhGT3hXUzRrUmg5eUR3QlZ3',
 	},
 	// Nov 2026 industry lever
-	'south-african-expats-mortgage-work-visa-nz': {},
+	'south-african-expats-mortgage-work-visa-nz': {
+		// YouTube, Facebook (4:5 video) and GBP posted 21 Nov 2026, 4:33pm NZ.
+		youtubeId: 'CcywzlZ-WdI',
+		facebook: 'https://www.facebook.com/reel/40218485674465265/',
+		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDp6Rk9FQ2I1MzVaTk5xdzVXcHZ4MVZR',
+	},
 };
 
 export const PLATFORM_PROFILES = {
