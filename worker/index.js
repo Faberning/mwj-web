@@ -3,7 +3,7 @@ import { createMimeMessage } from 'mimetext/browser';
 
 const JSON_HEADERS = { 'content-type': 'application/json' };
 const FROM_ADDRESS = 'leads@mortgageswithjj.co.nz';
-const NOTIFY_ADDRESS = 'freddieberning1@gmail.com';
+const NOTIFY_ADDRESS = 'freddie@ekomedia.co.nz';
 
 function isValidEmail(value) {
 	return typeof value === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -29,7 +29,7 @@ async function sendNotification(env, { subject, lines }) {
 }
 
 /**
- * Validates, honeypot-checks, and emails the lead to freddieberning1@gmail.com via
+ * Validates, honeypot-checks, and emails the lead to freddie@ekomedia.co.nz via
  * the Cloudflare Email Routing send_email binding — no third-party API, no secrets.
  */
 async function handleContactSubmit(request, env) {

@@ -15,4 +15,4 @@ binding = "ASSETS"
 # destination at the platform level (no third-party email API, no secrets).
 [[send_email]]
 name = "SEND_EMAIL"
-destination_address = "freddieberning1@gmail.com"
+destination_address = "freddie@ekomedia.co.nz"
