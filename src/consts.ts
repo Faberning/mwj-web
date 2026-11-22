@@ -622,7 +622,12 @@ export type LeverPosts = {
 
 export const LEVER_POSTS: Record<string, LeverPosts> = {
 	// Oct 2026 area lever (live page)
-	whangaparaoa: {},
+	// YouTube, Facebook (4:5 video) and GBP posted 23 Nov 2026, 8:33am NZ.
+	whangaparaoa: {
+		youtubeId: 'oJsCxLWmgpg',
+		facebook: 'https://www.facebook.com/reel/1529623555704754/',
+		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDp4T0plMV9XeGZyZVB4WTZTeGJpRXNn',
+	},
 	// Oct 2026 industry lever (live post)
 	'how-much-deposit-first-home-buyer-nz': {
 		// YouTube, Facebook (4:5 video) and GBP posted 18 Nov 2026, 10:44pm NZ.
