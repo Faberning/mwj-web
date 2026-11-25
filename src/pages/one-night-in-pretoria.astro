@@ -1,0 +1,316 @@
+---
+// Event lever (Nov 2026): One Night in Pretoria, Sat 28 Nov 2026, Jack N Jill, East Auckland.
+// Not linked from the nav or home page on purpose; it reaches people through the social posts
+// (ring-fence below) and search/AI answers via the sitemap. Post URLs live in LEVER_POSTS.
+// After the night: switch the copy to past tense and add photos. Don't delete the page.
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Schema from '../components/Schema.astro';
+import { ADVISER, LEVER_POSTS, LICENSEE, SITE_URL } from '../consts';
+
+const slug = 'one-night-in-pretoria';
+const pageUrl = `${SITE_URL}/${slug}/`;
+const posts = LEVER_POSTS[slug] ?? {};
+const youtubeId = posts.youtubeId!;
+
+const ENTRY_FORM =
+	'https://docs.google.com/forms/d/e/1FAIpQLSc-yPcG3Jp2Dc4bohGNhPoKjA2bwh1BS9Q8piRK0wrCPBnLZg/viewform';
+const TICKETS = 'https://www.eventbrite.co.nz/e/one-night-in-pretoria-jacknjill-east-auckland-tickets-2001798585456';
+
+const title = 'One Night in Pretoria Auckland, Sat 28 Nov | Win prizes with Mortgages with JJ';
+const description =
+	'Afrikaans and Country party at Jack N Jill, East Auckland, Sat 28 Nov, 8pm to 2am. Enter to win prizes and hampers from Mortgages with JJ and IntegriLife Limited. Entries close 8pm Saturday.';
+
+const details = [
+	{ label: 'When', value: 'Saturday 28 November 2026, 8pm to 2am' },
+	{ label: 'Where', value: 'Jack N Jill Eatery, Unit 1, 317 Ti Rakau Drive, East Auckland 2013' },
+	{ label: 'What', value: 'Afrikaans and Country night with live singers and a live DJ' },
+	{ label: 'Presented by', value: 'Soul Club Sessions' },
+	{ label: 'Tickets', value: '$28 on Eventbrite' },
+	{ label: 'Prizes from', value: 'Mortgages with JJ and IntegriLife Limited' },
+	{ label: 'Entries close', value: '8pm, Saturday 28 November 2026' },
+];
+
+// Every platform this event lives on. Only posts that exist are shown.
+const elsewhere = [
+	{ label: 'Watch the promo on YouTube', url: `https://www.youtube.com/shorts/${youtubeId}` },
+	{ label: 'See the Reel on Facebook', url: posts.facebook },
+	{ label: 'See the Reel on Instagram', url: posts.instagram },
+	{ label: 'See the event on Google', url: posts.google },
+	{ label: "Read JJ's article on LinkedIn", url: posts.linkedin },
+].filter((p): p is { label: string; url: string } => Boolean(p.url));
+
+const faq = [
+	{
+		question: 'When and where is One Night in Pretoria in Auckland?',
+		answer:
+			'One Night in Pretoria is on Saturday 28 November 2026, from 8pm to 2am, at Jack N Jill Eatery, Unit 1, 317 Ti Rakau Drive in East Auckland (2013).',
+	},
+	{
+		question: 'What kind of night is it?',
+		answer:
+			'An Afrikaans and Country party with live singers and a live DJ, presented by Soul Club Sessions. Think of it as a night out for South Africans in Auckland, and for anyone who loves Afrikaans music and country.',
+	},
+	{
+		question: 'How much are tickets for One Night in Pretoria?',
+		answer: 'Tickets are $28 and are sold on Eventbrite. The ticket link is on this page.',
+	},
+	{
+		question: 'How do I enter to win the prizes and hampers?',
+		answer:
+			'Fill in the short entry form linked on this page, or scan the QR code at the end of the promo video. Entries close at 8pm on Saturday 28 November 2026.',
+	},
+	{
+		question: 'Who is giving away the prizes?',
+		answer:
+			'Mortgages with JJ, the Orewa-based mortgage adviser practice of JJ van der Westhuizen, and IntegriLife Limited are sponsoring the night and giving away prizes and hampers.',
+	},
+	{
+		question: 'Why is a mortgage adviser sponsoring an Afrikaans party?',
+		answer:
+			'JJ works with a lot of South African families who have made Auckland home, many of them buying their first New Zealand house or refinancing. Sponsoring the night is a way to say thank you to the community and meet people away from the paperwork.',
+	},
+	{
+		question: 'Can South Africans on a work visa get a mortgage in New Zealand?',
+		answer:
+			'It depends on your visa. People on a temporary visa, such as a work visa, generally cannot buy an existing home without Overseas Investment Office consent. Once you hold a residence class visa and are ordinarily resident, it comes down to income, deposit and paperwork, as it does for anyone else. JJ has a full guide on this, linked on this page.',
+	},
+] as const;
+
+const eventSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Event',
+	'@id': `${pageUrl}#event`,
+	name: 'One Night in Pretoria',
+	description:
+		'Afrikaans and Country party with live singers and a live DJ, presented by Soul Club Sessions. Prizes and hampers from Mortgages with JJ and IntegriLife Limited. Entries close 8pm Saturday 28 November.',
+	url: pageUrl,
+	image: [`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`],
+	startDate: '2026-11-28T20:00:00+13:00',
+	endDate: '2026-11-29T02:00:00+13:00',
+	eventStatus: 'https://schema.org/EventScheduled',
+	eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+	location: {
+		'@type': 'Place',
+		name: 'Jack N Jill Eatery',
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: 'Unit 1, 317 Ti Rakau Drive',
+			addressLocality: 'East Auckland',
+			addressRegion: 'Auckland',
+			postalCode: '2013',
+			addressCountry: 'NZ',
+		},
+	},
+	organizer: { '@type': 'Organization', name: 'Soul Club Sessions' },
+	sponsor: [
+		{ '@type': 'Organization', name: 'Mortgages with JJ', url: `${SITE_URL}/` },
+		{ '@type': 'Organization', name: 'IntegriLife Limited' },
+	],
+	offers: {
+		'@type': 'Offer',
+		url: TICKETS,
+		price: '28',
+		priceCurrency: 'NZD',
+		availability: 'https://schema.org/InStock',
+	},
+	subjectOf: {
+		'@type': 'VideoObject',
+		name: 'One Night in Pretoria Auckland promo',
+		description: 'Promo for One Night in Pretoria, Sat 28 Nov 2026 at Jack N Jill, East Auckland.',
+		thumbnailUrl: `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`,
+		uploadDate: '2026-11-25T20:51:09Z',
+		duration: 'PT48S',
+		embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId}`,
+		contentUrl: `https://www.youtube.com/shorts/${youtubeId}`,
+	},
+	sameAs: elsewhere.map((p) => p.url),
+};
+---
+
+<Base title={title} description={description} ogImage={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`}>
+	<Schema
+		pageType="WebPage"
+		pageName={title}
+		pageDescription={description}
+		includeFAQ
+		faqEntries={faq}
+		breadcrumb={[
+			{ name: 'Home', url: `${SITE_URL}/` },
+			{ name: 'One Night in Pretoria', url: pageUrl },
+		]}
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
+	<PageHero
+		trail={[{ name: 'Home', href: '/' }, { name: 'One Night in Pretoria' }]}
+		eyebrow="Event · Sat 28 Nov 2026 · East Auckland"
+		title="One Night in Pretoria: an Afrikaans and Country night in Auckland, with prizes to win"
+		lede="Saturday 28 November, 8pm to 2am, at Jack N Jill in East Auckland. Live singers, a live DJ and a proper South African jol, presented by Soul Club Sessions. Mortgages with JJ and IntegriLife Limited are giving away prizes and hampers on the night."
+		ctaPrimary={{ label: 'Enter to win', href: ENTRY_FORM }}
+		ctaSecondary={{ label: 'Get tickets ($28)', href: TICKETS }}
+	/>
+
+	<section class="light" id="event">
+		<div class="wrap onip-grid">
+			<div class="onip-short">
+				<iframe
+					src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+					title="One Night in Pretoria Auckland promo"
+					loading="lazy"
+					allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			</div>
+			<div>
+				<div class="kicker"><span class="eyebrow">Event details</span></div>
+				<h2 class="title">Everything you need for Saturday night.</h2>
+				<ul class="related-guides onip-details">
+					{details.map((d) => <li><b>{d.label}:</b> {d.value}</li>)}
+				</ul>
+				<p style="margin-top:24px">
+					<a href={ENTRY_FORM} target="_blank" rel="noopener"><b>Enter to win</b> <span class="arrow">→</span></a>
+					&nbsp;·&nbsp;
+					<a href={TICKETS} target="_blank" rel="noopener"><b>Get tickets on Eventbrite</b> <span class="arrow">→</span></a>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="about-the-night">
+		<div class="wrap onip-prose">
+			<div class="kicker"><span class="eyebrow">The night</span></div>
+			<h2 class="title">Pretoria comes to East Auckland for one night.</h2>
+			<p>
+				If you have been missing a South African night out in Auckland, this is the one. One Night in Pretoria turns
+				Jack N Jill Eatery on Ti Rakau Drive into a little piece of home: Afrikaans music, country, live singers and a
+				live DJ from 8pm until 2am. It is presented by Soul Club Sessions, and it is open to everyone, whether you grew
+				up in Pretoria, Joburg or Bloemfontein, or you just like a good dance.
+			</p>
+
+			<h3>How to enter the prize draw</h3>
+			<ol class="onip-steps">
+				<li>Open the <a href={ENTRY_FORM} target="_blank" rel="noopener">entry form</a>, or scan the QR code at the end of the promo video.</li>
+				<li>Fill in your details. It takes about a minute.</li>
+				<li>Get your entry in before <b>8pm on Saturday 28 November 2026</b>, when entries close.</li>
+			</ol>
+			<p>Prizes and hampers come from Mortgages with JJ and IntegriLife Limited.</p>
+
+			<h3>Tickets</h3>
+			<p>
+				Tickets are <b>$28</b> and sold through <a href={TICKETS} target="_blank" rel="noopener">Eventbrite</a>. Saturday
+				nights at Jack N Jill fill up, so it is worth booking ahead.
+			</p>
+
+			<h3>Why a mortgage adviser is sponsoring an Afrikaans party</h3>
+			<p>
+				{ADVISER.name} is a {ADVISER.title} based in Orewa, and he works with a lot of South African families who have
+				made Auckland home. Many are buying their first New Zealand house, or refinancing after a few years here. Most of
+				that happens over a desk and a spreadsheet, so this is a chance to show up somewhere that feels like home, have a
+				lekker jol and say thank you to the community.
+			</p>
+			<p>If you are a South African thinking about buying in New Zealand, these guides answer the questions JJ hears most:</p>
+			<ul class="related-guides">
+				<li><a href="/south-african-expats-mortgage-work-visa-nz/">Can South African expats on a work visa get a mortgage in New Zealand? <span class="arrow">→</span></a></li>
+				<li><a href="/how-much-deposit-first-home-buyer-nz/">How much deposit does a first home buyer need in NZ? <span class="arrow">→</span></a></li>
+				<li><a href="/mortgage-broker-vs-mortgage-adviser-nz/">What is the difference between a mortgage broker and a mortgage adviser? <span class="arrow">→</span></a></li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="light" id="elsewhere">
+		<div class="wrap">
+			<div class="kicker"><span class="eyebrow">Watch and share</span></div>
+			<h2 class="title">Tag a friend who needs a night out.</h2>
+			<ul class="related-guides">
+				{
+					elsewhere.map((p) => (
+						<li>
+							<a href={p.url} target="_blank" rel="noopener">
+								{p.label} <span class="arrow">→</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<FaqBlock entries={faq} eyebrow="Questions" title="One Night in Pretoria: quick answers." id="faq" />
+
+	<section id="disclosure">
+		<div class="wrap onip-prose">
+			<p class="onip-small">
+				{ADVISER.name} ({ADVISER.fsp}), {ADVISER.title} operating under {LICENSEE.name} ({LICENSEE.fsp}). This page is
+				general information about a community event and is not financial advice. Event details are from the organiser's
+				Facebook and Eventbrite listings, checked 25 November 2026; check Eventbrite for any changes.
+			</p>
+			<p class="onip-small">Video by <a href="https://ekomedia.co.nz" target="_blank" rel="noopener">Eko Media</a>.</p>
+		</div>
+	</section>
+
+	<FinalCta />
+</Base>
+
+<style>
+	.onip-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+		gap: 48px;
+		align-items: start;
+	}
+	.onip-short {
+		position: relative;
+		aspect-ratio: 9 / 16;
+		width: 100%;
+		max-width: 340px;
+		border-radius: 12px;
+		overflow: hidden;
+		background: var(--ink);
+	}
+	.onip-short iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+	.onip-details li b {
+		font-weight: 600;
+	}
+	.onip-prose {
+		max-width: 760px;
+	}
+	.onip-prose h3 {
+		font-family: var(--display);
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 1.8em 0 0.5em;
+	}
+	.onip-prose p {
+		margin: 0 0 1em;
+		line-height: 1.65;
+	}
+	.onip-steps {
+		padding-left: 1.2em;
+		line-height: 1.65;
+	}
+	.onip-steps li {
+		margin-bottom: 0.4em;
+	}
+	.onip-small {
+		font-size: 14px;
+		opacity: 0.8;
+	}
+	@media (max-width: 760px) {
+		.onip-grid {
+			grid-template-columns: 1fr;
+			gap: 32px;
+		}
+		.onip-short {
+			margin: 0 auto;
+		}
+	}
+</style>
