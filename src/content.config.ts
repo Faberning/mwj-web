@@ -9,6 +9,8 @@ const blog = defineCollection({
 		seoTitle: z.string().optional(),
 		description: z.string(),
 		pubDate: z.coerce.date(),
+		// Set when a post is substantially refreshed; feeds dateModified and the sitemap.
+		updatedDate: z.coerce.date().optional(),
 		author: z.string(),
 		slug: z.string(),
 	}),
