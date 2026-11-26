@@ -3,12 +3,13 @@
 // Not linked from the nav or home page on purpose; it reaches people through the social posts
 // (ring-fence below) and search/AI answers via the sitemap. Post URLs live in LEVER_POSTS.
 // After the night: switch the copy to past tense and add photos. Don't delete the page.
+import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import PageHero from '../components/PageHero.astro';
 import FaqBlock from '../components/FaqBlock.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Schema from '../components/Schema.astro';
 import { ADVISER, LEVER_POSTS, LICENSEE, SITE_URL } from '../consts';
+import eventImage from '../assets/images/events/one-night-in-pretoria-auckland.jpg';
 
 const slug = 'one-night-in-pretoria';
 const pageUrl = `${SITE_URL}/${slug}/`;
@@ -19,15 +20,21 @@ const ENTRY_FORM =
 	'https://docs.google.com/forms/d/e/1FAIpQLSc-yPcG3Jp2Dc4bohGNhPoKjA2bwh1BS9Q8piRK0wrCPBnLZg/viewform';
 const TICKETS = 'https://www.eventbrite.co.nz/e/one-night-in-pretoria-jacknjill-east-auckland-tickets-2001798585456';
 
-const title = 'One Night in Pretoria Auckland, Sat 28 Nov | Win prizes with Mortgages with JJ';
+// Event creative (from the posting kit): poster + "scan to win" panel, 1200x900. Hero visual, og:image and Event.image.
+const shareImg = await getImage({ src: eventImage, format: 'jpg', width: 1200 });
+const shareImgUrl = new URL(shareImg.src, SITE_URL).toString();
+const imageAlt =
+	'One Night in Pretoria Auckland poster: Afrikaans and Country night, 28 November, live singers and live DJ, with a scan-to-win QR code for prizes from Mortgages with JJ and IntegriLife Limited';
+
+const title = 'One Night in Pretoria Auckland, Sat 28 Nov | Afrikaans Party';
 const description =
-	'Afrikaans and Country party at Jack N Jill, East Auckland, Sat 28 Nov, 8pm to 2am. Enter to win prizes and hampers from Mortgages with JJ and IntegriLife Limited. Entries close 8pm Saturday.';
+	'Afrikaans and Country sokkie at Jack N Jill, East Auckland, Sat 28 Nov, 8pm to 2am. Live singers, DJ Lotts, $28 tickets. Win prizes from Mortgages with JJ.';
 
 const details = [
 	{ label: 'When', value: 'Saturday 28 November 2026, 8pm to 2am' },
 	{ label: 'Where', value: 'Jack N Jill Eatery, Unit 1, 317 Ti Rakau Drive, East Auckland 2013' },
-	{ label: 'What', value: 'Afrikaans and Country night with live singers and a live DJ' },
-	{ label: 'Presented by', value: 'Soul Club Sessions' },
+	{ label: 'What', value: 'Afrikaans and Country night with live singers, DJ Lotts and two dance floors' },
+	{ label: 'Presented by', value: 'Soul Club Sessions, hosted by Yebo Events' },
 	{ label: 'Tickets', value: '$28 on Eventbrite' },
 	{ label: 'Prizes from', value: 'Mortgages with JJ and IntegriLife Limited' },
 	{ label: 'Entries close', value: '8pm, Saturday 28 November 2026' },
@@ -49,9 +56,14 @@ const faq = [
 			'One Night in Pretoria is on Saturday 28 November 2026, from 8pm to 2am, at Jack N Jill Eatery, Unit 1, 317 Ti Rakau Drive in East Auckland (2013).',
 	},
 	{
-		question: 'What kind of night is it?',
+		question: 'What kind of night is One Night in Pretoria?',
 		answer:
-			'An Afrikaans and Country party with live singers and a live DJ, presented by Soul Club Sessions. Think of it as a night out for South Africans in Auckland, and for anyone who loves Afrikaans music and country.',
+			'An Afrikaans and Country party, a proper sokkie, with live singers, DJ Lotts and two dance floors. It is presented by Soul Club Sessions and hosted by Yebo Events. It is a night out for South Africans in Auckland, and for anyone who loves Afrikaans music and country.',
+	},
+	{
+		question: 'Is there an Afrikaans party or South African event in Auckland this weekend?',
+		answer:
+			'Yes. One Night in Pretoria is on Saturday 28 November 2026 at Jack N Jill Eatery on Ti Rakau Drive, East Auckland, from 8pm to 2am. Tickets are $28 on Eventbrite.',
 	},
 	{
 		question: 'How much are tickets for One Night in Pretoria?',
@@ -87,7 +99,9 @@ const eventSchema = {
 	description:
 		'Afrikaans and Country party with live singers and a live DJ, presented by Soul Club Sessions. Prizes and hampers from Mortgages with JJ and IntegriLife Limited. Entries close 8pm Saturday 28 November.',
 	url: pageUrl,
-	image: [`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`],
+	image: [shareImgUrl],
+	inLanguage: ['en-NZ', 'af'],
+	keywords: 'One Night in Pretoria, Afrikaans party Auckland, South African events Auckland, sokkie Auckland, country music night East Auckland',
 	startDate: '2026-11-28T20:00:00+13:00',
 	endDate: '2026-11-29T02:00:00+13:00',
 	eventStatus: 'https://schema.org/EventScheduled',
@@ -98,16 +112,20 @@ const eventSchema = {
 		address: {
 			'@type': 'PostalAddress',
 			streetAddress: 'Unit 1, 317 Ti Rakau Drive',
-			addressLocality: 'East Auckland',
+			addressLocality: 'Auckland',
 			addressRegion: 'Auckland',
 			postalCode: '2013',
 			addressCountry: 'NZ',
 		},
 	},
-	organizer: { '@type': 'Organization', name: 'Soul Club Sessions' },
+	organizer: [
+		{ '@type': 'Organization', name: 'Soul Club Sessions' },
+		{ '@type': 'Organization', name: 'Yebo Events' },
+	],
+	performer: { '@type': 'Person', name: 'DJ Lotts' },
 	sponsor: [
-		{ '@type': 'Organization', name: 'Mortgages with JJ', url: `${SITE_URL}/` },
-		{ '@type': 'Organization', name: 'IntegriLife Limited' },
+		{ '@type': 'FinancialService', '@id': `${SITE_URL}/#business`, name: 'Mortgages with JJ', url: `${SITE_URL}/` },
+		{ '@type': 'Organization', name: 'IntegriLife Limited', url: 'https://integrilife.co.nz/' },
 	],
 	offers: {
 		'@type': 'Offer',
@@ -115,6 +133,7 @@ const eventSchema = {
 		price: '28',
 		priceCurrency: 'NZD',
 		availability: 'https://schema.org/InStock',
+		validThrough: '2026-11-28T20:00:00+13:00',
 	},
 	subjectOf: {
 		'@type': 'VideoObject',
@@ -130,7 +149,7 @@ const eventSchema = {
 };
 ---
 
-<Base title={title} description={description} ogImage={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`}>
+<Base title={title} description={description} ogImage={shareImgUrl}>
 	<Schema
 		pageType="WebPage"
 		pageName={title}
@@ -144,14 +163,27 @@ const eventSchema = {
 	/>
 	<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
 
-	<PageHero
-		trail={[{ name: 'Home', href: '/' }, { name: 'One Night in Pretoria' }]}
-		eyebrow="Event · Sat 28 Nov 2026 · East Auckland"
-		title="One Night in Pretoria: an Afrikaans and Country night in Auckland, with prizes to win"
-		lede="Saturday 28 November, 8pm to 2am, at Jack N Jill in East Auckland. Live singers, a live DJ and a proper South African jol, presented by Soul Club Sessions. Mortgages with JJ and IntegriLife Limited are giving away prizes and hampers on the night."
-		ctaPrimary={{ label: 'Enter to win', href: ENTRY_FORM }}
-		ctaSecondary={{ label: 'Get tickets ($28)', href: TICKETS }}
-	/>
+	<section class="phero onip-hero">
+		<div class="wrap onip-hero-grid">
+			<div>
+				<div class="crumb"><a href="/">Home</a> / <span>One Night in Pretoria</span></div>
+				<span class="eyebrow">Event · Sat 28 Nov 2026 · East Auckland</span>
+				<h1>One Night in Pretoria, Auckland: an Afrikaans and Country night with prizes to win</h1>
+				<p class="lead">
+					Saturday 28 November, 8pm to 2am, at Jack N Jill in East Auckland. Live singers, DJ Lotts, two dance floors and a
+					proper South African sokkie, presented by Soul Club Sessions. Mortgages with JJ and IntegriLife Limited are giving
+					away prizes and hampers on the night.
+				</p>
+				<div class="hero-cta" style="margin-top:1.6em">
+					<a class="btn btn-gold" href={ENTRY_FORM} target="_blank" rel="noopener">Enter to win <span class="arrow">→</span></a>
+					<a class="btn btn-ghost" href={TICKETS} target="_blank" rel="noopener">Get tickets ($28)</a>
+				</div>
+			</div>
+			<figure class="onip-visual">
+				<Image src={eventImage} alt={imageAlt} widths={[600, 900, 1200]} sizes="(max-width: 900px) 100vw, 560px" loading="eager" fetchpriority="high" />
+			</figure>
+		</div>
+	</section>
 
 	<section class="light" id="event">
 		<div class="wrap onip-grid">
@@ -185,8 +217,9 @@ const eventSchema = {
 			<h2 class="title">Pretoria comes to East Auckland for one night.</h2>
 			<p>
 				If you have been missing a South African night out in Auckland, this is the one. One Night in Pretoria turns
-				Jack N Jill Eatery on Ti Rakau Drive into a little piece of home: Afrikaans music, country, live singers and a
-				live DJ from 8pm until 2am. It is presented by Soul Club Sessions, and it is open to everyone, whether you grew
+				Jack N Jill Eatery on Ti Rakau Drive into a little piece of home: Afrikaans music, country, live singers and DJ
+				Lotts across two dance floors, from 8pm until 2am. It is presented by Soul Club Sessions and hosted by Yebo Events,
+				and it is open to everyone, whether you grew
 				up in Pretoria, Joburg or Bloemfontein, or you just like a good dance.
 			</p>
 
@@ -245,7 +278,8 @@ const eventSchema = {
 			<p class="onip-small">
 				{ADVISER.name} ({ADVISER.fsp}), {ADVISER.title} operating under {LICENSEE.name} ({LICENSEE.fsp}). This page is
 				general information about a community event and is not financial advice. Event details are from the organiser's
-				Facebook and Eventbrite listings, checked 25 November 2026; check Eventbrite for any changes.
+				Facebook and Eventbrite listings, checked 25 November 2026; check Eventbrite for any changes. Event artwork by the
+				organisers and Eko Media.
 			</p>
 			<p class="onip-small">Video by <a href="https://ekomedia.co.nz" target="_blank" rel="noopener">Eko Media</a>.</p>
 		</div>
@@ -255,6 +289,27 @@ const eventSchema = {
 </Base>
 
 <style>
+	.onip-hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+		gap: 56px;
+		align-items: center;
+	}
+	.onip-hero h1 {
+		max-width: 18ch;
+	}
+	.onip-visual {
+		margin: 0;
+		border-radius: 14px;
+		overflow: hidden;
+		border: 1px solid var(--ink-line);
+		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+	}
+	.onip-visual img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
 	.onip-grid {
 		display: grid;
 		grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
@@ -303,6 +358,12 @@ const eventSchema = {
 	.onip-small {
 		font-size: 14px;
 		opacity: 0.8;
+	}
+	@media (max-width: 900px) {
+		.onip-hero-grid {
+			grid-template-columns: 1fr;
+			gap: 32px;
+		}
 	}
 	@media (max-width: 760px) {
 		.onip-grid {

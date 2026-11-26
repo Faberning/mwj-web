@@ -664,10 +664,12 @@ export const LEVER_POSTS: Record<string, LeverPosts> = {
 		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtc3BfaDp6Rk9FQ2I1MzVaTk5xdzVXcHZ4MVZR',
 	},
 	// Event lever: One Night in Pretoria, Sat 28 Nov 2026 (page /one-night-in-pretoria/).
-	// YouTube Short and Facebook Reel posted 25 Nov 2026. Still to add: instagram, google (GBP event post), linkedin (JJ's article).
+	// YouTube Short, Facebook Reel and GBP event post (localPosts/5999269171832048164) posted 25 Nov 2026;
+	// GBP button pointed at this page 27 Nov 2026. Still to add: instagram, linkedin (JJ's article).
 	'one-night-in-pretoria': {
 		youtubeId: 'anCU4K-t7K8',
 		facebook: 'https://www.facebook.com/reel/1460685946055100/',
+		google: 'https://local.google.com/place?id=8907758318961936231&use=posts&lpsid=CAIQACoeChxtZXBfaDoxY3ctdTVSYll5bFZCdVFuNmJJWnhn',
 	},
 };
 
