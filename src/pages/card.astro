@@ -126,10 +126,24 @@ const topics = ['Buying my first home', 'Refinancing or refixing', 'Investment p
 					<h3>Thanks, JJ has your details.</h3>
 					<p>Save his contact too, so you know it's him when he calls.</p>
 					<a class="btn gold" href="/jj.vcf" download="JJ-van-der-Westhuizen.vcf">Save contact to phone</a>
+					<a class="review-link" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener">Enjoyed the chat? Leave JJ a Google review</a>
 				</div>
 			</section>
 
-			<div class="disclosure reveal" style="--d:6">
+			<section class="review reveal" style="--d:6" aria-labelledby="review-h">
+				<span class="stars" aria-hidden="true">★★★★★</span>
+				<h2 id="review-h">Enjoyed the chat?</h2>
+				<p>
+					If you have a minute, JJ would really appreciate an honest Google review of your experience talking with him, whether or not you
+					end up working together. It helps other people find good advice.
+				</p>
+				<a class="btn outline" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-2.9-5.4 2.9 1.1-6L3.2 9.4l6.1-.8L12 3Z"></path></svg>
+					Leave JJ a Google review
+				</a>
+			</section>
+
+			<div class="disclosure reveal" style="--d:7">
 				<p>{ADVISER.name} ({ADVISER.fsp}), {ADVISER.title} operating under {LICENSEE.name} ({LICENSEE.fsp}).</p>
 				<p>
 					<a href="/important-information/">Important Information</a><span>·</span><a href="/privacy-policy/">Privacy Policy</a><span>·</span><a
@@ -749,6 +763,47 @@ const topics = ['Buying my first home', 'Refinancing or refixing', 'Investment p
 				stroke-dasharray: 40;
 				stroke-dashoffset: 40;
 				animation: draw 0.4s var(--ease) 0.55s forwards;
+			}
+
+			/* ---------- Review ---------- */
+			.review {
+				margin: 6px 0 0;
+				padding: 24px 20px 22px;
+				border-radius: 22px;
+				text-align: center;
+				background: rgba(255, 255, 255, 0.04);
+				border: 1px solid rgba(201, 163, 94, 0.3);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+			}
+			.review .stars {
+				font-size: 18px;
+				letter-spacing: 4px;
+			}
+			.review h2 {
+				font-size: 26px;
+				color: #fbf7ef;
+			}
+			.review p {
+				font-size: 14.5px;
+				color: var(--on-dark-mut);
+				line-height: 1.55;
+				margin-bottom: 6px;
+			}
+			.btn.outline {
+				background: transparent;
+				color: var(--gold-bright);
+				border: 1.5px solid var(--gold);
+				min-height: 54px;
+				font-size: 16px;
+			}
+			.review-link {
+				font-size: 14px;
+				color: var(--gold-ink);
+				text-decoration: underline;
+				text-underline-offset: 3px;
 			}
 
 			.disclosure {
