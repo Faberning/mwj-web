@@ -10,6 +10,7 @@ import FinalCta from '../components/FinalCta.astro';
 import Schema from '../components/Schema.astro';
 import { ADVISER, LEVER_POSTS, LICENSEE, SITE_URL } from '../consts';
 import eventImage from '../assets/images/events/one-night-in-pretoria-auckland.jpg';
+import posterImage from '../assets/images/events/one-night-in-pretoria-poster.jpg';
 
 const slug = 'one-night-in-pretoria';
 const pageUrl = `${SITE_URL}/${slug}/`;
@@ -40,14 +41,27 @@ const details = [
 	{ label: 'Entries close', value: '8pm, Saturday 28 November 2026' },
 ];
 
-// Every platform this event lives on. Only posts that exist are shown.
-const elsewhere = [
-	{ label: 'Watch the promo on YouTube', url: `https://www.youtube.com/shorts/${youtubeId}` },
-	{ label: 'See the Reel on Facebook', url: posts.facebook },
-	{ label: 'See the Reel on Instagram', url: posts.instagram },
-	{ label: 'See the event on Google', url: posts.google },
-	{ label: "Read JJ's article on LinkedIn", url: posts.linkedin },
-].filter((p): p is { label: string; url: string } => Boolean(p.url));
+// Watch and share cards. Facebook is featured first (Freddie, 27 Nov: the better music version),
+// then the smaller cards. Only posts that exist are shown.
+type ShareCard = { platform: string; icon: string; title: string; text: string; cta: string; url?: string; thumb: ImageMetadata; play?: boolean };
+const featured: ShareCard = {
+	platform: 'Facebook',
+	icon: '/images/social/facebook.svg',
+	title: 'Watch the Reel on Facebook',
+	text: 'The full promo with the music. Like it, share it and tag the friend you are bringing on Saturday.',
+	cta: 'Watch on Facebook',
+	url: posts.facebook,
+	thumb: posterImage,
+	play: true,
+};
+const cards = (
+	[
+		{ platform: 'Instagram', icon: '/images/social/instagram.svg', title: 'See the Reel on Instagram', text: 'Save it and send it to your group chat.', cta: 'Open Instagram', url: posts.instagram, thumb: posterImage, play: true },
+		{ platform: 'YouTube', icon: '/images/social/youtube.svg', title: 'Watch the promo on YouTube', text: 'The YouTube Short, ready to share.', cta: 'Watch on YouTube', url: `https://www.youtube.com/shorts/${youtubeId}`, thumb: posterImage, play: true },
+		{ platform: 'Google', icon: '/images/social/google-business.png', title: 'See the event on Google', text: 'The event post on JJ\'s Google Business Profile.', cta: 'View on Google', url: posts.google, thumb: eventImage },
+		{ platform: 'LinkedIn', icon: '', title: "Read JJ's article on LinkedIn", text: 'Why JJ is backing the night.', cta: 'Read on LinkedIn', url: posts.linkedin, thumb: eventImage },
+	] as ShareCard[]
+).filter((c) => Boolean(c.url));
 
 const faq = [
 	{
@@ -145,7 +159,7 @@ const eventSchema = {
 		embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId}`,
 		contentUrl: `https://www.youtube.com/shorts/${youtubeId}`,
 	},
-	sameAs: elsewhere.map((p) => p.url),
+	sameAs: [featured, ...cards].map((c) => c.url).filter(Boolean),
 };
 ---
 
@@ -257,17 +271,40 @@ const eventSchema = {
 		<div class="wrap">
 			<div class="kicker"><span class="eyebrow">Watch and share</span></div>
 			<h2 class="title">Tag a friend who needs a night out.</h2>
-			<ul class="related-guides">
+			{
+				featured.url && (
+					<a class="share-feature" href={featured.url} target="_blank" rel="noopener">
+						<div class="share-thumb share-thumb-tall">
+							<Image src={featured.thumb} alt="One Night in Pretoria promo Reel on Facebook" widths={[320, 540]} sizes="(max-width: 760px) 100vw, 300px" />
+							<span class="share-play" aria-hidden="true"></span>
+						</div>
+						<div class="share-body">
+							<span class="share-platform"><img src={featured.icon} alt="" width="28" height="28" /> {featured.platform}</span>
+							<h3>{featured.title}</h3>
+							<p>{featured.text}</p>
+							<span class="btn btn-gold">{featured.cta} <span class="arrow">→</span></span>
+						</div>
+					</a>
+				)
+			}
+			<div class="share-grid">
 				{
-					elsewhere.map((p) => (
-						<li>
-							<a href={p.url} target="_blank" rel="noopener">
-								{p.label} <span class="arrow">→</span>
-							</a>
-						</li>
+					cards.map((c) => (
+						<a class="share-card" href={c.url} target="_blank" rel="noopener">
+							<div class="share-thumb">
+								<Image src={c.thumb} alt={`${c.title}: One Night in Pretoria Auckland`} widths={[400, 700]} sizes="(max-width: 760px) 100vw, 360px" />
+								{c.play && <span class="share-play" aria-hidden="true"></span>}
+							</div>
+							<div class="share-body">
+								<span class="share-platform">{c.icon && <img src={c.icon} alt="" width="22" height="22" />} {c.platform}</span>
+								<h3>{c.title}</h3>
+								<p>{c.text}</p>
+								<span class="share-cta">{c.cta} <span class="arrow">→</span></span>
+							</div>
+						</a>
 					))
 				}
-			</ul>
+			</div>
 		</div>
 	</section>
 
@@ -358,6 +395,144 @@ const eventSchema = {
 	.onip-small {
 		font-size: 14px;
 		opacity: 0.8;
+	}
+	.share-feature {
+		display: grid;
+		grid-template-columns: 300px minmax(0, 1fr);
+		gap: 40px;
+		align-items: center;
+		margin-top: 32px;
+		padding: 24px;
+		background: #fff;
+		border: 1px solid var(--paper-line);
+		border-radius: var(--r);
+		color: inherit;
+		text-decoration: none;
+		box-shadow: 0 18px 44px rgba(31, 45, 61, 0.1);
+		transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+	}
+	.share-feature h3 {
+		font-family: var(--display);
+		font-size: 2rem;
+		font-weight: 500;
+		margin: 0.4em 0 0.3em;
+	}
+	.share-feature p {
+		margin: 0 0 1.4em;
+		line-height: 1.6;
+		max-width: 46ch;
+	}
+	.share-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 24px;
+		margin-top: 24px;
+	}
+	.share-card {
+		display: flex;
+		flex-direction: column;
+		background: #fff;
+		border: 1px solid var(--paper-line);
+		border-radius: var(--r);
+		overflow: hidden;
+		color: inherit;
+		text-decoration: none;
+		transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+	}
+	.share-feature:hover,
+	.share-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 22px 50px rgba(31, 45, 61, 0.16);
+	}
+	.share-card .share-thumb {
+		aspect-ratio: 4 / 3;
+		border-radius: 0;
+	}
+	.share-card .share-body {
+		padding: 18px 20px 22px;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+	}
+	.share-card h3 {
+		font-family: var(--display);
+		font-size: 1.3rem;
+		font-weight: 500;
+		margin: 0.5em 0 0.3em;
+	}
+	.share-card p {
+		margin: 0 0 1em;
+		font-size: 15px;
+		line-height: 1.55;
+		color: var(--on-light-mut);
+	}
+	.share-thumb {
+		position: relative;
+		overflow: hidden;
+		border-radius: 12px;
+		background: var(--ink);
+	}
+	.share-thumb-tall {
+		aspect-ratio: 9 / 16;
+	}
+	.share-thumb img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center top;
+	}
+	.share-play {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 64px;
+		height: 64px;
+		margin: -32px 0 0 -32px;
+		border-radius: 50%;
+		background: rgba(31, 45, 61, 0.78);
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+	}
+	.share-play::after {
+		content: '';
+		position: absolute;
+		left: 26px;
+		top: 20px;
+		border-style: solid;
+		border-width: 12px 0 12px 19px;
+		border-color: transparent transparent transparent var(--gold-bright);
+	}
+	.share-platform {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-family: var(--data);
+		font-size: 12px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--gold-ink);
+	}
+	.share-platform img {
+		object-fit: contain;
+	}
+	.share-cta {
+		margin-top: auto;
+		font-weight: 600;
+	}
+	@media (max-width: 760px) {
+		.share-feature {
+			grid-template-columns: 1fr;
+			gap: 20px;
+			padding: 16px;
+		}
+		.share-feature .share-thumb-tall {
+			max-width: 300px;
+			margin: 0 auto;
+			width: 100%;
+		}
+		.share-feature h3 {
+			font-size: 1.6rem;
+		}
 	}
 	@media (max-width: 900px) {
 		.onip-hero-grid {
