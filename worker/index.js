@@ -4,6 +4,11 @@ import { createMimeMessage } from 'mimetext/browser';
 const JSON_HEADERS = { 'content-type': 'application/json' };
 const FROM_ADDRESS = 'leads@mortgageswithjj.co.nz';
 const NOTIFY_ADDRESS = 'freddieberning1@gmail.com';
+// QR business card shares go to the site-form inbox AND straight to JJ (Freddie, 27 Nov 2026).
+// Every address here must be in wrangler.toml allowed_destination_addresses and be a
+// verified Email Routing destination, or that one send is refused.
+const JJ_ADDRESS = 'jj@mortgagedesign.co.nz';
+const CARD_NOTIFY_ADDRESSES = [NOTIFY_ADDRESS, JJ_ADDRESS];
 
 function isValidEmail(value) {
 	return typeof value === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -14,18 +19,30 @@ function headerSafe(value) {
 	return String(value).replace(/[\r\n]+/g, ' ').trim();
 }
 
-async function sendNotification(env, { subject, lines }) {
-	const msg = createMimeMessage();
-	msg.setSender({ name: 'Mortgages with JJ — Website', addr: FROM_ADDRESS });
-	msg.setRecipient(NOTIFY_ADDRESS);
-	msg.setSubject(headerSafe(subject));
-	msg.addMessage({
-		contentType: 'text/plain',
-		data: lines.join('\n'),
+async function sendNotification(env, { subject, lines, to = [NOTIFY_ADDRESS] }) {
+	// One email per recipient so each stands alone: all are attempted, each failure is
+	// logged, and the caller only sees an error when no copy went out at all.
+	const results = await Promise.allSettled(
+		to.map((addr) => {
+			const msg = createMimeMessage();
+			msg.setSender({ name: 'Mortgages with JJ — Website', addr: FROM_ADDRESS });
+			msg.setRecipient(addr);
+			msg.setSubject(headerSafe(subject));
+			msg.addMessage({
+				contentType: 'text/plain',
+				data: lines.join('\n'),
+			});
+			return env.SEND_EMAIL.send(new EmailMessage(FROM_ADDRESS, addr, msg.asRaw()));
+		})
+	);
+	results.forEach((r, i) => {
+		if (r.status === 'rejected') {
+			console.log(JSON.stringify({ event: 'notify_recipient_failed', to: to[i], error: String(r.reason) }));
+		}
 	});
-
-	const message = new EmailMessage(FROM_ADDRESS, NOTIFY_ADDRESS, msg.asRaw());
-	await env.SEND_EMAIL.send(message);
+	if (!results.some((r) => r.status === 'fulfilled')) {
+		throw results[0].reason;
+	}
 }
 
 /**
@@ -130,6 +147,65 @@ async function handleGuideRequest(request, env) {
 	return Response.json({ ok: true }, { status: 200, headers: JSON_HEADERS });
 }
 
+/**
+ * "Share your details with JJ" on the QR business card (/card/). Same email path as
+ * the contact form; needs a name plus a phone or an email.
+ */
+async function handleCardShare(request, env) {
+	let body;
+	try {
+		body = await request.json();
+	} catch {
+		return Response.json({ ok: false, error: 'Invalid request body.' }, { status: 400, headers: JSON_HEADERS });
+	}
+
+	const { name, phone, email, topic, callMe, consent, src, website } = body ?? {};
+
+	if (website) {
+		return Response.json({ ok: true }, { status: 200, headers: JSON_HEADERS });
+	}
+	const cleanName = typeof name === 'string' ? name.trim().slice(0, 120) : '';
+	const cleanPhone = typeof phone === 'string' ? phone.trim().slice(0, 40) : '';
+	const cleanEmail = typeof email === 'string' ? email.trim().slice(0, 200) : '';
+	if (!cleanName) {
+		return Response.json({ ok: false, error: 'Please add your name.' }, { status: 422, headers: JSON_HEADERS });
+	}
+	if (!cleanPhone && !cleanEmail) {
+		return Response.json({ ok: false, error: 'Please add a mobile number or an email.' }, { status: 422, headers: JSON_HEADERS });
+	}
+	if (cleanEmail && !isValidEmail(cleanEmail)) {
+		return Response.json({ ok: false, error: 'That email does not look right.' }, { status: 422, headers: JSON_HEADERS });
+	}
+	if (!consent) {
+		return Response.json({ ok: false, error: 'Consent is required.' }, { status: 422, headers: JSON_HEADERS });
+	}
+
+	const cleanTopic = typeof topic === 'string' ? topic.slice(0, 80) : '';
+	const cleanSrc = typeof src === 'string' ? src.slice(0, 60) : '';
+	try {
+		await sendNotification(env, {
+			to: CARD_NOTIFY_ADDRESSES,
+			subject: `${callMe ? 'CALL BACK: ' : ''}Business card contact — ${cleanName}`,
+			lines: [
+				"Someone scanned JJ's QR business card and shared their details.",
+				'',
+				`Name: ${cleanName}`,
+				`Mobile: ${cleanPhone || '(not provided)'}`,
+				`Email: ${cleanEmail || '(not provided)'}`,
+				`Help with: ${cleanTopic || '(not chosen)'}`,
+				`Wants a call: ${callMe ? 'YES' : 'no'}`,
+				`Source: ${cleanSrc || 'card'}`,
+				`Submitted: ${new Date().toISOString()}`,
+			],
+		});
+	} catch (err) {
+		console.log(JSON.stringify({ event: 'card_share_send_failed', error: String(err) }));
+		return Response.json({ ok: false, error: 'Could not send right now.' }, { status: 502, headers: JSON_HEADERS });
+	}
+
+	return Response.json({ ok: true }, { status: 200, headers: JSON_HEADERS });
+}
+
 // Keep-latest 301s for the 3 duplicate blog URLs — old→new pairs from
 // MWJ_URL_Migration_Map.md / the live post-sitemap.xml, not guessed.
 const BLOG_REDIRECTS = {
@@ -154,6 +230,9 @@ export default {
 		}
 		if (request.method === 'POST' && url.pathname === '/api/guide-request') {
 			return handleGuideRequest(request, env);
+		}
+		if (request.method === 'POST' && url.pathname === '/api/card-share') {
+			return handleCardShare(request, env);
 		}
 
 		// Serve the built static assets directly. Never re-fetch this Worker's own

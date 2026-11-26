@@ -11,8 +11,9 @@ account_id = "d4c8bcc6bebc81d6e41b0c90ca3af7f6"
 directory = "./dist"
 binding = "ASSETS"
 
-# Cloudflare Email Routing send_email binding — restricted to this one verified
-# destination at the platform level (no third-party email API, no secrets).
+# Cloudflare Email Routing send_email binding — restricted to these verified
+# destinations at the platform level (no third-party email API, no secrets).
+# Keep in step with NOTIFY_ADDRESS / CARD_NOTIFY_ADDRESSES in worker/index.js.
 [[send_email]]
 name = "SEND_EMAIL"
-destination_address = "freddieberning1@gmail.com"
+allowed_destination_addresses = ["freddieberning1@gmail.com", "jj@mortgagedesign.co.nz"]

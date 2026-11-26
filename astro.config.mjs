@@ -22,8 +22,10 @@ export default defineConfig({
 	site: 'https://mortgageswithjj.co.nz',
 	output: 'static',
 	trailingSlash: 'always',
+	// /card/ is the QR business card: noindex, so keep it out of the sitemap too.
 	integrations: [
 		sitemap({
+			filter: (page) => !page.endsWith('/card/'),
 			serialize(item) {
 				const path = new URL(item.url).pathname;
 				return { ...item, lastmod: postDates[path] ?? BUILD_DATE };

@@ -1,0 +1,828 @@
+---
+// JJ's digital business card. Reached from the printed QR code, not from the site's
+// navigation: noindex, left out of the sitemap and llms.txt.
+import { Image, getImage } from 'astro:assets';
+import portrait from '../assets/images/jj-portrait.jpg';
+import monogram from '../assets/images/monogram-gold.png';
+import { ADVISER, BUSINESS, GOOGLE_REVIEWS_URL, LICENSEE, SITE_NAME, SITE_URL, STATS } from '../consts';
+import '../styles/global.css';
+
+const title = `${ADVISER.name} · ${ADVISER.title} · ${SITE_NAME}`;
+const description = `Save ${ADVISER.name}'s contact details, call, email, or share your details back.`;
+// The signature monogram is used as a CSS mask so a moving gold light can run through it.
+const mono = await getImage({ src: monogram, format: 'webp', width: 360 });
+const topics = ['Buying my first home', 'Refinancing or refixing', 'Investment property', 'Building new', 'New to NZ', 'Something else'];
+---
+
+<!doctype html>
+<html lang="en-NZ">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="robots" content="noindex" />
+		<meta name="theme-color" content="#131d29" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="preload" as="image" href={mono.src} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body style={`--mono: url(${mono.src})`}>
+		<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+		<main class="page">
+			<!-- The "physical" card: foil edge, light sweep, tilts with the finger. -->
+			<section class="biz" id="biz" aria-label={`${ADVISER.name}, ${ADVISER.title}`}>
+				<div class="biz-inner">
+					<span class="sheen" aria-hidden="true"></span>
+					<span class="mono-mark" aria-hidden="true"></span>
+					<div class="biz-head">
+						<div class="ring">
+							<Image src={portrait} alt={ADVISER.name} width={176} height={176} class="photo" loading="eager" />
+						</div>
+						<span class="mono-sig" aria-hidden="true"></span>
+					</div>
+					<h1>{ADVISER.name}</h1>
+					<p class="role">{ADVISER.title}</p>
+					<div class="rule" aria-hidden="true"><span></span>◆<span></span></div>
+					<p class="brand">{SITE_NAME}</p>
+					<p class="tag">Orewa · Hibiscus Coast · New Zealand-wide</p>
+				</div>
+			</section>
+
+			<a class="btn gold reveal" style="--d:1" href="/jj.vcf" download="JJ-van-der-Westhuizen.vcf">
+				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-8 2-8 5v1h10.5M18 14v6m-3-3h6"></path></svg>
+				Save contact to phone
+			</a>
+
+			<div class="quick reveal" style="--d:2">
+				<a class="tile" href={`tel:${BUSINESS.phoneE164}`}>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"></path></svg>
+					<span>Call</span>
+				</a>
+				<a class="tile" href={`mailto:${BUSINESS.email}`}>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"></path></svg>
+					<span>Email</span>
+				</a>
+				<a class="tile" href={`${SITE_URL}/`}>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-9 9h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"></path></svg>
+					<span>Website</span>
+				</a>
+			</div>
+
+			<a class="proof reveal" style="--d:3" href={GOOGLE_REVIEWS_URL}>
+				<span class="stars" aria-hidden="true">★★★★★</span>
+				<span><b>{STATS.googleRating.toFixed(1)}</b> from {STATS.googleReviewCount} Google reviews</span>
+				<span aria-hidden="true">·</span>
+				<span>{STATS.lendersCompared}+ lenders</span>
+			</a>
+
+			<dl class="facts reveal" style="--d:4">
+				<div><dt>Mobile</dt><dd><a href={`tel:${BUSINESS.phoneE164}`}>{BUSINESS.phoneDisplay}</a></dd></div>
+				<div><dt>Email</dt><dd><a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a></dd></div>
+				<div><dt>Web</dt><dd><a href={`${SITE_URL}/`}>mortgageswithjj.co.nz</a></dd></div>
+			</dl>
+
+			<section class="share reveal" style="--d:5" aria-labelledby="share-h">
+				<p class="eyebrow">Want JJ to get in touch?</p>
+				<h2 id="share-h">Share your details <em>with JJ</em></h2>
+				<p class="lede">Leave a name and a number or email. It goes straight to JJ.</p>
+				<form id="share-form" novalidate data-phone={BUSINESS.phoneDisplay}>
+					<div class="field"><input id="f-name" name="name" autocomplete="name" placeholder=" " required /><label for="f-name">Your name</label></div>
+					<div class="field">
+						<input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder=" " /><label for="f-phone">Mobile</label>
+					</div>
+					<div class="field">
+						<input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder=" " /><label for="f-email">Email</label>
+					</div>
+					<fieldset class="chips">
+						<legend>I'm interested in <span>(optional)</span></legend>
+						{
+							topics.map((t) => (
+								<label class="chip">
+									<input type="radio" name="topic" value={t} />
+									<span>{t}</span>
+								</label>
+							))
+						}
+					</fieldset>
+					<label class="check"><input type="checkbox" name="callMe" /><span>Please give me a call</span></label>
+					<label class="check"
+						><input type="checkbox" name="consent" required /><span
+							>I'm happy for JJ to contact me. See the <a href="/privacy-policy/">privacy policy</a>.</span
+						></label
+					>
+					<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+					<button class="btn ink" type="submit">Send my details to JJ</button>
+					<p class="status" role="status" aria-live="polite"></p>
+				</form>
+				<div class="done" hidden>
+					<svg class="tick" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"></circle><path d="M15 27l7 7 15-16"></path></svg>
+					<h3>Thanks, JJ has your details.</h3>
+					<p>Save his contact too, so you know it's him when he calls.</p>
+					<a class="btn gold" href="/jj.vcf" download="JJ-van-der-Westhuizen.vcf">Save contact to phone</a>
+				</div>
+			</section>
+
+			<div class="disclosure reveal" style="--d:6">
+				<p>{ADVISER.name} ({ADVISER.fsp}), {ADVISER.title} operating under {LICENSEE.name} ({LICENSEE.fsp}).</p>
+				<p>
+					<a href="/important-information/">Important Information</a><span>·</span><a href="/privacy-policy/">Privacy Policy</a><span>·</span><a
+						href="/complaints/">Complaints</a
+					>
+				</p>
+			</div>
+		</main>
+
+		<script>
+			// Tilt the card toward the finger / pointer. Pure transform, no library.
+			const biz = document.getElementById('biz') as HTMLElement;
+			if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				const tilt = (x: number, y: number) => {
+					const r = biz.getBoundingClientRect();
+					const px = Math.min(Math.max((x - r.left) / r.width, 0), 1);
+					const py = Math.min(Math.max((y - r.top) / r.height, 0), 1);
+					biz.style.setProperty('--rx', `${(0.5 - py) * 12}deg`);
+					biz.style.setProperty('--ry', `${(px - 0.5) * 14}deg`);
+					biz.style.setProperty('--gx', `${px * 100}%`);
+					biz.style.setProperty('--gy', `${py * 100}%`);
+				};
+				const reset = () => {
+					biz.style.setProperty('--rx', '0deg');
+					biz.style.setProperty('--ry', '0deg');
+				};
+				biz.addEventListener('pointermove', (e) => tilt(e.clientX, e.clientY));
+				biz.addEventListener('pointerleave', reset);
+				biz.addEventListener('touchmove', (e) => tilt(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+				biz.addEventListener('touchend', reset);
+			}
+
+			const form = document.getElementById('share-form') as HTMLFormElement;
+			const status = form.querySelector('.status') as HTMLElement;
+			const done = document.querySelector('.share .done') as HTMLElement;
+			const src = new URLSearchParams(location.search).get('src') || '';
+
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				const data = new FormData(form);
+				const name = String(data.get('name') || '').trim();
+				const phone = String(data.get('phone') || '').trim();
+				const email = String(data.get('email') || '').trim();
+				if (!name) return void (status.textContent = 'Please add your name.');
+				if (!phone && !email) return void (status.textContent = 'Please add a mobile number or an email.');
+				if (!data.get('consent')) return void (status.textContent = 'Please tick the box so JJ can contact you.');
+
+				const button = form.querySelector('button') as HTMLButtonElement;
+				button.disabled = true;
+				button.textContent = 'Sending…';
+				status.textContent = '';
+				try {
+					const res = await fetch('/api/card-share', {
+						method: 'POST',
+						headers: { 'content-type': 'application/json' },
+						body: JSON.stringify({
+							name,
+							phone,
+							email,
+							topic: data.get('topic') || '',
+							callMe: Boolean(data.get('callMe')),
+							consent: true,
+							src,
+							website: data.get('website') || '',
+						}),
+					});
+					const out = await res.json().catch(() => ({}));
+					if (!res.ok || !out.ok) throw new Error(out.error || 'Could not send.');
+					form.hidden = true;
+					done.hidden = false;
+				} catch (err) {
+					status.textContent = `${(err as Error).message} You can also call JJ on ${form.dataset.phone}.`;
+					button.disabled = false;
+					button.textContent = 'Send my details to JJ';
+				}
+			});
+		</script>
+
+		<style>
+			:root {
+				--night: #131d29;
+				--foil: linear-gradient(90deg, #a8873f 0%, #c9a35e 18%, #f3dcaa 34%, #c9a35e 50%, #a8873f 66%, #e3c487 83%, #a8873f 100%);
+			}
+			body {
+				background: var(--night);
+				min-height: 100dvh;
+				overflow-x: hidden;
+			}
+
+			/* Slow-drifting gold and navy light behind everything. */
+			.aurora {
+				position: fixed;
+				inset: 0;
+				z-index: 0;
+				overflow: hidden;
+				pointer-events: none;
+			}
+			.aurora i {
+				position: absolute;
+				border-radius: 50%;
+				filter: blur(60px);
+				opacity: 0.55;
+				animation: drift 18s ease-in-out infinite alternate;
+			}
+			.aurora i:nth-child(1) {
+				width: 70vmax;
+				height: 70vmax;
+				left: -25vmax;
+				top: -30vmax;
+				background: radial-gradient(circle, #33475d, transparent 65%);
+			}
+			.aurora i:nth-child(2) {
+				width: 50vmax;
+				height: 50vmax;
+				right: -20vmax;
+				top: 10vmax;
+				background: radial-gradient(circle, rgba(201, 163, 94, 0.38), transparent 65%);
+				animation-duration: 22s;
+			}
+			.aurora i:nth-child(3) {
+				width: 60vmax;
+				height: 60vmax;
+				left: -10vmax;
+				bottom: -35vmax;
+				background: radial-gradient(circle, rgba(201, 163, 94, 0.22), transparent 65%);
+				animation-duration: 26s;
+			}
+			@keyframes drift {
+				to {
+					transform: translate3d(6vmax, 5vmax, 0) scale(1.12);
+				}
+			}
+
+			.page {
+				position: relative;
+				z-index: 1;
+				max-width: 440px;
+				margin: 0 auto;
+				padding: max(26px, env(safe-area-inset-top)) 18px max(30px, env(safe-area-inset-bottom));
+				display: flex;
+				flex-direction: column;
+				gap: 14px;
+			}
+
+			/* ---------- The card ---------- */
+			.biz {
+				--rx: 0deg;
+				--ry: 0deg;
+				--gx: 30%;
+				--gy: 20%;
+				perspective: 900px;
+				margin: 0 0 8px;
+				padding: 0;
+				animation: rise 0.9s var(--ease) both;
+			}
+			.biz-inner {
+				position: relative;
+				overflow: hidden;
+				border-radius: 22px;
+				padding: 30px 22px 24px;
+				text-align: center;
+				background:
+					radial-gradient(120% 80% at var(--gx) var(--gy), rgba(243, 220, 170, 0.14), transparent 55%),
+					linear-gradient(160deg, #26384b 0%, #1a2734 55%, #141f2b 100%);
+				box-shadow:
+					0 30px 60px -20px rgba(0, 0, 0, 0.65),
+					0 1px 0 rgba(255, 255, 255, 0.08) inset;
+				transform: rotateX(var(--rx)) rotateY(var(--ry));
+				transition: transform 0.35s var(--ease);
+			}
+			/* Foil edge */
+			.biz-inner::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				border-radius: inherit;
+				padding: 1.5px;
+				background: var(--foil);
+				background-size: 200% 100%;
+				-webkit-mask:
+					linear-gradient(#000 0 0) content-box,
+					linear-gradient(#000 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				animation: foil 6s linear infinite;
+				pointer-events: none;
+			}
+			/* Light sweeping across the card every few seconds */
+			.sheen {
+				position: absolute;
+				inset: -40% -60%;
+				background: linear-gradient(105deg, transparent 42%, rgba(255, 240, 205, 0.16) 50%, transparent 58%);
+				animation: sweep 5.5s ease-in-out 1.2s infinite;
+				pointer-events: none;
+			}
+			/* Big faint signature watermark */
+			.mono-mark {
+				position: absolute;
+				width: 300px;
+				height: 254px;
+				right: -70px;
+				bottom: -60px;
+				background: var(--gold);
+				opacity: 0.07;
+				-webkit-mask: var(--mono) center / contain no-repeat;
+				mask: var(--mono) center / contain no-repeat;
+				transform: rotate(-8deg);
+				pointer-events: none;
+			}
+			.biz-head {
+				position: relative;
+				width: 132px;
+				margin: 0 auto 16px;
+			}
+			.ring {
+				position: relative;
+				width: 132px;
+				height: 132px;
+				border-radius: 50%;
+				padding: 3px;
+				background: conic-gradient(from var(--a, 0deg), #8a6e2e, #f3dcaa, #c9a35e, #8a6e2e, #e3c487, #8a6e2e);
+				animation: spin 8s linear infinite;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+			}
+			@property --a {
+				syntax: '<angle>';
+				inherits: false;
+				initial-value: 0deg;
+			}
+			.photo {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 3px solid #1a2734;
+			}
+			/* Gold signature beside the photo, with light running through it */
+			.mono-sig {
+				position: absolute;
+				width: 64px;
+				height: 54px;
+				right: -40px;
+				bottom: -6px;
+				background: var(--foil);
+				background-size: 200% 100%;
+				-webkit-mask: var(--mono) center / contain no-repeat;
+				mask: var(--mono) center / contain no-repeat;
+				animation: foil 4s linear infinite;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+			}
+			h1 {
+				font-size: clamp(28px, 8vw, 34px);
+				color: #fbf7ef;
+			}
+			.role {
+				margin-top: 8px;
+				font: 500 12px var(--data);
+				letter-spacing: 0.28em;
+				text-transform: uppercase;
+				background: var(--foil);
+				background-size: 200% 100%;
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+				animation: foil 6s linear infinite;
+			}
+			.rule {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+				margin: 14px auto 10px;
+				color: var(--gold);
+				font-size: 9px;
+			}
+			.rule span {
+				width: 54px;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, var(--gold));
+			}
+			.rule span:last-child {
+				transform: scaleX(-1);
+			}
+			.brand {
+				font: italic 400 21px var(--display);
+				color: var(--on-dark);
+			}
+			.tag {
+				margin-top: 4px;
+				font-size: 12.5px;
+				color: var(--on-dark-mut);
+			}
+
+			/* ---------- Actions ---------- */
+			.btn {
+				position: relative;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+				width: 100%;
+				min-height: 58px;
+				border-radius: 14px;
+				border: 0;
+				font: 600 17px var(--body);
+				cursor: pointer;
+				-webkit-tap-highlight-color: transparent;
+				transition: transform 0.15s var(--ease);
+			}
+			.btn:active,
+			.tile:active {
+				transform: scale(0.97);
+			}
+			.btn svg,
+			.tile svg {
+				width: 21px;
+				height: 21px;
+				fill: none;
+				stroke: currentColor;
+				stroke-width: 1.8;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+			.btn.gold {
+				color: #1a2532;
+				background: var(--foil);
+				background-size: 200% 100%;
+				animation: foil 7s linear infinite;
+				box-shadow:
+					0 12px 30px -10px rgba(201, 163, 94, 0.6),
+					0 1px 0 rgba(255, 255, 255, 0.5) inset;
+			}
+			.btn.gold.reveal {
+				animation:
+					rise 0.8s var(--ease) both calc(0.12s * var(--d) + 0.25s),
+					foil 7s linear infinite;
+			}
+			.btn.gold::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+				transform: translateX(-120%);
+				animation: glint 3.8s ease-in-out 1.6s infinite;
+			}
+			.btn.ink {
+				background: var(--ink);
+				color: #fbf7ef;
+				box-shadow: 0 10px 24px -12px rgba(31, 45, 61, 0.8);
+			}
+			.btn:disabled {
+				opacity: 0.7;
+			}
+			.quick {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 10px;
+			}
+			.tile {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 6px;
+				min-height: 78px;
+				border-radius: 14px;
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(201, 163, 94, 0.22);
+				backdrop-filter: blur(8px);
+				-webkit-backdrop-filter: blur(8px);
+				color: var(--gold-bright);
+				font-size: 13.5px;
+				font-weight: 500;
+				transition: transform 0.15s var(--ease);
+			}
+			.tile span {
+				color: var(--on-dark);
+			}
+			.proof {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				gap: 6px 8px;
+				font-size: 13.5px;
+				color: var(--on-dark-mut);
+				padding: 4px 0;
+			}
+			.proof b {
+				color: var(--on-dark);
+			}
+			.stars {
+				color: var(--gold);
+				letter-spacing: 2px;
+			}
+			.facts {
+				margin: 0;
+				padding: 2px 16px;
+				border-radius: 14px;
+				background: rgba(255, 255, 255, 0.035);
+				border: 1px solid rgba(255, 255, 255, 0.06);
+			}
+			.facts div {
+				display: flex;
+				justify-content: space-between;
+				gap: 12px;
+				padding: 12px 0;
+				font-size: 15px;
+			}
+			.facts div + div {
+				border-top: 1px solid rgba(255, 255, 255, 0.07);
+			}
+			.facts dt {
+				font: 500 11px var(--data);
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: var(--on-dark-mut);
+				align-self: center;
+			}
+			.facts dd {
+				margin: 0;
+				text-align: right;
+				overflow-wrap: anywhere;
+			}
+
+			/* ---------- Share back ---------- */
+			.share {
+				position: relative;
+				margin-top: 12px;
+				border-radius: 22px;
+				padding: 26px 20px 22px;
+				background: linear-gradient(180deg, #fbf8f2, var(--paper));
+				color: var(--on-light);
+				box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
+			}
+			.share::before {
+				content: '';
+				position: absolute;
+				left: 20px;
+				right: 20px;
+				top: 0;
+				height: 3px;
+				border-radius: 0 0 3px 3px;
+				background: var(--foil);
+			}
+			.eyebrow {
+				font: 500 11px var(--data);
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				color: var(--gold-ink);
+			}
+			.share h2 {
+				margin-top: 8px;
+				font-size: 28px;
+				color: var(--ink);
+			}
+			.share h2 em {
+				color: var(--gold-ink);
+			}
+			.lede {
+				color: var(--on-light-mut);
+				font-size: 15px;
+				margin: 8px 0 18px;
+			}
+			form {
+				display: flex;
+				flex-direction: column;
+				gap: 12px;
+			}
+			.field {
+				position: relative;
+			}
+			.field input {
+				width: 100%;
+				font: 16px var(--body);
+				padding: 22px 14px 8px;
+				border-radius: 12px;
+				border: 1px solid var(--paper-line);
+				background: #fff;
+				color: var(--on-light);
+				outline: none;
+				transition:
+					border-color 0.2s,
+					box-shadow 0.2s;
+			}
+			.field input:focus {
+				border-color: var(--gold);
+				box-shadow: 0 0 0 4px rgba(201, 163, 94, 0.18);
+			}
+			.field label {
+				position: absolute;
+				left: 15px;
+				top: 16px;
+				font-size: 16px;
+				color: var(--on-light-mut);
+				pointer-events: none;
+				transition: all 0.18s var(--ease);
+			}
+			.field input:focus + label,
+			.field input:not(:placeholder-shown) + label {
+				top: 7px;
+				font-size: 11.5px;
+				font-weight: 600;
+				letter-spacing: 0.04em;
+				color: var(--gold-ink);
+			}
+			.chips {
+				border: 0;
+				padding: 0;
+				margin: 4px 0 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+			.chips legend {
+				font-size: 14px;
+				font-weight: 500;
+				color: var(--ink);
+				margin-bottom: 8px;
+				padding: 0;
+			}
+			.chips legend span {
+				color: var(--on-light-mut);
+				font-weight: 400;
+			}
+			.chip {
+				position: relative;
+			}
+			.chip input {
+				position: absolute;
+				opacity: 0;
+			}
+			.chip span {
+				display: inline-block;
+				padding: 9px 13px;
+				border-radius: 999px;
+				border: 1px solid var(--paper-line);
+				background: #fff;
+				font-size: 14px;
+				color: var(--ink);
+				cursor: pointer;
+				transition: all 0.18s var(--ease);
+			}
+			.chip input:checked + span {
+				background: var(--ink);
+				border-color: var(--ink);
+				color: #fbf7ef;
+			}
+			.chip input:focus-visible + span {
+				box-shadow: 0 0 0 3px rgba(201, 163, 94, 0.4);
+			}
+			.check {
+				display: flex;
+				align-items: flex-start;
+				gap: 11px;
+				font-size: 14.5px;
+				color: var(--on-light);
+				line-height: 1.45;
+			}
+			.check input {
+				width: 21px;
+				height: 21px;
+				margin: 0;
+				flex: none;
+				accent-color: var(--ink);
+			}
+			.check a,
+			.disclosure a {
+				text-decoration: underline;
+				text-underline-offset: 2px;
+			}
+			.hp {
+				position: absolute;
+				left: -9999px;
+			}
+			.status {
+				font-size: 14px;
+				color: #8a2b2b;
+				min-height: 1em;
+			}
+			form[hidden],
+			.done[hidden] {
+				display: none;
+			}
+			.done {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				gap: 12px;
+				animation: rise 0.6s var(--ease) both;
+			}
+			.done h3 {
+				font-size: 24px;
+				color: var(--ink);
+			}
+			.done p {
+				color: var(--on-light-mut);
+				margin-bottom: 4px;
+			}
+			.tick {
+				width: 64px;
+				height: 64px;
+				fill: none;
+				stroke: var(--gold);
+				stroke-width: 2.5;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+			.tick circle {
+				stroke-dasharray: 152;
+				stroke-dashoffset: 152;
+				animation: draw 0.7s var(--ease) forwards;
+			}
+			.tick path {
+				stroke-dasharray: 40;
+				stroke-dashoffset: 40;
+				animation: draw 0.4s var(--ease) 0.55s forwards;
+			}
+
+			.disclosure {
+				margin-top: 8px;
+				font-size: 12px;
+				color: var(--on-dark-mut);
+				text-align: center;
+				line-height: 1.55;
+				display: flex;
+				flex-direction: column;
+				gap: 6px;
+			}
+			.disclosure span {
+				margin: 0 6px;
+			}
+
+			/* ---------- Motion ---------- */
+			.reveal {
+				animation: rise 0.8s var(--ease) both;
+				animation-delay: calc(0.12s * var(--d) + 0.25s);
+			}
+			@keyframes rise {
+				from {
+					opacity: 0;
+					transform: translateY(18px);
+				}
+			}
+			@keyframes foil {
+				to {
+					background-position: -200% 0;
+				}
+			}
+			@keyframes sweep {
+				0%,
+				15% {
+					transform: translateX(-60%);
+				}
+				55%,
+				100% {
+					transform: translateX(60%);
+				}
+			}
+			@keyframes glint {
+				0%,
+				20% {
+					transform: translateX(-120%);
+				}
+				60%,
+				100% {
+					transform: translateX(120%);
+				}
+			}
+			@keyframes spin {
+				to {
+					--a: 360deg;
+				}
+			}
+			@keyframes draw {
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation: none !important;
+					transition: none !important;
+				}
+				.tick circle,
+				.tick path {
+					stroke-dashoffset: 0;
+				}
+			}
+		</style>
+	</body>
+</html>
