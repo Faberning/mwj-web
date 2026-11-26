@@ -4,6 +4,7 @@
 import { Image, getImage } from 'astro:assets';
 import portrait from '../assets/images/jj-portrait.jpg';
 import monogram from '../assets/images/monogram-gold.png';
+import shareImageSrc from '../assets/images/card-share.jpg';
 import { ADVISER, BUSINESS, GOOGLE_REVIEWS_URL, LICENSEE, SITE_NAME, SITE_URL, STATS } from '../consts';
 import '../styles/global.css';
 
@@ -11,6 +12,12 @@ const title = `${ADVISER.name} · ${ADVISER.title} · ${SITE_NAME}`;
 const description = `Save ${ADVISER.name}'s contact details, call, email, or share your details back.`;
 // The signature monogram is used as a CSS mask so a moving gold light can run through it.
 const mono = await getImage({ src: monogram, format: 'webp', width: 360 });
+// Link preview for WhatsApp / iMessage / Messenger when the card link is sent as a message.
+const shareImage = await getImage({ src: shareImageSrc, format: 'jpg', width: 1200 });
+const shareImageUrl = new URL(shareImage.src, SITE_URL).href;
+const cardUrl = `${SITE_URL}/card/`;
+const shareTitle = `${ADVISER.name} · ${ADVISER.title}`;
+const shareDescription = `Tap to save my contact details, call or email me, or share yours. ${SITE_NAME}.`;
 const topics = ['Buying my first home', 'Refinancing or refixing', 'Investment property', 'Building new', 'New to NZ', 'Something else'];
 ---
 
@@ -24,6 +31,17 @@ const topics = ['Buying my first home', 'Refinancing or refixing', 'Investment p
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta property="og:type" content="profile" />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:locale" content="en_NZ" />
+		<meta property="og:title" content={shareTitle} />
+		<meta property="og:description" content={shareDescription} />
+		<meta property="og:url" content={cardUrl} />
+		<meta property="og:image" content={shareImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={`${ADVISER.name}, ${ADVISER.title}, ${SITE_NAME}`} />
+		<meta name="twitter:card" content="summary_large_image" />
 		<link rel="preload" as="image" href={mono.src} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
